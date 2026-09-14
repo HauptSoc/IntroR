@@ -52,20 +52,18 @@ website:
 
   page-footer:
     left: "© 2026 Andreas Haupt"
-    right:
-      - icon: envelope
-        href: mailto:andreas@andreas-haupt.com
 
 format:
   html:
     theme:
-      light: cosmo
-      dark: darkly
-    css: styles.css
+      light: [cosmo, style/stat331.scss]
+      dark: [cosmo, style/stat331.scss, style/dark.scss]
+    mainfont: "Atkinson Hyperlegible"
     toc: true
     number-sections: false
     code-fold: false
     code-tools: true
+    code-copy: true
     smooth-scroll: true
 
 execute:

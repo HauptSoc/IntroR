@@ -1,5 +1,5 @@
 ---
-title: "Einführung in R und Quarto"
+title: "Verstehen, was passiert. Mit R."
 subtitle: "Seminar-Website"
 ---
 
@@ -11,8 +11,4 @@ Hier findest du:
 - ergänzende [Materialien](materialien.qmd)
 - allgemeine Informationen [über das Seminar](ueber.qmd)
 
-## Nächste Schritte
 
-Dieses Grundgerüst wird im Laufe des Semesters mit Inhalten befüllt. Passe Titel,
-Sitzungsanzahl und Inhalte in `_quarto.yml` und den Dateien im Ordner `sitzungen/`
-nach Bedarf an.
