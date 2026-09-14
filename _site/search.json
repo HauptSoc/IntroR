@@ -202,16 +202,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Einführung in R und Quarto",
+    "title": "Verstehen, was passiert. Mit R.",
     "section": "",
-    "text": "Willkommen zur Seminar-Website Einführung in R und Quarto.\nHier findest du:"
-  },
-  {
-    "objectID": "index.html#nächste-schritte",
-    "href": "index.html#nächste-schritte",
-    "title": "Einführung in R und Quarto",
-    "section": "Nächste Schritte",
-    "text": "Nächste Schritte\nDieses Grundgerüst wird im Laufe des Semesters mit Inhalten befüllt. Passe Titel, Sitzungsanzahl und Inhalte in _quarto.yml und den Dateien im Ordner sitzungen/ nach Bedarf an."
+    "text": "Willkommen zur Seminar-Website Einführung in R und Quarto.\nHier findest du:\n\nden Ablaufplan und die Inhalte der einzelnen Sitzungen\nergänzende Materialien\nallgemeine Informationen über das Seminar"
   },
   {
     "objectID": "sitzungen/01-einfuehrung-r.html",
