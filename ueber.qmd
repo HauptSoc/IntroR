@@ -1,0 +1,22 @@
+---
+title: "Über das Seminar"
+---
+
+## Kurzbeschreibung
+
+*(Platzhalter — Beschreibung des Seminars, Zielgruppe, Voraussetzungen.)*
+
+## Lernziele
+
+- Grundlagen der Programmiersprache R
+- Datenimport, -aufbereitung und -visualisierung
+- Reproduzierbare Dokumente mit Quarto
+
+## Organisatorisches
+
+| | |
+|---|---|
+| **Termin** | *(Platzhalter)* |
+| **Ort** | *(Platzhalter)* |
+| **Voraussetzungen** | *(Platzhalter)* |
+| **Kontakt** | [andreas@andreas-haupt.com](mailto:andreas@andreas-haupt.com) |

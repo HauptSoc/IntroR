@@ -1,0 +1,18 @@
+---
+title: "01 – Einführung in R"
+---
+
+## Lernziele
+
+*(Platzhalter)*
+
+## Inhalte
+
+*(Platzhalter)*
+
+## Übung
+
+```{r}
+#| eval: false
+# Platzhalter für Code-Beispiele
+```

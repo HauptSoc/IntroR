@@ -1,0 +1,12 @@
+---
+title: "Sitzungen: Übersicht"
+---
+
+| Sitzung | Thema | Termin |
+|---|---|---|
+| [01](01-einfuehrung-r.qmd) | Einführung in R | *(Platzhalter)* |
+| [02](02-datenstrukturen.qmd) | Datenstrukturen | *(Platzhalter)* |
+| [03](03-datenimport-tidyverse.qmd) | Datenimport & tidyverse | *(Platzhalter)* |
+| [04](04-visualisierung.qmd) | Visualisierung | *(Platzhalter)* |
+| [05](05-quarto-berichte.qmd) | Quarto & Berichte | *(Platzhalter)* |
+| [06](06-abschlussprojekt.qmd) | Abschlussprojekt | *(Platzhalter)* |

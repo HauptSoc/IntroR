@@ -1,0 +1,15 @@
+---
+title: "06 – Abschlussprojekt"
+---
+
+## Ziel
+
+*(Platzhalter — Beschreibung des Abschlussprojekts.)*
+
+## Anforderungen
+
+*(Platzhalter)*
+
+## Abgabe
+
+*(Platzhalter)*

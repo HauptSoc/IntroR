@@ -1,0 +1,72 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Einführung in R und Quarto"
+  description: "Seminar-Website: Grundlagen von R und Quarto"
+  site-url: https://introR.andreas-haupt.com
+  favicon: favicon.ico
+  navbar:
+    background: primary
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Sitzungen
+        menu:
+          - href: sitzungen/index.qmd
+            text: Übersicht
+          - href: sitzungen/01-einfuehrung-r.qmd
+            text: "01 – Einführung in R"
+          - href: sitzungen/02-datenstrukturen.qmd
+            text: "02 – Datenstrukturen"
+          - href: sitzungen/03-datenimport-tidyverse.qmd
+            text: "03 – Datenimport & tidyverse"
+          - href: sitzungen/04-visualisierung.qmd
+            text: "04 – Visualisierung"
+          - href: sitzungen/05-quarto-berichte.qmd
+            text: "05 – Quarto & Berichte"
+          - href: sitzungen/06-abschlussprojekt.qmd
+            text: "06 – Abschlussprojekt"
+      - href: materialien.qmd
+        text: Materialien
+      - href: ueber.qmd
+        text: Über das Seminar
+    right:
+      - icon: github
+        href: https://github.com/
+        aria-label: GitHub
+
+  sidebar:
+    style: docked
+    contents:
+      - section: "Sitzungen"
+        contents:
+          - sitzungen/index.qmd
+          - sitzungen/01-einfuehrung-r.qmd
+          - sitzungen/02-datenstrukturen.qmd
+          - sitzungen/03-datenimport-tidyverse.qmd
+          - sitzungen/04-visualisierung.qmd
+          - sitzungen/05-quarto-berichte.qmd
+          - sitzungen/06-abschlussprojekt.qmd
+
+  page-footer:
+    left: "© 2026 Andreas Haupt"
+    right:
+      - icon: envelope
+        href: mailto:andreas@andreas-haupt.com
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css: styles.css
+    toc: true
+    number-sections: false
+    code-fold: false
+    code-tools: true
+    smooth-scroll: true
+
+execute:
+  freeze: auto

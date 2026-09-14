@@ -1,0 +1,15 @@
+{
+  "hash": "2eea0d1e29fb684a137b2e69e701ebe4",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"03 – Datenimport & tidyverse\"\n---\n\n## Lernziele\n\n*(Platzhalter)*\n\n## Inhalte\n\n*(Platzhalter)*\n\n## Übung\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Platzhalter für Code-Beispiele\n```\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

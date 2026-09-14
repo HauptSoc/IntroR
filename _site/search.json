@@ -1,0 +1,372 @@
+[
+  {
+    "objectID": "ueber.html",
+    "href": "ueber.html",
+    "title": "Über das Seminar",
+    "section": "",
+    "text": "(Platzhalter — Beschreibung des Seminars, Zielgruppe, Voraussetzungen.)"
+  },
+  {
+    "objectID": "ueber.html#kurzbeschreibung",
+    "href": "ueber.html#kurzbeschreibung",
+    "title": "Über das Seminar",
+    "section": "",
+    "text": "(Platzhalter — Beschreibung des Seminars, Zielgruppe, Voraussetzungen.)"
+  },
+  {
+    "objectID": "ueber.html#lernziele",
+    "href": "ueber.html#lernziele",
+    "title": "Über das Seminar",
+    "section": "Lernziele",
+    "text": "Lernziele\n\nGrundlagen der Programmiersprache R\nDatenimport, -aufbereitung und -visualisierung\nReproduzierbare Dokumente mit Quarto"
+  },
+  {
+    "objectID": "ueber.html#organisatorisches",
+    "href": "ueber.html#organisatorisches",
+    "title": "Über das Seminar",
+    "section": "Organisatorisches",
+    "text": "Organisatorisches\n\n\n\nTermin\n(Platzhalter)\n\n\nOrt\n(Platzhalter)\n\n\nVoraussetzungen\n(Platzhalter)\n\n\nKontakt\nandreas@andreas-haupt.com"
+  },
+  {
+    "objectID": "sitzungen/06-abschlussprojekt.html",
+    "href": "sitzungen/06-abschlussprojekt.html",
+    "title": "06 – Abschlussprojekt",
+    "section": "",
+    "text": "(Platzhalter — Beschreibung des Abschlussprojekts.)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "06 – Abschlussprojekt"
+    ]
+  },
+  {
+    "objectID": "sitzungen/06-abschlussprojekt.html#ziel",
+    "href": "sitzungen/06-abschlussprojekt.html#ziel",
+    "title": "06 – Abschlussprojekt",
+    "section": "",
+    "text": "(Platzhalter — Beschreibung des Abschlussprojekts.)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "06 – Abschlussprojekt"
+    ]
+  },
+  {
+    "objectID": "sitzungen/06-abschlussprojekt.html#anforderungen",
+    "href": "sitzungen/06-abschlussprojekt.html#anforderungen",
+    "title": "06 – Abschlussprojekt",
+    "section": "Anforderungen",
+    "text": "Anforderungen\n(Platzhalter)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "06 – Abschlussprojekt"
+    ]
+  },
+  {
+    "objectID": "sitzungen/06-abschlussprojekt.html#abgabe",
+    "href": "sitzungen/06-abschlussprojekt.html#abgabe",
+    "title": "06 – Abschlussprojekt",
+    "section": "Abgabe",
+    "text": "Abgabe\n(Platzhalter)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "06 – Abschlussprojekt"
+    ]
+  },
+  {
+    "objectID": "sitzungen/04-visualisierung.html",
+    "href": "sitzungen/04-visualisierung.html",
+    "title": "04 – Visualisierung",
+    "section": "",
+    "text": "(Platzhalter)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "04 – Visualisierung"
+    ]
+  },
+  {
+    "objectID": "sitzungen/04-visualisierung.html#lernziele",
+    "href": "sitzungen/04-visualisierung.html#lernziele",
+    "title": "04 – Visualisierung",
+    "section": "",
+    "text": "(Platzhalter)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "04 – Visualisierung"
+    ]
+  },
+  {
+    "objectID": "sitzungen/04-visualisierung.html#inhalte",
+    "href": "sitzungen/04-visualisierung.html#inhalte",
+    "title": "04 – Visualisierung",
+    "section": "Inhalte",
+    "text": "Inhalte\n(Platzhalter)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "04 – Visualisierung"
+    ]
+  },
+  {
+    "objectID": "sitzungen/04-visualisierung.html#übung",
+    "href": "sitzungen/04-visualisierung.html#übung",
+    "title": "04 – Visualisierung",
+    "section": "Übung",
+    "text": "Übung\n\n# Platzhalter für Code-Beispiele",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "04 – Visualisierung"
+    ]
+  },
+  {
+    "objectID": "sitzungen/02-datenstrukturen.html",
+    "href": "sitzungen/02-datenstrukturen.html",
+    "title": "02 – Datenstrukturen",
+    "section": "",
+    "text": "(Platzhalter)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "02 – Datenstrukturen"
+    ]
+  },
+  {
+    "objectID": "sitzungen/02-datenstrukturen.html#lernziele",
+    "href": "sitzungen/02-datenstrukturen.html#lernziele",
+    "title": "02 – Datenstrukturen",
+    "section": "",
+    "text": "(Platzhalter)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "02 – Datenstrukturen"
+    ]
+  },
+  {
+    "objectID": "sitzungen/02-datenstrukturen.html#inhalte",
+    "href": "sitzungen/02-datenstrukturen.html#inhalte",
+    "title": "02 – Datenstrukturen",
+    "section": "Inhalte",
+    "text": "Inhalte\n(Platzhalter)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "02 – Datenstrukturen"
+    ]
+  },
+  {
+    "objectID": "sitzungen/02-datenstrukturen.html#übung",
+    "href": "sitzungen/02-datenstrukturen.html#übung",
+    "title": "02 – Datenstrukturen",
+    "section": "Übung",
+    "text": "Übung\n\n# Platzhalter für Code-Beispiele",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "02 – Datenstrukturen"
+    ]
+  },
+  {
+    "objectID": "materialien.html",
+    "href": "materialien.html",
+    "title": "Materialien",
+    "section": "",
+    "text": "(Platzhalter — Links zu R, RStudio/Positron, Quarto-Installationsanleitungen.)"
+  },
+  {
+    "objectID": "materialien.html#installation",
+    "href": "materialien.html#installation",
+    "title": "Materialien",
+    "section": "",
+    "text": "(Platzhalter — Links zu R, RStudio/Positron, Quarto-Installationsanleitungen.)"
+  },
+  {
+    "objectID": "materialien.html#cheatsheets",
+    "href": "materialien.html#cheatsheets",
+    "title": "Materialien",
+    "section": "Cheatsheets",
+    "text": "Cheatsheets\n(Platzhalter — Links zu R- und Quarto-Cheatsheets.)"
+  },
+  {
+    "objectID": "materialien.html#datensätze",
+    "href": "materialien.html#datensätze",
+    "title": "Materialien",
+    "section": "Datensätze",
+    "text": "Datensätze\n(Platzhalter — Links/Downloads zu Übungsdatensätzen.)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Einführung in R und Quarto",
+    "section": "",
+    "text": "Willkommen zur Seminar-Website Einführung in R und Quarto.\nHier findest du:"
+  },
+  {
+    "objectID": "index.html#nächste-schritte",
+    "href": "index.html#nächste-schritte",
+    "title": "Einführung in R und Quarto",
+    "section": "Nächste Schritte",
+    "text": "Nächste Schritte\nDieses Grundgerüst wird im Laufe des Semesters mit Inhalten befüllt. Passe Titel, Sitzungsanzahl und Inhalte in _quarto.yml und den Dateien im Ordner sitzungen/ nach Bedarf an."
+  },
+  {
+    "objectID": "sitzungen/01-einfuehrung-r.html",
+    "href": "sitzungen/01-einfuehrung-r.html",
+    "title": "01 – Einführung in R",
+    "section": "",
+    "text": "(Platzhalter)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "01 – Einführung in R"
+    ]
+  },
+  {
+    "objectID": "sitzungen/01-einfuehrung-r.html#lernziele",
+    "href": "sitzungen/01-einfuehrung-r.html#lernziele",
+    "title": "01 – Einführung in R",
+    "section": "",
+    "text": "(Platzhalter)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "01 – Einführung in R"
+    ]
+  },
+  {
+    "objectID": "sitzungen/01-einfuehrung-r.html#inhalte",
+    "href": "sitzungen/01-einfuehrung-r.html#inhalte",
+    "title": "01 – Einführung in R",
+    "section": "Inhalte",
+    "text": "Inhalte\n(Platzhalter)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "01 – Einführung in R"
+    ]
+  },
+  {
+    "objectID": "sitzungen/01-einfuehrung-r.html#übung",
+    "href": "sitzungen/01-einfuehrung-r.html#übung",
+    "title": "01 – Einführung in R",
+    "section": "Übung",
+    "text": "Übung\n\n# Platzhalter für Code-Beispiele",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "01 – Einführung in R"
+    ]
+  },
+  {
+    "objectID": "sitzungen/03-datenimport-tidyverse.html",
+    "href": "sitzungen/03-datenimport-tidyverse.html",
+    "title": "03 – Datenimport & tidyverse",
+    "section": "",
+    "text": "(Platzhalter)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "03 – Datenimport & tidyverse"
+    ]
+  },
+  {
+    "objectID": "sitzungen/03-datenimport-tidyverse.html#lernziele",
+    "href": "sitzungen/03-datenimport-tidyverse.html#lernziele",
+    "title": "03 – Datenimport & tidyverse",
+    "section": "",
+    "text": "(Platzhalter)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "03 – Datenimport & tidyverse"
+    ]
+  },
+  {
+    "objectID": "sitzungen/03-datenimport-tidyverse.html#inhalte",
+    "href": "sitzungen/03-datenimport-tidyverse.html#inhalte",
+    "title": "03 – Datenimport & tidyverse",
+    "section": "Inhalte",
+    "text": "Inhalte\n(Platzhalter)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "03 – Datenimport & tidyverse"
+    ]
+  },
+  {
+    "objectID": "sitzungen/03-datenimport-tidyverse.html#übung",
+    "href": "sitzungen/03-datenimport-tidyverse.html#übung",
+    "title": "03 – Datenimport & tidyverse",
+    "section": "Übung",
+    "text": "Übung\n\n# Platzhalter für Code-Beispiele",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "03 – Datenimport & tidyverse"
+    ]
+  },
+  {
+    "objectID": "sitzungen/05-quarto-berichte.html",
+    "href": "sitzungen/05-quarto-berichte.html",
+    "title": "05 – Quarto & Berichte",
+    "section": "",
+    "text": "(Platzhalter)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "05 – Quarto & Berichte"
+    ]
+  },
+  {
+    "objectID": "sitzungen/05-quarto-berichte.html#lernziele",
+    "href": "sitzungen/05-quarto-berichte.html#lernziele",
+    "title": "05 – Quarto & Berichte",
+    "section": "",
+    "text": "(Platzhalter)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "05 – Quarto & Berichte"
+    ]
+  },
+  {
+    "objectID": "sitzungen/05-quarto-berichte.html#inhalte",
+    "href": "sitzungen/05-quarto-berichte.html#inhalte",
+    "title": "05 – Quarto & Berichte",
+    "section": "Inhalte",
+    "text": "Inhalte\n(Platzhalter)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "05 – Quarto & Berichte"
+    ]
+  },
+  {
+    "objectID": "sitzungen/05-quarto-berichte.html#übung",
+    "href": "sitzungen/05-quarto-berichte.html#übung",
+    "title": "05 – Quarto & Berichte",
+    "section": "Übung",
+    "text": "Übung\n(Platzhalter)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "05 – Quarto & Berichte"
+    ]
+  },
+  {
+    "objectID": "sitzungen/index.html",
+    "href": "sitzungen/index.html",
+    "title": "Sitzungen: Übersicht",
+    "section": "",
+    "text": "Sitzung\nThema\nTermin\n\n\n\n\n01\nEinführung in R\n(Platzhalter)\n\n\n02\nDatenstrukturen\n(Platzhalter)\n\n\n03\nDatenimport & tidyverse\n(Platzhalter)\n\n\n04\nVisualisierung\n(Platzhalter)\n\n\n05\nQuarto & Berichte\n(Platzhalter)\n\n\n06\nAbschlussprojekt\n(Platzhalter)",
+    "crumbs": [
+      "Home",
+      "Sitzungen",
+      "Sitzungen: Übersicht"
+    ]
+  }
+]

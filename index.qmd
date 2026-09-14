@@ -1,0 +1,18 @@
+---
+title: "Einführung in R und Quarto"
+subtitle: "Seminar-Website"
+---
+
+Willkommen zur Seminar-Website **Einführung in R und Quarto**.
+
+Hier findest du:
+
+- den Ablaufplan und die Inhalte der einzelnen [Sitzungen](sitzungen/index.qmd)
+- ergänzende [Materialien](materialien.qmd)
+- allgemeine Informationen [über das Seminar](ueber.qmd)
+
+## Nächste Schritte
+
+Dieses Grundgerüst wird im Laufe des Semesters mit Inhalten befüllt. Passe Titel,
+Sitzungsanzahl und Inhalte in `_quarto.yml` und den Dateien im Ordner `sitzungen/`
+nach Bedarf an.

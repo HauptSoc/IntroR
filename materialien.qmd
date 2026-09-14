@@ -1,0 +1,15 @@
+---
+title: "Materialien"
+---
+
+## Installation
+
+*(Platzhalter — Links zu R, RStudio/Positron, Quarto-Installationsanleitungen.)*
+
+## Cheatsheets
+
+*(Platzhalter — Links zu R- und Quarto-Cheatsheets.)*
+
+## Datensätze
+
+*(Platzhalter — Links/Downloads zu Übungsdatensätzen.)*

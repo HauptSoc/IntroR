@@ -1,0 +1,14 @@
+{
+  "permission": {
+    "edit": {
+      "*.yml": "allow",
+      "*.css": "allow",
+      "*.qmd": "allow",
+      "*.toml": "allow"
+    },
+    "bash": {
+      "quarto render *": "allow",
+      "tail *": "allow"
+    }
+  }
+}
