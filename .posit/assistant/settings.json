@@ -10,6 +10,9 @@
       "quarto render *": "allow",
       "tail *": "allow",
       "quarto *": "allow"
+    },
+    "webfetch": {
+      "https://registry.npmjs.org/*": "allow"
     }
   }
 }
