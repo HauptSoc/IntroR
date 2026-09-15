@@ -1,0 +1,9 @@
+#!/bin/sh
+# Rendert die Quarto-Website vor jedem Commit und nimmt den
+# aktualisierten _site-Ordner automatisch mit in den Commit auf.
+set -e
+
+echo "Rendering Quarto site..."
+quarto render
+
+git add _site
