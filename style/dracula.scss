@@ -1,0 +1,152 @@
+/* The MIT License (MIT)
+
+Copyright (c) 2023 Dracula Theme
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
+
+/*-- scss:defaults --*/
+$gray-dark: rgb(48, 48, 48);
+$gray-darker: rgb(48, 48, 48);
+$gray: rgb(70, 69, 69);
+$gray-light: rgb(153, 153, 153);
+$gray-lighter: rgb(235, 235, 235);
+$brand-primary: #BD93F9;
+$brand-success: rgb(0, 188, 140);
+$brand-info: rgb(52, 152, 219);
+$brand-warning: rgb(243, 156, 18);
+$brand-danger: rgb(231, 76, 60);
+$body-bg: $gray;
+$body-color: $gray-lighter;
+$text-color: $gray-lighter;
+$link-color: rgb(0, 188, 140);
+$link-hover-color: $link-color;
+$table-bg-accent: lighten($gray-dark, 5%);
+$table-bg-hover: $gray;
+$table-border-color: $gray;
+$btn-default-color: $text-color;
+$btn-default-bg: $gray;
+$input-border: rgb(241, 241, 241);
+$input-border-focus: rgb(255, 255, 255);
+$input-color-placeholder: $gray-light;
+$legend-color: $text-color;
+$legend-border-color: transparent;
+$input-group-addon-bg: $gray;
+$input-group-addon-border-color: transparent;
+$dropdown-bg: $gray-dark;
+$dropdown-divider-bg: $gray;
+$dropdown-link-color: $gray-lighter;
+$dropdown-link-hover-color: rgb(255, 255, 255);
+$dropdown-link-active-color: rgb(255, 255, 255);
+$navbar-height: 60px;
+$navbar-default-color: rgb(255, 255, 255);
+$navbar-default-bg: $brand-primary;
+$navbar-default-border: transparent;
+$navbar-default-link-color: rgb(255, 255, 255);
+$navbar-default-link-hover-color: $brand-success;
+$navbar-default-link-active-color: rgb(255, 255, 255);
+$navbar-default-link-active-bg: darken($navbar-default-bg, 10%);
+$navbar-default-brand-hover-color: $navbar-default-link-hover-color;
+$navbar-default-toggle-hover-bg: darken($navbar-default-bg, 10%);
+$navbar-default-toggle-icon-bar-bg: rgb(255, 255, 255);
+$navbar-default-toggle-border-color: darken($navbar-default-bg, 10%);
+$navbar-inverse-color: rgb(255, 255, 255);
+$navbar-inverse-bg: $brand-success;
+$navbar-inverse-border: transparent;
+$navbar-inverse-link-color: $navbar-inverse-color;
+$navbar-inverse-link-hover-color: $brand-primary;
+$navbar-inverse-link-active-color: $navbar-inverse-color;
+$navbar-inverse-link-active-bg: darken($navbar-inverse-bg, 5%);
+$navbar-inverse-link-disabled-color: rgb(170, 170, 170);
+$navbar-inverse-brand-hover-color: $navbar-inverse-link-hover-color;
+$navbar-inverse-toggle-hover-bg: darken($navbar-inverse-bg, 10%);
+$navbar-inverse-toggle-border-color: darken($navbar-inverse-bg, 10%);
+$nav-link-hover-bg: $gray-dark;
+$nav-disabled-link-color: lighten($gray, 10%);
+$nav-disabled-link-hover-color: lighten($gray, 10%);
+$nav-tabs-border-color: $gray;
+$nav-tabs-link-hover-border-color: $gray;
+$nav-tabs-active-link-hover-color: $brand-success;
+$nav-tabs-active-link-hover-border-color: $nav-tabs-link-hover-border-color;
+$nav-tabs-justified-link-border-color: $gray-lighter;
+$pagination-color: rgb(255, 255, 255);
+$pagination-bg: $brand-success;
+$pagination-border: transparent;
+$pagination-hover-color: rgb(255, 255, 255);
+$pagination-hover-bg: lighten($brand-success, 6%);
+$pagination-hover-border: transparent;
+$pagination-active-bg: lighten($brand-success, 6%);
+$pagination-active-border: transparent;
+$pagination-disabled-color: rgb(255, 255, 255);
+$pagination-disabled-bg: darken($brand-success, 15%);
+$pagination-disabled-border: transparent;
+$pager-disabled-color: rgb(221, 221, 221);
+$jumbotron-bg: $gray-dark;
+$state-success-text: rgb(255, 255, 255);
+$state-success-bg: $brand-success;
+$state-success-border: $brand-success;
+$state-info-text: rgb(255, 255, 255);
+$state-info-bg: $brand-info;
+$state-info-border: $brand-info;
+$state-warning-text: rgb(255, 255, 255);
+$state-warning-bg: $brand-warning;
+$state-warning-border: $brand-warning;
+$state-danger-text: rgb(255, 255, 255);
+$state-danger-bg: $brand-danger;
+$state-danger-border: $brand-danger;
+$popover-bg: $gray-dark;
+$popover-fallback-border-color: rgb(153, 153, 153);
+$label-default-bg: $gray;
+$modal-inner-padding: 20px;
+$modal-content-bg: $gray-dark;
+$modal-backdrop-opacity: .7;
+$modal-header-border-color: $gray;
+$progress-bg: $gray-lighter;
+$list-group-bg: $gray-dark;
+$list-group-border: $gray;
+$list-group-hover-bg: transparent;
+$list-group-link-color: $link-color;
+$list-group-link-heading-color: darken($link-color, 5%);
+$panel-bg: $gray-dark;
+$panel-inner-border: $gray;
+$panel-footer-bg: $gray;
+$panel-default-text: $text-color;
+$panel-default-border: $gray;
+$panel-default-heading-bg: $gray-dark;
+$thumbnail-padding: 2px;
+$thumbnail-border: $gray;
+$well-bg: $gray-dark;
+$well-border: transparent;
+$badge-bg: $gray;
+$badge-active-color: $brand-primary;
+$breadcrumb-bg: $gray;
+$breadcrumb-color: $text-color;
+$close-color: rgb(255, 255, 255);
+$close-text-shadow: none;
+$pre-bg: $gray-lighter;
+$blockquote-border-color: $gray;
+$page-header-border-color: transparent;
+$hr-border: $gray;
+/*-- scss:rules --*/
+.navbar {
+  --bs-navbar-padding-y: 0.5rem;
+  background-color: $brand-primary;
+}
+.about-link {
+  color: $gray-lighter !important;
+}

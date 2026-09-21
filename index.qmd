@@ -5,10 +5,8 @@ subtitle: "Seminar-Website"
 
 Willkommen zur Seminar-Website **Einführung in R und Quarto**.
 
-Hier findest du:
 
-- den Ablaufplan und die Inhalte der einzelnen [Sitzungen](sitzungen/index.qmd)
-- ergänzende [Materialien](materialien.qmd)
-- allgemeine Informationen [über das Seminar](ueber.qmd)
+![Artwork by Allison Horst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/7ebda7dd-2f29-44a5-b625-0e5de613c9a2_rw_1920.png?h=7c17d6041bb3dc2ae06f84bb45cccb20)
+
 
 

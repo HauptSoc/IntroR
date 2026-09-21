@@ -55,16 +55,16 @@ website:
 
 format:
   html:
-    theme:
-      light: [cosmo, style/stat331.scss]
-      dark: [cosmo, style/stat331.scss, style/dark.scss]
-    mainfont: "Atkinson Hyperlegible"
-    toc: true
-    number-sections: false
-    code-fold: false
-    code-tools: true
-    code-copy: true
-    smooth-scroll: true
+    respect-user-color-scheme: true
+    theme: 
+      dark: [darkly, style/dracula.scss]
+      light: [style/stat331.scss]
+    header-includes: |
+      <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css2?family=Fira+Sans" type="text/css"/>
+      <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css2?family=Fira+Code" type="text/css"/>
+    mainfont: "Fira Sans"
+    monofont: "Fira Code"
+highlight-style: Dracula
 
 execute:
   freeze: auto

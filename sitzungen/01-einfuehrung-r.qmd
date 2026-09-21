@@ -1,6 +1,9 @@
 ---
-title: "01 – Einführung in R"
+title: "01 – Sinn und Zweck"
 ---
+
+![Artwork by Allison Horst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/4898fb61-98e9-4923-8725-6813d4de2d82_rw_1920.png?h=f630a201b70bb08cd37af0606f10cc47)
+
 
 ## Lernziele
 

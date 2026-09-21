@@ -1,10 +1,64 @@
 ---
 title: "Materialien"
+resources:
+  - images/
 ---
 
 ## Installation
 
-*(Platzhalter — Links zu R, RStudio/Positron, Quarto-Installationsanleitungen.)*
+- [Positron](https://positron.posit.co/download.html) als Anwendungsoberfläche. 
+- [R](https://cloud.r-project.org) als Programmiersprache
+
+Positron enthält schon [Quarto]() als "Motor", in dessen Rahmen auch R ausgeführt werden kann. 
+
+Installieren Sie bitte noch über das Fenster "Terminal" folgende zwei Software-Pakete: 
+
+:::  {.callout-important}
+install.packages(tidyverse)
+
+install.packages(rmarkdown)
+:::
+
+## Zentrale Literatur
+
+```{r}
+#| echo: false
+#| message: false
+library(slickR)
+
+buecher <- data.frame(
+  cover = c(
+    "images/HandsOnProgrammingWithR.png",
+    "images/RforDataScience.jpg",
+    "images/TidyModellingWithR.png", 
+    "images/RMarkdownCookbook.png"
+  ),
+  link = c(
+    "https://rstudio-education.github.io/hopr/",
+    "https://r4ds.hadley.nz",
+    "https://www.tmwr.org", 
+    "https://pkg.yihui.org/rmarkdown-cookbook/"
+  ),
+  beschreibung = c(
+    "Für Personen ohne Programmierkenntnisse: eine sanfte Einführung in R für absolute Anfänger:innen.",
+    "Zentrale Referenz: der Standardtext zu Data Science mit R (Import, Transformation, Visualisierung, Modellierung).",
+    "Speziellere Fragen der Datenanalyse: vertiefende Methoden für Feature Engineering und Modellierung mit tidymodels.", 
+    "Grundlagen zur Erstellung reproduzierbarer Dokumente mit Rmarkdown."
+  ),
+  stringsAsFactors = FALSE
+)
+
+covers <- buecher$cover
+
+captions <- lapply(buecher$beschreibung, htmltools::HTML)
+
+(slickR(covers, height = 300, objLinks = buecher$link) +
+  settings(dots = TRUE, arrows = TRUE)) %synch%
+  (slickR(captions, slideType = "p") + settings(arrows = FALSE))
+```
+
+Die Buchcover werden hier unter der [CC BY-NC-ND 3.0 Lizenz](https://creativecommons.org/licenses/by-nc-nd/3.0/) verwendet; alle drei Titel sind zudem als Open-Access-Bücher frei online verfügbar.
+
 
 ## Cheatsheets
 

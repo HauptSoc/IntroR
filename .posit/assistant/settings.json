@@ -4,15 +4,28 @@
       "*.yml": "allow",
       "*.css": "allow",
       "*.qmd": "allow",
-      "*.toml": "allow"
+      "*.toml": "allow",
+      "*/pre-commit": "allow",
+      "*.md": "allow"
     },
     "bash": {
       "quarto render *": "allow",
       "tail *": "allow",
-      "quarto *": "allow"
+      "quarto *": "allow",
+      "git config core.hooksPath *": "allow",
+      "git config --get core.hooksPath *": "allow",
+      "git commit *": "allow",
+      "git add *": "allow",
+      "cd *": "allow",
+      "timeout *": "allow",
+      "head *": "allow",
+      "echo *": "allow"
     },
     "webfetch": {
       "https://registry.npmjs.org/*": "allow"
+    },
+    "executeCode": {
+      "*": "allow"
     }
   }
 }

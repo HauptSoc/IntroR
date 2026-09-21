@@ -80,7 +80,7 @@
     "href": "sitzungen/04-visualisierung.html",
     "title": "04 – Visualisierung",
     "section": "",
-    "text": "(Platzhalter)",
+    "text": "Artwork by Allison Horst",
     "crumbs": [
       "Home",
       "Sitzungen",
@@ -91,8 +91,8 @@
     "objectID": "sitzungen/04-visualisierung.html#lernziele",
     "href": "sitzungen/04-visualisierung.html#lernziele",
     "title": "04 – Visualisierung",
-    "section": "",
-    "text": "(Platzhalter)",
+    "section": "Lernziele",
+    "text": "Lernziele\n(Platzhalter)",
     "crumbs": [
       "Home",
       "Sitzungen",
@@ -126,49 +126,49 @@
   {
     "objectID": "sitzungen/02-datenstrukturen.html",
     "href": "sitzungen/02-datenstrukturen.html",
-    "title": "02 – Datenstrukturen",
+    "title": "02 – Objekte und Verbindungen",
     "section": "",
     "text": "(Platzhalter)",
     "crumbs": [
       "Home",
       "Sitzungen",
-      "02 – Datenstrukturen"
+      "02 – Objekte und Verbindungen"
     ]
   },
   {
     "objectID": "sitzungen/02-datenstrukturen.html#lernziele",
     "href": "sitzungen/02-datenstrukturen.html#lernziele",
-    "title": "02 – Datenstrukturen",
+    "title": "02 – Objekte und Verbindungen",
     "section": "",
     "text": "(Platzhalter)",
     "crumbs": [
       "Home",
       "Sitzungen",
-      "02 – Datenstrukturen"
+      "02 – Objekte und Verbindungen"
     ]
   },
   {
     "objectID": "sitzungen/02-datenstrukturen.html#inhalte",
     "href": "sitzungen/02-datenstrukturen.html#inhalte",
-    "title": "02 – Datenstrukturen",
+    "title": "02 – Objekte und Verbindungen",
     "section": "Inhalte",
     "text": "Inhalte\n(Platzhalter)",
     "crumbs": [
       "Home",
       "Sitzungen",
-      "02 – Datenstrukturen"
+      "02 – Objekte und Verbindungen"
     ]
   },
   {
     "objectID": "sitzungen/02-datenstrukturen.html#übung",
     "href": "sitzungen/02-datenstrukturen.html#übung",
-    "title": "02 – Datenstrukturen",
+    "title": "02 – Objekte und Verbindungen",
     "section": "Übung",
     "text": "Übung\n\n# Platzhalter für Code-Beispiele",
     "crumbs": [
       "Home",
       "Sitzungen",
-      "02 – Datenstrukturen"
+      "02 – Objekte und Verbindungen"
     ]
   },
   {
@@ -176,14 +176,21 @@
     "href": "materialien.html",
     "title": "Materialien",
     "section": "",
-    "text": "(Platzhalter — Links zu R, RStudio/Positron, Quarto-Installationsanleitungen.)"
+    "text": "Positron als Anwendungsoberfläche.\nR als Programmiersprache\n\nPositron enthält schon Quarto als “Motor”, in dessen Rahmen auch R ausgeführt werden kann.\nInstallieren Sie bitte noch über das Fenster “Terminal” folgende zwei Software-Pakete:\n\n\n\n\n\n\nImportant\n\n\n\ninstall.packages(tidyverse)\ninstall.packages(rmarkdown)"
   },
   {
     "objectID": "materialien.html#installation",
     "href": "materialien.html#installation",
     "title": "Materialien",
     "section": "",
-    "text": "(Platzhalter — Links zu R, RStudio/Positron, Quarto-Installationsanleitungen.)"
+    "text": "Positron als Anwendungsoberfläche.\nR als Programmiersprache\n\nPositron enthält schon Quarto als “Motor”, in dessen Rahmen auch R ausgeführt werden kann.\nInstallieren Sie bitte noch über das Fenster “Terminal” folgende zwei Software-Pakete:\n\n\n\n\n\n\nImportant\n\n\n\ninstall.packages(tidyverse)\ninstall.packages(rmarkdown)"
+  },
+  {
+    "objectID": "materialien.html#zentrale-literatur",
+    "href": "materialien.html#zentrale-literatur",
+    "title": "Materialien",
+    "section": "Zentrale Literatur",
+    "text": "Zentrale Literatur\n\n\n\n\n\n\nDie Buchcover werden hier unter der CC BY-NC-ND 3.0 Lizenz verwendet; alle drei Titel sind zudem als Open-Access-Bücher frei online verfügbar."
   },
   {
     "objectID": "materialien.html#cheatsheets",
@@ -204,54 +211,54 @@
     "href": "index.html",
     "title": "Verstehen, was passiert. Mit R.",
     "section": "",
-    "text": "Willkommen zur Seminar-Website Einführung in R und Quarto.\nHier findest du:\n\nden Ablaufplan und die Inhalte der einzelnen Sitzungen\nergänzende Materialien\nallgemeine Informationen über das Seminar"
+    "text": "Willkommen zur Seminar-Website Einführung in R und Quarto.\n\n\n\nArtwork by Allison Horst"
   },
   {
     "objectID": "sitzungen/01-einfuehrung-r.html",
     "href": "sitzungen/01-einfuehrung-r.html",
-    "title": "01 – Einführung in R",
+    "title": "01 – Sinn und Zweck",
     "section": "",
-    "text": "(Platzhalter)",
+    "text": "Artwork by Allison Horst",
     "crumbs": [
       "Home",
       "Sitzungen",
-      "01 – Einführung in R"
+      "01 – Sinn und Zweck"
     ]
   },
   {
     "objectID": "sitzungen/01-einfuehrung-r.html#lernziele",
     "href": "sitzungen/01-einfuehrung-r.html#lernziele",
-    "title": "01 – Einführung in R",
-    "section": "",
-    "text": "(Platzhalter)",
+    "title": "01 – Sinn und Zweck",
+    "section": "Lernziele",
+    "text": "Lernziele\n(Platzhalter)",
     "crumbs": [
       "Home",
       "Sitzungen",
-      "01 – Einführung in R"
+      "01 – Sinn und Zweck"
     ]
   },
   {
     "objectID": "sitzungen/01-einfuehrung-r.html#inhalte",
     "href": "sitzungen/01-einfuehrung-r.html#inhalte",
-    "title": "01 – Einführung in R",
+    "title": "01 – Sinn und Zweck",
     "section": "Inhalte",
     "text": "Inhalte\n(Platzhalter)",
     "crumbs": [
       "Home",
       "Sitzungen",
-      "01 – Einführung in R"
+      "01 – Sinn und Zweck"
     ]
   },
   {
     "objectID": "sitzungen/01-einfuehrung-r.html#übung",
     "href": "sitzungen/01-einfuehrung-r.html#übung",
-    "title": "01 – Einführung in R",
+    "title": "01 – Sinn und Zweck",
     "section": "Übung",
     "text": "Übung\n\n# Platzhalter für Code-Beispiele",
     "crumbs": [
       "Home",
       "Sitzungen",
-      "01 – Einführung in R"
+      "01 – Sinn und Zweck"
     ]
   },
   {
