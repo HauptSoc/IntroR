@@ -1,0 +1,6 @@
+---
+title: "Linear OLS Regression I"
+format: html
+---
+
+{{< revealjs file="09-OLS-I.html" height="600px" width="100%" class="ratio ratio-16x9" >}}

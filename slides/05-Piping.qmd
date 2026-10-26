@@ -1,0 +1,403 @@
+---
+title: "Einführung in R und Quarto"
+subtitle: "Piping & Grouped Operations"
+author: "Andreas Haupt"
+bibliography: IntRo.bib
+format:
+  revealjs:
+    theme: style.scss
+    css: global.css
+    slideNumber: true
+    fig-align: center
+editor: source
+execute:
+  echo: false
+  message: false
+  warning: false
+---
+
+```{r setup}
+#| include: false
+library(tidyverse) # Add the tidyverse package to my current library.
+library(haven) # Handle labelled data.
+library(ggplot2) # Allows us to create nice figures.
+library(essurvey) # Add ESS API package to library.
+```
+
+```{r}
+#| include: false
+#| eval: false
+# Import the ESS round 9 data via the API
+ESS <- import_rounds(rounds = 9, ess_email = "merlin.schaeffer@uni-koeln.de", format = "spss")
+```
+
+---
+
+## Nested code
+
+We have learned that R code may be nested. But too much nesting becomes unintelligible: Because R evaluates code from the inside-out, we need to read nested code from the inside-out!
+
+```{r}
+# Nested code
+mean(sqrt(seq(from = 1, to = 13)))
+```
+
+. . .
+
+Alternatively, we could write several lines of code successively and read from top to bottom. But this leads to many irrelevant intermediate objects that crowd our environment.
+
+```{r}
+# Non-nested code
+x <- seq(from = 1, to = 13)
+x_sqrt <- sqrt(x) # Intermediate object.
+mean(x_sqrt)
+```
+
+## The (forward) **pipe** `%>%`
+
+The `%>%` operator pipes output of one function as input to the next function. You can basically say: `function(argument1 = value)` can be written as `value %>% function()`. 
+
+Or even easier, think of it as: "then" or "så".
+
+```{r}
+# Piped code
+seq(from = 1, to = 13) %>% sqrt() %>% mean()
+```
+
+. . .
+
+::: columns
+::: {.column width="50%"}
+![](images/PipedEgg.jpg){width="100%"}
+:::
+
+::: {.column width="50%"}
+![](images/PipedEgg2.png){width="100%"}
+:::
+:::
+
+## {background-image="https://img.nzz.ch/C=W900,H507,X0,Y56/O=75/http://s3-eu-west-1.amazonaws.com/nzz-img/2014/06/20/1.18327083.1403287109.jpg?width=560&fit=crop&quality=75&auto=webp&crop=900,507,x0,y56"}
+
+::: {.centered}
+<br>
+**Belonging to a**<br><br>**Discriminated Minority**
+:::
+
+---
+
+::: columns
+::: {.column width="50%"}
+<br>
+<br>
+::: {.centered}
+Homes of Alevis in western Turkey
+:::
+![](https://i.hurimg.com/i/hdn/75/600x369/5a1578a47af50714084c50e8.jpg){width="80%"}
+![](https://anfenglish.com/uploads/en/articles/2021/01/20210126-20210125-mrk-25-01-2021-alevi-aileler-jpgc2e241-image-jpg64f624-image.jpg){width="80%"}
+:::
+
+::: {.column width="50%"}
+<br>
+![](images/dscrgrp-piping.png){width="70%"}
+![](images/PerceivedDiscriminationESS.png){width="70%"}
+:::
+:::
+
+## Library for today
+
+```{r}
+#| eval: false
+# Add packages to the library
+library(tidyverse) # Add the tidyverse package to my current library.
+library(haven) # Handle labelled data.
+library(ggplot2) # Allows us to create nice figures.
+library(essurvey) # Add ESS API package to library.
+library(Hmisc) # We need this for some weighted statistics.
+```
+
+## Manipulating the ESS using `%>%`
+
+```{r}
+#| eval: false
+# Import the ESS round 9 data via the API
+ESS <- import_rounds(rounds = 9, ess_email = "YOUR-EMAIL", format = "spss")
+```
+
+```{r}
+#| eval: false
+ESS <- ESS %>% # Import the ESS, then (pipe result into)
+  transmute( # Create new variables and keep only those
+    cntry = as_factor(cntry), # Country of interview
+    gndr = as_factor(gndr),
+    facntr = as_factor(facntr), # Father born in cntry
+    mocntr = as_factor(mocntr), # Mother born in cntry
+    dscrgrp = as_factor(dscrgrp), # Belonging to discriminated group
+    dscrrlg = as_factor(dscrrlg), # Discriminated because of religion
+    rel_discr = case_when(
+      dscrgrp == "Yes" & dscrrlg == "Marked" ~ "Yes",
+      dscrgrp == "No" | (dscrgrp == "Yes" & dscrrlg != "Marked") ~ "No",
+      TRUE ~ as.character(NA)) %>% as_factor(), # all others missing, then change to factor
+    pspwght = zap_label(pspwght), # Post-stratification weights.     
+    agea = zap_labels(agea), # Age
+    eduyrs = case_when( # Education
+      eduyrs > 21 ~ 21, # Recode to max 21 years of edu.
+      eduyrs < 9 ~ 9, # Recode to min 9 years of edu.
+      TRUE ~ zap_labels(eduyrs)) # Make it numeric.
+  ) %>% # finish transmute, then (pipe result into)
+  dplyr::filter(# Keep only respondents of immigrant origin,
+    facntr == "No" & mocntr == "No",
+    # filter cases from four countries
+    cntry == "Denmark" | cntry == "Germany" | cntry == "Sweden" | cntry == "Norway")
+```
+
+## Result of the piped code from last slide
+
+```{r}
+#| eval: false
+ESS
+```
+
+## The `.` (aka piping to specific arguments)
+
+By default, `%>%` pipes into the *first* argument of a function.
+
+::: {.note}
+You can find out what the first argument of a function is by typing `?function`.
+:::
+
+```{r}
+# Both lines of code round 5.882 to have only one digit.
+round(x = 5.882, digits = 1) 
+5.882 %>% round(digits = 1)
+```
+
+. . .
+
+The `.` placeholder allows us to pipe into *another* argument.
+
+```{r}
+2 %>% round(x = 5.882, digits = .)
+```
+
+## Why the `.` matters
+
+For many (non-tidyverse functions), the data frame is not the first argument. Make sure to pipe into the argument which you actually intend to feed.
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+t.test(ESS, agea ~ gndr)
+```
+
+```{r}
+#| eval: false
+ESS %>% t.test(agea ~ gndr)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| eval: false
+t.test(agea ~ gndr, data = ESS)
+```
+
+```{r}
+#| eval: false
+ESS %>% t.test(agea ~ gndr, data = .)
+```
+:::
+:::
+
+## Advantages of piping (and when not to pipe)
+
+::: {.centered}
+The advantages are:
+:::
+
+ - *Legible code*: We can structure code from left to right, as apposed to from inside and out.
+ - *Shorter code*: You minimize the need for local/intermediate variables.
+ - *Easily mutable code*: You can easily add steps anywhere in the sequence of operations.
+
+. . .
+
+::: {.centered}
+**But:**
+:::
+
+ - If you have more than one or two major inputs, don't pipe.
+ - If you have more than ca. ten steps, better make intermediate objects.
+  + It helps you to debug (i.e., find mistakes) and is simply easier to read.
+
+---
+
+## Reminder (Weights)
+
+*Weights* tell you the probability that an observation should be in the data. For a true random sample, each case of the population has an equal probability to be sampled, and thus weights are 1 for all observations. But for various reasons, some populations tend to be under-sampled. Post-stratification weights try to counterbalance this.
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| out.width: '80%'
+#| fig.width: 6
+#| fig.height: 3.5
+#| eval: false
+ggplot(data = ESS, 
+       mapping = aes(y = pspwght, x = agea)) +
+  geom_smooth() # Smoothed average weight by age.
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| out.width: '80%'
+#| fig.width: 6
+#| fig.height: 3.5
+#| eval: false
+ggplot(data = ESS, 
+       mapping = aes(y = pspwght, x = eduyrs)) +
+  geom_smooth() # Smoothed average weight by education.
+```
+:::
+:::
+
+## Reminder (Working with weights)
+
+Statistically, we use weights by multiplication. Say in a small imagined patriarchal society, men's votes count twice as much. Here we have a ballot on whether women should be allowed to drive:
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| results: 'asis'
+library(knitr)
+i <- 1:5
+gender <- c("man", "man", "woman", "woman", "woman")
+vote <- c("No", "Yes", "Yes", "Yes", "No")
+voted_yes <- c(0, 1, 1, 1, 0)
+weight <- c(2, 2, 1, 1, 1)
+
+dat <- tibble(i, gender, vote, voted_yes, weight)
+kable(dat, format = "html")
+```
+
+::: {.centered}
+$$\frac{3}{5} * 100 = 60$$
+What is the patriarchy-weighted percent of "Yes" votes?
+:::
+:::
+
+. . .
+
+::: {.column width="50%"}
+```{r}
+# Three ways to the percent of yes votes:
+
+((0*2 + 1*2 + 1 + 1 + 0) / 7) * 100 # 1
+
+(sum(voted_yes * weight) / sum(weight)) * 100 # 2
+
+Hmisc::wtd.mean(x = voted_yes, weights = weight) * 100 # 3
+```
+:::
+:::
+
+## **Grouped operations**
+
+Today, we want to compare countries. `group_by()` will transform your data into a **grouped tibble**. Afterwards, certain functions will operate on the level of those specified groups!
+
+```{r}
+#| eval: false
+# Group my data by country.
+(ESS_cntry <- ESS %>% 
+   group_by(cntry))
+```
+
+## Grouped operations (**summarize**)
+
+`summarize()` allows you to calculate *all kinds* of statistics on the level of the groups you have specified.
+
+```{r}
+#| eval: false
+(ESS_cntry <- ESS %>% # use the ESS, then
+   mutate( # Generate a numeric 0/1 indicator of religious discrimination.
+     rel_discr_num = case_when(rel_discr == "Yes" ~ 1, 
+                               rel_discr == "No" ~ 0,
+                               TRUE ~ as.numeric(NA))) %>% # then
+   group_by(cntry) %>% # group ESS by cntry, then
+   dplyr::summarize( # Start summarize function.
+     n = n(), # Number of cases,
+     wn = sum(pspwght, na.rm = TRUE), # weighted number of cases,
+     n_rd = sum(rel_discr_num, na.rm = TRUE), # Cases reporting religious discrimination,
+     wn_rd = sum(rel_discr_num * pspwght, na.rm = TRUE), # weighted number of cases who ...,
+     perc_rd = (n_rd / n) * 100, # % cases who ...,
+     wperc_rd = (wn_rd / wn) * 100 # weighted % who ...,
+   )) # End of summarize.
+```
+
+## Reminder (Standard errors & confidence intervals)
+
+::: columns
+::: {.column width="50%"}
+The *standard error* tells you the standard deviation of your result (i.e., mean, percentage, $\beta$ etc.), if we would conduct the same study (i.e., the ESS) over and over again.
+
+Standard error of the mean: $\text{SE}(\bar{x}) = \frac{ \text{SD(x)}}{\sqrt{n}}$
+
+Standard error of a proportion: $\text{SE}(p) = \sqrt{\frac{p(1-p)}{n}}$
+
+The *95% Confidence Interval* tries to capture the range in which the true value lies with an *accuracy* of 95%.
+
+$$\text{CI}_{95} = \bar{x} \pm \text{Critical Value} * \text{SE}(\bar{x})$$
+$$\text{CI}_{95} = p \pm \text{Critical Value} * \text{SE}(p)$$
+:::
+
+::: {.column width="50%"}
+Interactive illustration (see original slides/link): [Seeing Theory: Frequentist Inference](https://seeing-theory.brown.edu/frequentist-inference/index.html#section2)
+:::
+:::
+
+## Grouped operations (**Summarize**)
+
+`summarize()` allows you to calculate *all kinds* of statistics on the level of the groups you have specified.
+
+```{r}
+#| eval: false
+(ESS_cntry <- ESS %>% # use the ESS, then
+   mutate( # Generate a numeric 0/1 indicator of perceived discrimination.
+     rel_discr_num = case_when(rel_discr == "Yes" ~ 1, 
+                               rel_discr == "No" ~ 0,
+                               TRUE ~ as.numeric(NA))) %>%
+   group_by(cntry) %>% # group ESS_minority by cntry, then
+   dplyr::summarize( # Start summarize function.
+     wn = sum(pspwght, na.rm = TRUE), # weighted number of cases,
+     df = (wn^2 / sum(pspwght^2, na.rm = TRUE)), # degrees of freedom,
+     wn_rd = sum(rel_discr_num * pspwght, na.rm = TRUE), # weighted number of cases who ...,
+     wperc_rd = (wn_rd / wn) * 100, # weighted % who ...,
+     wse_rd = sqrt(wperc_rd * (100 - wperc_rd) / wn), # Standard error of the percent,
+     wmin95_rd = wperc_rd - qt(p = 0.975, df = df) * wse_rd, # Lower bound of 95% CI,
+     wmax95_rd = wperc_rd + qt(p = 0.975, df = df) * wse_rd # Upper bound of 95% CI,
+   )) # End of summarize.
+```
+
+---
+
+## Today's general lessons
+
+1. R code can be nested, but alternatively it can also be *piped.* Piping allows you two write more legible code that can be read from left to right and that does not contain several useless intermediate objects.
+
+2. By *grouping* and *summarizing* you can quickly generate all kinds of summary statistics that allow you to describe your research phenomenon just as you want to; at best of course with ggplot2 figures ;)
+
+## Today's (important) operators
+
+1. `%>%`: the (forward) pipe, allows you to pipe the output of one function into the next function as input. By default, it will be channeled as value to the first function. `value %>% function(argument1 = value)`.
+
+2. `.`: combined with the pipe, it allows you to pipe input to other arguments than the first.
+
+## Today's (important) functions
+
+1. `group_by()`: Subsets a tibble into groups. Certain functions will afterwards operate by each of the specified groups.
+
+2. `summarize()`: Allows you to estimate any kind of aggregate statistic. Combined with `group_by()`, it estimates those statistic by specified group.
+  - `n()` counts the number of cases within `summarize()`.
+  - `sum()` gives you $\sum{}$.
+  - `mean()` and `wtd.mean()` give you the average\mean.
+  - `sd()` and `wtd.sd() %>% sqrt()` give you the standard deviation.

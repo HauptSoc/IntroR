@@ -1,0 +1,6 @@
+---
+title: "Piping & Grouped Operations"
+format: html
+---
+
+{{< revealjs file="05-Piping.html" height="600px" width="100%" class="ratio ratio-16x9" >}}

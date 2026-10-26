@@ -1,0 +1,253 @@
+---
+title: "Einführung in R und Quarto"
+subtitle: "Int_R_oduction"
+author: "Andreas Haupt"
+bibliography: IntRo.bib
+format:
+  revealjs:
+    theme: style.scss
+    css: global.css
+    slideNumber: true
+    fig-align: center
+editor: source
+execute:
+  echo: false
+  message: false
+  warning: false
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+```
+
+## What you will learn
+
+![*Source*: Saskia Otto, Uni Hamburg](https://mareds.github.io/r_course/img_site/Tidyverse_packages.png)
+
+## Workflow
+
+
+1. Use **Projects** to manage all files (scripts, data, figures and tables) belonging to the same project.
+2. Use the editor the write **scripts**, so you can reproduce your results.
+
+
+
+## Set up your "IntRo" project
+
+- Set up a new project in . 
+  + "New Directory"
+  + "New Project"
+  + Finally, a name for the folder and under "Browse" where you want that folder to be located.
+  + **Done!** Now you should find an empty folder under the path your wanted it to be set up.
+  + In the future, start Positron by double clicking on the project icon in your folder.
+
+## First steps with R — Creating **objects**
+
+```{r}
+# I am a comment; the hashtag "#" makes me one.
+# It is good programming style to use me a lot ;).
+```
+
+. . .
+
+R is an _**object**-oriented_ programming language. We create objects with the **assignment operator** `<-`.<br>
+
+::: {.note}
+The names you give objects need to start with a letter.
+:::
+
+```{r}
+# Create a new object "test_object" and assign to it the result of 5 + 2
+test_object <- 5 + 2
+```
+
+. . .
+
+The assignment operator may be used in both *directions*: `<-`, or `->`.
+
+::: {.note}
+This can help you write more legible code.
+:::
+
+```{r}
+5 + 3 -> another_test_object # Create another object
+```
+
+## First steps with R — Creating **objects**
+
+Objects can contain all kinds of information.
+```{r}
+text_object <- "Yes, you can also assign text"
+```
+
+## First steps with R — Printing objects
+
+You can make R print the content of an object by typing its name.
+```{r}
+test_object # Print object
+```
+
+. . .
+
+```{r}
+another_test_object
+text_object
+```
+
+## Printing $\neq$ assigning!
+
+If you don't use the assignment operator, R will simply print the result of an operation without changing that object (i.e., without any further consequences).
+
+```{r}
+test_object + 3 # Print the result of adding 3 to the content of test_object + 3.
+test_object # Print the content of test_object.
+```
+
+. . .
+
+If you actually want to create or modify objects, you need to use the assignment operator and explicitly assign the result of your operation to the object you want to change.
+
+```{r}
+test_object <- test_object + 3 # Assign to test_object: the result of adding 3 to the content of test_object.
+test_object # Print the content of test_object
+```
+
+. . .
+
+The short-hand version for assigning and printing an object right away uses surrounding `()`:
+```{r}
+(test_object <- 5 + 2) # Assign the result of 5 + 2 to "test_object" and print tat object's content.
+```
+
+## First steps with R — **Functions**
+
+Functions do the work in R. You call/use them by:<br> `
+function_name(argument1 = value1, argument2 = value2, ...)`
+
+. . .
+
+The `seq()` function, for instance, produces a sequence of numbers and has (among others) the arguments `from` and `to`.
+```{r}
+(yet_another_object <- seq(from = 1, to = 5))
+```
+
+. . .
+
+To shorten code, R can infer the arguments by their position (i.e., the positions of supplied values).<br>
+
+::: {.note}
+(i.e., Here R assumes you mean from-to and *not* to-from)
+:::
+
+```{r}
+(yet_another_object <- seq(1, 5))
+```
+
+## First steps with R — Object **classes**
+
+What a function does, depends on the type of object you feed to its arguments as values. The `class()` function tells you what **class**/type of object your are dealing with:
+
+```{r}
+class(yet_another_object) # "yet_another_object" contails whole numbers, so it is:
+class(text_object) # "text_object" contains a sentence, so it is:
+```
+
+. . .
+
+Functions will throw an error message, if you feed them with an object of a class it cannot handle:
+
+```{r error = TRUE}
+alphabet <- seq(from = "a", to = "z")
+```
+
+. . .
+
+Although functions do stuff with objects we feed to them, they are also objects themselves:
+
+```{r}
+class(seq)
+```
+
+
+## **Arithmetic operators**
+
+Like any decent calculator, R knows how to handle basic arithmetic:
+
+```{r}
+2 + 3 # Plus
+2 - 3 # Minus
+2 * 3 # Multiplication
+2 / 3 # Devision
+2^3   # Power
+```
+
+. . .
+
+Other mathematical operations are implemented as functions:
+
+```{r}
+yet_another_object # Print another_object.
+sqrt(yet_another_object) # Print square root of every element contained in another_object.
+```
+
+## **Logical** (Boolean) **operators**
+
+::: {.centered}
+`&` "and", `|` "or", and `!` "not"
+:::
+
+![](https://d33wubrfki0l68.cloudfront.net/01f4b6d39d2be8269740a3ad7946faa79f7243cf/8369a/diagrams/transform-logical.png){width="80%"}
+
+::: {.centered}
+::: {.note}
+*Source*: Wickham & Grolemund [R for Data Science](http://r4ds.had.co.nz/transform.html)
+:::
+:::
+
+## Logical (Boolean) operators — In action
+
+```{r}
+x <- 2    # Assign 2 to object x
+x == 3    # equals
+x != 3    # unequals
+x < 5     # less than
+x > 5     # greater than
+x <= 5    # less or equal
+x >= 2    # greater or equal
+x > 5 & 6 # greater than 5 and greater than 6
+x > 5 | 1 # greater than 5 or greater then 1
+x >= (5 & 6) | (5 & 1) | (1 & 2) # Complex comparison
+```
+
+## Getting **help**
+
+R has a steep learning curve and is, at times, simply frustrating. The documentation of a specific function can be accessed via typing `?<NAME_OF_FUNCTION>`.
+
+```{r eval = FALSE}
+?seq()
+```
+
+You can find further useful links on the course website.
+
+## Today's general lessons
+
+1. R is an **object**-oriented programming language. Objects are basically containers and they can contain anything: data, functions, other objects, results, figures, and more ... Objects can be called by their name, which needs to start with a letter. If you just type the name of an object, R prints the object.
+2. **Functions** do stuff with objects, which we assign as **values** to a function's **arguments**. What exactly a function does, depends on the **class** of an object. Functions themselves are objects too.
+
+## Operators
+
+1. `?`: View a function's help file.
+2. `#`: defines a **comment** in your code. Comment as much as possible!
+3. `<-`: is the **assignment operator** of R. It creates objects and assigns information to them.
+4. `->`: is the **reversed assignment operator** of R. It also creates objects and assigns information to them.
+5. `+`, `-`, `*`, `\`, `^` : **Arithmetic operators**
+6. `&` "and", `|` "or", `!` "not" : **Logical** (Boolean) **operators**
+
+## Today's (important) functions
+
+1. `class()`: tells you the class of an object.
+
+## Literatur
+
+::: {#refs}
+:::

@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../favicon.ico" rel="icon">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2ff81c2e5dfd9e56c4f590b9591e1eb8.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
+
+  <meta name="author" content="Andreas Haupt">
+  <title>Einführung in R und Quarto</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-82f5a0aee5db2a77883d216d89dc2470.css">
+  <link rel="stylesheet" href="global.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Einführung in R und Quarto</h1>
+  <p class="subtitle">Mixed Effects Multilevel Models</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Andreas Haupt 
+</div>
+</div>
+</div>
+
+</section>
+<section id="lets-get-ready" class="slide level2">
+<h2>Let’s get ready</h2>
+</section>
+<section class="slide level2">
+
+</section>
+<section id="re-scaled-weights-snijdersmultilevelanalysisintroduction2012-ch.-14" class="slide level2">
+<h2>Re-scaled weights <span class="citation" data-cites="snijdersMultilevelAnalysisIntroduction2012">(<a href="#/literatur" role="doc-biblioref" onclick="">Snijders and Bosker 2012</a>, Ch. 14)</span></h2>
+</section>
+<section id="within-and-between-variation" class="slide level2">
+<h2>Within and between variation</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<ul>
+<li>We have 29 clusters (groups or macro units) indexed by <span class="math inline">\(j ( = 1, ..., N)\)</span>.</li>
+<li>The individuals (micro units) are embedded in these clusters, and indexed by <span class="math inline">\(i ( = 1, ..., n_{j})\)</span>.</li>
+<li>Xenophobia is the dependent variable and varies across individuals and clusters: <span class="math inline">\(Y_{ij}\)</span>.</li>
+</ul>
+</div><div class="column" style="width:70%;">
+
+</div></div>
+</section>
+<section class="slide level2">
+
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Plot</a></li><li><a href="#tabset-1-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+
+</div>
+<div id="tabset-1-2">
+
+</div>
+</div>
+</div>
+</section>
+<section id="do-party-positions-predict-how-people-think-about-immigration" class="slide level2">
+<h2>Do party positions <span style="font-size:0.6em">predict how people think about immigration?</span></h2>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="centered">
+<p><strong>But that would be wrong!</strong></p>
+</div>
+<p>One of the critical OLS assumptions is the <em>independence of errors</em>, after all predictors <span class="math inline">\(x_{ij}\)</span> have been taken into account:</p>
+<p><span class="math display">\[\text{Cov}(\epsilon_{i}, \epsilon_{i'} | x_{ij}) = 0\]</span> Breaching this assumptions does not bias <span class="math inline">\(\beta\)</span> estimates. But it renders them less precise and statistical inference as overoptimistic (i.e., standard errors, confidence intervals, and <em>p</em>-values will be too small, and <em>t</em>-values too large).</p>
+</div><div class="column" style="width:50%;">
+
+</div></div>
+</div>
+</section>
+<section id="understanding-the-problem" class="slide level2">
+<h2>Understanding the problem</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>In this simulated example, it is easily visible that the errors of respondents belonging to the same cluster <span class="math inline">\(j\)</span> are correlated: <span class="math inline">\(\text{Cov}(\epsilon_{ij}, \epsilon_{i'j}|x_{ij}) \neq 0\)</span>. In consequence, the conventional OLS standard error will be too small, by a factor of:</p>
+<p><span class="math display">\[\tau \simeq 1 + \rho_{x}\rho_{u}(\bar{N_{g}}-1),\]</span> ::: {.note} where <span class="math inline">\(\rho_{u}\)</span> is the within-cluster error correlation, <span class="math inline">\(\rho_{x}\)</span> is the within-cluster correlation of predictor <span class="math inline">\(x\)</span>, and <span class="math inline">\(\bar{N_{g}}\)</span> is the number of observations per cluster <span class="citation" data-cites="cameronPractitionerGuideClusterRobust2015">(<a href="#/literatur" role="doc-biblioref" onclick="">Cameron and Miller 2015</a>)</span>.</p>
+</div><p>This means, statistical inference will be increasingly overoptimistic:</p><ol type="1">
+<li>The more of remaining variation in <span class="math inline">\(y_{ij}\)</span> (i.e., <span class="math inline">\(e_{ij}\)</span> ) varies across clusters.</li>
+<li>The less a predictor <span class="math inline">\(x_{ij}\)</span> varies within clusters.</li>
+</ol><div class="note">
+<p>Consider our Manifesto variables: They are country-level characteristics and do not very-within out clusters at all; thus they should be badly affected.</p>
+</div>
+</div>
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="12-Mixed_files/figure-revealjs/simu_example-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><p>:::</p>
+</section>
+<section id="understanding-the-problem-1" class="slide level2">
+<h2>Understanding the problem</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>In this simulated example, it is easily visible that the errors of respondents belonging to the same cluster <span class="math inline">\(j\)</span> are correlated: <span class="math inline">\(\text{Cov}(\epsilon_{ij}, \epsilon_{i'j}|x_{ij}) \neq 0\)</span>. In consequence, the conventional OLS standard error will be too small, by a factor of:</p>
+<p><span class="math display">\[\tau \simeq 1 + \rho_{x}\rho_{u}(\bar{N_{g}}-1),\]</span> ::: {.note} where <span class="math inline">\(\rho_{u}\)</span> is the within-cluster error correlation, <span class="math inline">\(\rho_{x}\)</span> is the within-cluster correlation of predictor <span class="math inline">\(x\)</span>, and <span class="math inline">\(\bar{N_{g}}\)</span> is the number of observations per cluster <span class="citation" data-cites="cameronPractitionerGuideClusterRobust2015">(<a href="#/literatur" role="doc-biblioref" onclick="">Cameron and Miller 2015</a>)</span>.</p>
+</div><p>This means, statistical inference will be increasingly overoptimistic:</p><ol type="1">
+<li>The more of remaining variation in <span class="math inline">\(y_{ij}\)</span> (i.e., <span class="math inline">\(e_{ij}\)</span> ) varies across clusters.</li>
+<li>The less a predictor <span class="math inline">\(x_{ij}\)</span> varies within clusters.</li>
+</ol><div class="note">
+<p>Consider our Manifesto variables: They are country-level characteristics and do not very-within out clusters at all; thus they should be badly affected.</p>
+</div>
+</div>
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="12-Mixed_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Is this an analysis of 700 random individuals, or rather of 7 countries?</strong></p>
+</div><p>:::</p>
+</section>
+<section id="our-ess-data" class="slide level2">
+<h2>Our ESS data</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Plot</a></li><li><a href="#tabset-2-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+
+</div>
+<div id="tabset-2-2">
+
+</div>
+</div>
+</div>
+</section>
+<section id="our-ess-manifesto-data" class="slide level2">
+<h2>Our ESS + Manifesto data</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Plot</a></li><li><a href="#tabset-3-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+
+</div>
+<div id="tabset-3-2">
+
+</div>
+</div>
+</div>
+</section>
+<section id="solving-the-problem-the-mixed-model-solution" class="slide level2">
+<h2>Solving the problem <span style="font-size:0.6em">The mixed model solution</span></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="centered">
+<p><em>Micro-level model</em></p>
+</div>
+<p>We start with a micro-level model, which acknowledges that the intercept varies by cluster:</p>
+<p><span class="math display">\[Y_{ij} = \beta_{0 \color{red}{j}} + \beta_{1} x_{1ij} + R_{ij}.\]</span> ::: {.note} - <span class="math inline">\(\beta_{0j}\)</span> are cluster-differences in the average level of the outcome, adjusted for composition effects of the micro-level predictor(s) <span class="math inline">\(x_{1ij}\)</span>. - <span class="math inline">\(x_{1ij}\)</span> is any micro-level predictor along with it’s slope coefficient <span class="math inline">\(\beta_{1}\)</span>. <span class="math inline">\(\beta_{1}\)</span> has no subscript <span class="math inline">\(j\)</span>, which indicates that <span class="math inline">\(\beta_{1}\)</span> is fixed across clusters. - <span class="math inline">\(R_{ij}\)</span> are common <em>random</em> unexplained residuals, with <span class="math inline">\(R_{ij} = \mathcal{N}(0,\sigma^2)\)</span>.</p>
+</div></div>
+<div class="column" style="width:50%;">
+<p><img data-src="images/RandomIntercepts.jpg" style="width:100.0%"></p>
+<div class="centered">
+<div class="note">
+<p><em>Source</em>: <span class="citation" data-cites="snijdersMultilevelAnalysisIntroduction2012">(<a href="#/literatur" role="doc-biblioref" onclick="">Snijders and Bosker 2012, 45</a>)</span></p>
+</div>
+</div>
+</div><p>:::</p>
+</section>
+<section id="solving-the-problem-the-mixed-model-solution-1" class="slide level2">
+<h2>Solving the problem <span style="font-size:0.6em">The mixed model solution</span></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="centered">
+<p><em>Micro-level model</em></p>
+</div>
+<p>We start with a micro-level model, which acknowledges that the intercept varies by cluster:</p>
+<p><span class="math display">\[Y_{ij} = \beta_{0 \color{red}{j}} + \beta_{1} x_{1ij} + R_{ij}.\]</span> ::: {.note} - <span class="math inline">\(\beta_{0j}\)</span> are cluster-differences in the average level of the outcome, adjusted for composition effects of the micro-level predictor(s) <span class="math inline">\(x_{1ij}\)</span>. - <span class="math inline">\(x_{1ij}\)</span> is any micro-level predictor along with it’s slope coefficient <span class="math inline">\(\beta_{1}\)</span>. <span class="math inline">\(\beta_{1}\)</span> has no subscript <span class="math inline">\(j\)</span>, which indicates that <span class="math inline">\(\beta_{1}\)</span> is fixed across clusters. - <span class="math inline">\(R_{ij}\)</span> are common <em>random</em> unexplained residuals, with <span class="math inline">\(R_{ij} = \mathcal{N}(0,\sigma^2)\)</span>.</p>
+</div></div>
+<div class="column" style="width:50%;">
+
+</div><p>:::</p>
+</section>
+<section id="mixed-random-intercept-multilevel-models" class="slide level2">
+<h2>Mixed (random intercept) multilevel models</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="centered">
+<p><em>Micro-level model</em></p>
+</div>
+<p>We start with a micro-level model, which acknowledges that the intercept varies by cluster:</p>
+<p><span class="math display">\[Y_{ij} = \beta_{0 \color{red}{j}} + \beta_{1} x_{1ij} + R_{ij}.\]</span></p>
+<div class="centered">
+<p><em>Macro-level model</em></p>
+</div>
+<p>We continue with a macro-level model that takes the varying intercepts as outcome variable:</p>
+<p><span class="math display">\[\beta_{0 \color{red}{j}} = \gamma_{0} + \gamma_{1} z_{1j} + U_{j}.\]</span> ::: {.note} - <span class="math inline">\(\gamma_{0}\)</span> is the overall mean intercept. - <span class="math inline">\(z_{1j}\)</span> is a macro-level predictor along with its slope coefficient <span class="math inline">\(\gamma_{01}\)</span>. - <span class="math inline">\(U_{j}\)</span> are <em>random</em> unexplained group residuals, with <span class="math inline">\(U_{j} = \mathcal{N}(0,\tau_{0}^2)\)</span>. That is, the cluster-specific deviations from <span class="math inline">\(\gamma_{0}\)</span>.</p>
+</div></div>
+<div class="column" style="width:50%;">
+
+</div><p>:::</p>
+</section>
+<section id="mixed-random-intercept-multilevel-models-1" class="slide level2">
+<h2>Mixed (random intercept) multilevel models</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="centered">
+<p><strong>Random intercept model</strong></p>
+</div>
+<p><span class="math display">\[Y_{ij} = \underbrace{\gamma_{00} + \gamma_{01} z_{1j} + \gamma_{10} x_{1ij}}_{\text{Fixed part}} + \underbrace{U_{0j} + R_{ij}}_{\text{Random part}}.\]</span></p>
+<ul>
+<li><em>Fixed part</em>: The slopes of explanatory micro- and macro-level variables and the overall intercept. These are non-varying point estimates and thus called “fixed.”</li>
+<li><em>Random part</em>: <span class="math inline">\(U_{0j}\)</span> and <span class="math inline">\(R_{ij}\)</span> are assumed to be normally-distributed random variables that are generated by unmeasured processes. They are leftover macro- and micro-level residuals. As random variables, their concrete values remain latent. We therefore only estimate their variances: <span class="math display">\[\begin{align*}
+\text{var}(U_{0j}|X) &amp;= \tau_{0}^2 \text{ (leftover between-cluster variation)}, \\
+\text{var}(R_{ij}|X) &amp;= \sigma^2 \text{ (leftover within-cluster variation)}.\\
+\end{align*}\]</span></li>
+</ul>
+</div><div class="column" style="width:50%;">
+
+</div></div>
+</section>
+<section id="mixed-random-intercept-multilevel-models-2" class="slide level2">
+<h2>Mixed (random intercept) multilevel models</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="centered">
+<p><strong>Random intercept model</strong></p>
+</div>
+<p><span class="math display">\[Y_{ij} = \underbrace{\gamma_{00} + \gamma_{01} z_{1j} + \gamma_{10} x_{1ij}}_{\text{Fixed part}} + \underbrace{U_{0j} + R_{ij}}_{\text{Random part}}.\]</span></p>
+<ul>
+<li><em>Fixed part</em>: The slopes of explanatory micro- and macro-level variables and the overall intercept. These are non-varying point estimates and thus called “fixed.”</li>
+<li><em>Random part</em>: <span class="math inline">\(U_{0j}\)</span> and <span class="math inline">\(R_{ij}\)</span> are assumed to be normally-distributed random variables that are generated by unmeasured processes. They are leftover macro- and micro-level residuals. As random variables, their concrete values remain latent. We therefore only estimate their variances: <span class="math display">\[\begin{align*}
+\text{var}(U_{0j}|X) &amp;= \tau_{0}^2 \text{ (leftover between-cluster variation)}, \\
+\text{var}(R_{ij}|X) &amp;= \sigma^2 \text{ (leftover within-cluster variation)}.\\
+\end{align*}\]</span></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/RandomIntercepts2.png" style="width:90.0%"></p>
+<div class="centered">
+<div class="note">
+<p><em>Source</em>: <a href="http://www.bristol.ac.uk/cmm/software/support/workshops/materials/multilevel-m.html">Bristol Centre for Multilevel Modelling</a></p>
+</div>
+</div>
+</div></div>
+</section>
+<section id="mixed-random-intercept-multilevel-models-3" class="slide level2">
+<h2>Mixed (random intercept) multilevel models</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="centered">
+<p><strong>Random intercept model</strong></p>
+</div>
+<p><span class="math display">\[Y_{ij} = \underbrace{\gamma_{00} + \gamma_{01} z_{1j} + \gamma_{10} x_{1ij}}_{\text{Fixed part}} + \underbrace{U_{0j} + R_{ij}}_{\text{Random part}}.\]</span></p>
+<ul>
+<li><em>Fixed part</em>: The slopes of explanatory micro- and macro-level variables and the overall intercept. These are non-varying point estimates and thus called “fixed.”</li>
+<li><em>Random part</em>: <span class="math inline">\(U_{0j}\)</span> and <span class="math inline">\(R_{ij}\)</span> are assumed to be normally-distributed random variables that are generated by unmeasured processes. They are leftover macro- and micro-level residuals. As random variables, their concrete values remain latent. We therefore only estimate their variances: <span class="math display">\[\begin{align*}
+\text{var}(U_{0j}|X) &amp;= \tau_{0}^2 \text{ (leftover between-cluster variation)}, \\
+\text{var}(R_{ij}|X) &amp;= \sigma^2 \text{ (leftover within-cluster variation)}.\\
+\end{align*}\]</span></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/RandomIntercepts3.png" style="width:90.0%"></p>
+<div class="centered">
+<div class="note">
+<p><em>Source</em>: <a href="http://www.bristol.ac.uk/cmm/software/support/workshops/materials/multilevel-m.html">Bristol Centre for Multilevel Modelling</a></p>
+</div>
+</div>
+</div></div>
+</section>
+<section id="mixed-models-in-r" class="slide level2">
+<h2>Mixed models in R</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Coefplots and predictions (see below) work just the same as for common OLS and logistic regression.</p>
+</div><div class="column" style="width:50%;">
+
+</div></div>
+</section>
+<section id="model-predictions" class="slide level2">
+<h2>Model predictions</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+
+</div><div class="column" style="width:50%;">
+<!-- Currently, `predict()` does not generate predicted standard errors. So we cannot straight forwardly visualize uncertainty. Apart from that, all else remains the same. -->
+</div></div>
+</section>
+<section id="visualize-model-predictions" class="slide level2">
+<h2>Visualize model predictions</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Plot</a></li><li><a href="#tabset-4-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+
+</div>
+<div id="tabset-4-2">
+
+</div>
+</div>
+</div>
+</section>
+<section id="model-predictions-contextual-predictor" class="slide level2">
+<h2>Model predictions <span style="font-size:0.6em">Contextual predictor</span></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+
+</div><div class="column" style="width:50%;">
+
+</div></div>
+</section>
+<section id="visualize-model-predictions-1" class="slide level2">
+<h2>Visualize model predictions</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Plot</a></li><li><a href="#tabset-5-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+
+</div>
+<div id="tabset-5-2">
+
+</div>
+</div>
+</div>
+</section>
+<section id="further-advanced-topics" class="slide level2">
+<h2>Further advanced topics</h2>
+<ol type="1">
+<li>Beware that mixed (random intercept) models don’t work perfectly well if you have <strong>less than 30 clusters</strong>. <span class="citation" data-cites="elffMultilevelAnalysisFew2020">Elff et al. (<a href="#/literatur" role="doc-biblioref" onclick="">2020</a>)</span> discuss the problems in detail.</li>
+<li>Interaction effects between a micro-level variable (e.g., education) and a macro-level characteristic are called <strong>cross-level interactions</strong>. They actually requite a more complex type of mixed (random intercept and slope model). <span class="citation" data-cites="heisigWhyYouShould2019">Heisig and Schaeffer (<a href="#/literatur" role="doc-biblioref" onclick="">2019</a>)</span> discuss these models and how to estimate them correctly in detail.</li>
+</ol>
+</section>
+<section id="logistic-mixed-effects-models" class="slide level2">
+<h2>Logistic mixed effects models</h2>
+<p>The upper-level equation is a simple linear model, but its outcome is <span class="math inline">\(\text{logit}(\alpha_{j})\)</span>!</p>
+<p><span class="math display">\[\begin{align*}
+y_{ij} &amp;= \frac{1}{1 + e^{-(\beta_{0j} + \beta x_{ij})}}, \\
+\beta_{0j} &amp;= \gamma_{00} + \gamma_{01} z_{j} + U_{j}, \\
+y_{ij} &amp;= \frac{1}{1 + e^{-(\gamma_{00} + \gamma_{01} z_{j} + \gamma_{10} x_{ij} + U_{j})}}.
+\end{align*}\]</span></p>
+</section>
+<section class="slide level2">
+
+</section>
+<section class="slide level2">
+
+</section>
+<section id="logistic-mixed-models-in-r" class="slide level2">
+<h2>Logistic mixed models in R</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+
+</div><div class="column" style="width:50%;">
+
+</div></div>
+</section>
+<section id="todays-important-functions" class="slide level2">
+<h2>Today’s (important) functions</h2>
+<ol type="1">
+<li><code>lmer()</code>: Estimate linear mixed effects (multilevel) regression models.</li>
+<li><code>glmer()</code>: Estimate generalized (non-)linear mixed effects (multilevel) regression models for binary, count, or other categorical data.</li>
+</ol>
+</section>
+<section id="literatur" class="slide level2 smaller scrollable">
+<h2>Literatur</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-cameronPractitionerGuideClusterRobust2015" class="csl-entry" role="listitem">
+Cameron, A. Colin, and Douglas L. Miller. 2015. <span>“A <span>Practitioner</span>’s <span>Guide</span> to <span>Cluster</span>-<span>Robust</span> <span>Inference</span>.”</span> <em>Journal of Human Resources</em> 50 (2): 317–72. <a href="https://doi.org/10.3368/jhr.50.2.317">https://doi.org/10.3368/jhr.50.2.317</a>.
+</div>
+<div id="ref-elffMultilevelAnalysisFew2020" class="csl-entry" role="listitem">
+Elff, Martin, Jan Paul Heisig, Merlin Schaeffer, and Susumu Shikano. 2020. <span>“Multilevel <span>Analysis</span> with <span>Few</span> <span>Clusters</span>: <span>Improving</span> <span>Likelihood</span>-<span>Based</span> <span>Methods</span> to <span>Provide</span> <span>Unbiased</span> <span>Estimates</span> and <span>Accurate</span> <span>Inference</span>.”</span> <em>British Journal of Political Science</em>, 1–15. <a href="https://doi.org/10.1017/S0007123419000097">https://doi.org/10.1017/S0007123419000097</a>.
+</div>
+<div id="ref-heisigWhyYouShould2019" class="csl-entry" role="listitem">
+Heisig, Jan Paul, and Merlin Schaeffer. 2019. <span>“Why <span>You</span> <span>Should</span> <span>Always</span> <span>Include</span> a <span>Random</span> <span>Slope</span> for the <span>Lower</span>-<span>Level</span> <span>Variable</span> <span>Involved</span> in a <span>Cross</span>-<span>Level</span> <span>Interaction</span>.”</span> <em>European Sociological Review</em> 35 (2): 258–79. <a href="https://doi.org/10.1093/esr/jcy053">https://doi.org/10.1093/esr/jcy053</a>.
+</div>
+<div id="ref-snijdersMultilevelAnalysisIntroduction2012" class="csl-entry" role="listitem">
+Snijders, Tom A. B., and Roel J. Bosker. 2012. <em>Multilevel <span>Analysis</span>: <span>An</span> <span>Introduction</span> to <span>Basic</span> and <span>Advanced</span> <span>Multilevel</span> <span>Modeling</span></em>. London: Sage.
+</div>
+</div>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/introR\.andreas-haupt\.com");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

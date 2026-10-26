@@ -1,0 +1,6 @@
+---
+title: "Mixed Effects Multilevel Models"
+format: html
+---
+
+{{< revealjs file="12-Mixed.html" height="600px" width="100%" class="ratio ratio-16x9" >}}

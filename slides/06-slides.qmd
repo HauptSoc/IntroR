@@ -1,0 +1,6 @@
+---
+title: "Visualization II"
+format: html
+---
+
+{{< revealjs file="06-Visualization-II.html" height="600px" width="100%" class="ratio ratio-16x9" >}}

@@ -1,9 +1,11 @@
 {
-  "hash": "1ba4c5471431a49f973929d3ddef448b",
+  "hash": "6f64dcfdc0ecdcfb44ba9664de92765b",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"01 – Einführung in R\"\n---\n\n## Lernziele\n\n*(Platzhalter)*\n\n## Inhalte\n\n*(Platzhalter)*\n\n## Übung\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Platzhalter für Code-Beispiele\n```\n:::\n\n",
-    "supporting": [],
+    "markdown": "---\ntitle: \"01 – Sinn und Zweck\"\n---\n\n![Artwork by Allison Horst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/4898fb61-98e9-4923-8725-6813d4de2d82_rw_1920.png?h=f630a201b70bb08cd37af0606f10cc47)\n\n\n## Lernziele\n\n*(Platzhalter)*\n\n## Inhalte\n\n*(Platzhalter)*\n\n## Übung\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Platzhalter für Code-Beispiele\n```\n:::\n\n",
+    "supporting": [
+      "01-einfuehrung-r_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

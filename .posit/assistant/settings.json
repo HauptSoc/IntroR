@@ -26,6 +26,21 @@
     },
     "executeCode": {
       "*": "allow"
+    },
+    "external_directory": {
+      "C:/GIT/Teaching/intro_R/static/1-Hello_R/*": "allow",
+      "C:/GIT/Teaching/intro_R/static/13-RMarkdown/*": "allow",
+      "C:/GIT/Teaching/intro_R/static/9-OLS-I/9-OLS-I_files/*": "allow",
+      "C:/GIT/Teaching/intro_R/static/6-Visualization-II/*": "allow",
+      "C:/GIT/Teaching/intro_R/static/12-Mixed/*": "allow",
+      "C:/GIT/Teaching/intro_R/content/home/*": "allow",
+      "C:/GIT/Teaching/intro_R/data/*": "allow",
+      "C:/GIT/Teaching/intro_R/*": "allow",
+      "C:\\GIT\\Teaching\\Grundlagen EmpSoz\\slides\\images/*": "allow",
+      "C:/GIT/Teaching/Grundlagen EmpSoz/slides/*": "allow"
+    },
+    "task": {
+      "general": "allow"
     }
   }
 }

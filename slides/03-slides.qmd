@@ -1,0 +1,6 @@
+---
+title: "Data Frames & Tibbles"
+format: html
+---
+
+{{< revealjs file="03-Data-Frames.html" height="600px" width="100%" class="ratio ratio-16x9" >}}

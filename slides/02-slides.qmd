@@ -1,0 +1,6 @@
+---
+title: "Vectors"
+format: html
+---
+
+{{< revealjs file="02-Vectors.html" height="600px" width="100%" class="ratio ratio-16x9" >}}

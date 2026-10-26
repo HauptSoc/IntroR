@@ -1,0 +1,6 @@
+---
+title: "Generalized Linear Models (GLM)"
+format: html
+---
+
+{{< revealjs file="11-GLM.html" height="600px" width="100%" class="ratio ratio-16x9" >}}

@@ -30,6 +30,34 @@ website:
             text: "06 – Abschlussprojekt"
       - href: materialien.qmd
         text: Materialien
+      - text: Folien
+        menu:
+          - href: slides/01-slides.qmd
+            text: "01 – Int_R_oduction"
+          - href: slides/02-slides.qmd
+            text: "02 – Vectors"
+          - href: slides/03-slides.qmd
+            text: "03 – Data Frames & Tibbles"
+          - href: slides/04-slides.qmd
+            text: "04 – Visualization I"
+          - href: slides/05-slides.qmd
+            text: "05 – Piping & Grouped Operations"
+          - href: slides/06-slides.qmd
+            text: "06 – Visualization II"
+          - href: slides/07-slides.qmd
+            text: "07 – Pivoting & Joining"
+          - href: slides/08-slides.qmd
+            text: "08 – Principal Component Analysis"
+          - href: slides/09-slides.qmd
+            text: "09 – Linear OLS Regression I"
+          - href: slides/10-slides.qmd
+            text: "10 – Linear OLS Regression II"
+          - href: slides/11-slides.qmd
+            text: "11 – Generalized Linear Models"
+          - href: slides/12-slides.qmd
+            text: "12 – Mixed Effects Models"
+          - href: slides/13-slides.qmd
+            text: "13 – R Markdown"
       - href: ueber.qmd
         text: Über das Seminar
     right:
@@ -49,6 +77,21 @@ website:
           - sitzungen/04-visualisierung.qmd
           - sitzungen/05-quarto-berichte.qmd
           - sitzungen/06-abschlussprojekt.qmd
+      - section: "Folien"
+        contents:
+          - slides/01-slides.qmd
+          - slides/02-slides.qmd
+          - slides/03-slides.qmd
+          - slides/04-slides.qmd
+          - slides/05-slides.qmd
+          - slides/06-slides.qmd
+          - slides/07-slides.qmd
+          - slides/08-slides.qmd
+          - slides/09-slides.qmd
+          - slides/10-slides.qmd
+          - slides/11-slides.qmd
+          - slides/12-slides.qmd
+          - slides/13-slides.qmd
 
   page-footer:
     left: "© 2026 Andreas Haupt"

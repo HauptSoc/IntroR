@@ -1,9 +1,11 @@
 {
-  "hash": "07195035f8c5cbe01bb35d73c57e0f79",
+  "hash": "4724a776656ca5c01e4d3ac12bcdd392",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"02 – Datenstrukturen\"\n---\n\n## Lernziele\n\n*(Platzhalter)*\n\n## Inhalte\n\n*(Platzhalter)*\n\n## Übung\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Platzhalter für Code-Beispiele\n```\n:::\n\n",
-    "supporting": [],
+    "markdown": "---\ntitle: \"02 – Objekte und Verbindungen\"\n---\n\n## Lernziele\n\n*(Platzhalter)*\n\n## Inhalte\n\n*(Platzhalter)*\n\n## Übung\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Platzhalter für Code-Beispiele\n```\n:::\n\n",
+    "supporting": [
+      "02-datenstrukturen_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

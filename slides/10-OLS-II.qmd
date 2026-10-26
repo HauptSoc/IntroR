@@ -1,0 +1,547 @@
+---
+title: "Einführung in R und Quarto"
+subtitle: "Linear OLS Regression II"
+author: "Andreas Haupt"
+bibliography: IntRo.bib
+format:
+  revealjs:
+    theme: style.scss
+    css: global.css
+    slideNumber: true
+    fig-align: center
+editor: source
+execute:
+  echo: false
+  message: false
+  warning: false
+---
+
+## Let's get ready
+
+```{r setup, include = FALSE}
+library(tidyverse) # Add the tidyverse package to my current library.
+library(haven) # Handle labelled data.
+library(essurvey) # Add ESS API package.
+library(ggplot2) # Allows us to create nice figures.
+library(factoextra) # Allows us to visualize PCAs.
+library(psych) # Supports PCA & factor analysis with several useful functions.
+library(estimatr) # Allows us to estimate (cluster-)robust standard errors.
+library(texreg) # Allows us to make nicely-formatted Html & Latex regression tables.
+library(broom) # Allows us to turn parts of model objects into tibbles.
+library(modelr) # Model predictions (can also do resampling).
+```
+
+```{r include = FALSE, eval = FALSE}
+# Import the ESS round 9 data via the API
+ESS <- import_rounds(rounds = 9, ess_email = "merlin.schaeffer@uni-koeln.de", format = "spss")
+```
+
+---
+
+## {}
+
+```{r eval = FALSE}
+ESS <- ESS %>% transmute( # Create new variables and keep only those
+    cntry = as_factor(cntry) %>% fct_relevel("Denmark"), # Country of interview
+    gndr = as_factor(gndr), # Gender
+    agea = zap_labels(agea), # Age
+    facntr = as_factor(facntr), # Father born in cntry
+    mocntr = as_factor(mocntr), # Mother born in cntry
+    imbgeco = max(imbgeco, na.rm = TRUE) - zap_labels(imbgeco),
+    imueclt = max(imueclt, na.rm = TRUE) - zap_labels(imueclt),
+    imwbcnt = max(imwbcnt, na.rm = TRUE) - zap_labels(imwbcnt),
+    pspwght = zap_labels(pspwght),
+    # Parental education (ISCED)
+    eiscedf = zap_labels(eiscedf),
+    eiscedm = zap_labels(eiscedm),
+    par_edu = case_when(
+      # If father's edu is missing but not mother's, take mother's
+      (eiscedf == 55 | is.na(eiscedf)) & eiscedm != 55 & !is.na(eiscedm) ~ eiscedm,
+      # If mother's edu is missing but not father's, take father's
+      (eiscedm == 55 | is.na(eiscedm)) & eiscedf != 55 & !is.na(eiscedf)  ~ eiscedf,
+      # If both are missing, its missing
+      eiscedf == 55 & eiscedm == 55 ~ as.numeric(NA),
+      # For all others, take the average of both parents
+      TRUE ~ (eiscedm + eiscedf) / 2),
+    eduyrs = case_when( # Education
+      eduyrs > 21 ~ 21, # Recode to max 21 years of edu.
+      eduyrs < 9 ~ 9, # Recode to min 9 years of edu.
+      TRUE ~ zap_labels(eduyrs))) %>% # Make it numeric, then
+  dplyr::filter(
+    facntr == "Yes" & mocntr == "Yes" &
+      (cntry == "Denmark" | cntry == "Sweden" | cntry == "Bulgaria" | cntry == "Germany"))
+```
+
+---
+
+## PCA & design matrix
+
+```{r eval = FALSE}
+# Perform pca of three items and write the results into object xeno.
+(xeno <- ESS %>% 
+   prcomp(formula = ~ imbgeco + imueclt + imwbcnt, 
+          data = ., scale = TRUE, center = TRUE,
+          na.action = na.exclude))
+
+# Make a new "xeno" variable and fill it with z-standardized PC1.
+ESS$xeno <- -xeno$x[ , "PC1"] %>% # Take PC1 scores, then
+  scale() %>% # z-standardize (but sometimes returns a "matrix"), then 
+  as.numeric() # turn into numeric vector.
+
+# Design matrix (i.e., tibble of the vars going into out model)
+ESS <- ESS %>%
+  select(cntry, xeno, eduyrs, par_edu, gndr, agea, pspwght) %>%
+  mutate(cntry = fct_drop(cntry)) %>% # Drop unused cntry factor levels, then
+  drop_na() # Casewise deletion.
+```
+
+---
+
+## Morning $\rightarrow$ Afternoon
+
+::: columns
+::: {.column width="30%"}
+**Morning**: OLS allows us to express a continuous outcome as *linear* function of continuous or categorical predictors. We can adjust/control for multiple confounding variables. The estimated linear association is *not conditional* on the level of the control/confounding variables.
+
+**Afternoon**: Conditional and non-linear relationships!
+:::
+
+::: {.column width="70%"}
+```{r eval = FALSE}
+# Run a series of three post-stratification weighted linear OLS models.
+ols1 <- lm_robust(formula = xeno ~ eduyrs, data = ESS, weights = pspwght)
+ols2 <- lm_robust(formula = xeno ~ eduyrs + par_edu, data = ESS, weights = pspwght)
+ols3 <- lm_robust(formula = xeno ~ eduyrs + par_edu + gndr + cntry, data = ESS, weights = pspwght)
+# Report results in a regression table.
+screenreg(list(ols1, ols2, ols3), include.ci = FALSE) 
+```
+:::
+:::
+
+---
+
+## Conditional relations (aka interaction effects)
+
+::: panel-tabset
+## Plot
+
+```{r out.width='60%', fig.height = 4, fig.width = 7, echo = FALSE, eval = FALSE}
+ggplot(data = ESS, 
+       mapping = aes(y = xeno, 
+                     x = eduyrs, 
+                     color = cntry)) +
+  geom_jitter(aes(size = pspwght), alpha = 1/7) +
+  geom_smooth(aes(weight = pspwght), 
+              method = "lm", se = FALSE) +
+  labs(x = "Years of education",
+       y = "Xenophobia",
+       size = "Survey \n weight", 
+       color = "Country") +
+  theme_minimal()
+```
+
+## Code
+
+```{r fig.show = "hide", eval = FALSE}
+ggplot(data = ESS, 
+       mapping = aes(y = xeno, x = eduyrs, color = cntry)) +
+  geom_jitter(aes(size = pspwght), alpha = 1/7) +
+  geom_smooth(aes(weight = pspwght), method = "lm", se = FALSE) +
+  labs(x = "Years of education", y = "Xenophobia", size = "Survey \n weight", color = "Country") +
+  theme_minimal()
+```
+:::
+
+---
+
+## Interaction effects (specify them as what they are: *multiplicative* terms)
+
+::: columns
+::: {.column width="70%"}
+```{r eval = FALSE}
+ols4 <- lm_robust(formula = xeno ~ par_edu + gndr +
+                    eduyrs*cntry,
+                  data = ESS, weights = pspwght)
+screenreg(list(ols3, ols4), include.ci = FALSE) 
+```
+:::
+
+::: {.column width="30%"}
+How do we interpret the estimates correctly?
+
+Why is $\beta_{\text{eduyrs}}$ smaller than in the model without interaction effects?
+
+Why do Bulgarians suddenly seem to have *lower* levels of xenophobia, whereas before they had higher ones?
+:::
+:::
+
+---
+
+## Interaction effects (beware of the scaling of the Xs!)
+
+::: panel-tabset
+## Plot
+
+```{r out.width='60%', fig.height = 4, fig.width = 7, echo = FALSE, eval = FALSE}
+ggplot(data = ESS, 
+       mapping = aes(y = xeno, 
+                     x = eduyrs, 
+                     color = cntry)) +
+  geom_jitter(aes(size = pspwght), alpha = 1/7) +
+  geom_smooth(aes(weight = pspwght), 
+              method = "lm", se = FALSE,
+              # draw line beyond observed cases.
+              fullrange = TRUE) +
+  xlim(c(0, 21)) + # Extend range of x-axis.
+  labs(x = "Years of education",
+       y = "Xenophobia",
+       size = "Survey \n weight", 
+       color = "Country") +
+  theme_minimal()
+```
+
+## Code
+
+```{r fig.show = "hide", eval = FALSE}
+ggplot(data = ESS, 
+       mapping = aes(y = xeno, x = eduyrs, color = cntry)) +
+  geom_jitter(aes(size = pspwght), alpha = 1/7) +
+  geom_smooth(aes(weight = pspwght), method = "lm", se = FALSE,
+              # draw line beyond observed cases.
+              fullrange = TRUE) +
+  xlim(c(0, 21)) + # Extend range of x-axis.
+  labs(x = "Years of education", y = "Xenophobia", size = "Survey \n weight", color = "Country") +
+  theme_minimal()
+```
+:::
+
+---
+
+## Solution: Rescale (e.g., z-standardization)
+
+::: panel-tabset
+## Code
+
+```{r eval = FALSE}
+ESS <- ESS %>% mutate( 
+  # create z-standardized version of continuous predictor.
+  z_eduyrs = scale(eduyrs) %>% as.numeric()
+)
+```
+
+```{r z-standardize, fig.show = "hide", eval = FALSE}
+ggplot(data = ESS, 
+       mapping = aes(y = xeno, x = z_eduyrs, color = cntry)) +
+  geom_jitter(aes(size = pspwght), alpha = 1/7) +
+  geom_vline(xintercept = 0, color = "#901A1E") + 
+  geom_smooth(aes(weight = pspwght), 
+              method = "lm", se = FALSE) +
+  labs(x = "Years of education \n (z-standardized)", y = "Xenophobia", size = "Survey \n weight", color = "Country") +
+  theme_minimal()
+```
+
+## Plot
+
+```{r ref.label = "z-standardize", out.width='60%', fig.height = 4, fig.width = 6, echo = FALSE, eval = FALSE}
+```
+:::
+
+---
+
+## Interaction effects (improved interpretability)
+
+::: columns
+::: {.column width="50%"}
+How do we interpret the estimates correctly?
+```{r ref.label = "z-standardize", out.width='100%', fig.height = 4, fig.width = 6, echo = FALSE, eval = FALSE}
+```
+:::
+
+::: {.column width="50%"}
+```{r eval = FALSE}
+ols4 <- lm_robust(formula = xeno ~ par_edu + gndr +
+                    z_eduyrs*cntry,
+                  data = ESS, weights = pspwght)
+screenreg(list(ols3, ols4), include.ci = FALSE) 
+```
+:::
+:::
+
+---
+
+## Non-linearities? (transform using `I()` and `poly()`)
+
+::: columns
+::: {.column width="50%"}
+`I()` allows you to perform any transformation without a need to change the underlying tibble/design matrix.
+
+`poly()` introduces *orthogonal* polynomials (i.e., squared, and higher degrees). If you don't want them to be orthogonal, you can use the option `raw = TRUE`.
+
+Beware of over-fitting!!
+
+```{r eval = FALSE}
+ols6 <- lm_robust(
+  formula = xeno ~ gndr + cntry + eduyrs +
+    poly(agea, 2, raw = TRUE) +
+    I(log(par_edu)),
+  data = ESS, weights = pspwght)
+```
+:::
+
+::: {.column width="50%"}
+```{r eval = FALSE}
+screenreg(ols6, include.ci = FALSE, digits = 4) 
+```
+:::
+:::
+
+---
+
+## Model visualization (especially for lay audiences!)
+
+::: columns
+::: {.column width="50%"}
+**Step 1**: Generate a synthetic tibble with theoretically-informative values containing all variables of the model you want to visualize. `modelr::data_grid()` generates a tibble with all combinations of the variables you feed to it.
+
+```{r eval = FALSE}
+(synth_data <- ESS %>%
+   # Generate theoretically-informative 
+   # but artificial tibble for predictions.
+   data_grid(eduyrs, par_edu, gndr, agea, cntry))
+```
+:::
+
+::: {.column width="50%"}
+**Step 2**: Alter your new tibble, so that only one predictor of interest varies. Set all others to an informative constant value.
+
+```{r eval = FALSE}
+(synth_data <- synth_data %>%
+   mutate( # Set variables constant that you don't want to vidualize,
+     eduyrs = mean(ESS$eduyrs, na.rm = TRUE),
+     par_edu = mean(ESS$par_edu, na.rm = TRUE),
+     gndr = "Female",
+     cntry = "Denmark") %>% # then
+   unique()) # Drop duplicates.
+```
+:::
+:::
+
+---
+
+## Model predictions
+
+::: columns
+::: {.column width="50%"}
+**Step 3**: Add predictions, that is, apply the estimated model to the synthetic data. Given the synthetic data, what $\hat{y}$ does your model predict?
+
+```{r synth_data, eval = FALSE}
+# Generate predictions and 95% CI, then
+(synth_data <- predict(ols6, newdata = synth_data,
+                       interval = "confidence",
+                       level = 0.95)$fit %>%
+   as_tibble() %>% # Turn into a tibble, then
+   # Add to the synthetic data.
+   bind_cols(synth_data, .)) 
+```
+:::
+
+::: {.column width="50%"}
+```{r ref.label = "synth_data", echo = FALSE, eval = FALSE}
+```
+:::
+:::
+
+---
+
+## Visualize model predictions
+
+::: columns
+::: {.column width="50%"}
+::: panel-tabset
+## Plot
+
+```{r echo = FALSE, out.width='90%', fig.height = 3.5, fig.width = 6, eval = FALSE}
+ggplot(data = synth_data, 
+       aes(y = fit, x = agea)) +
+  geom_ribbon(aes(ymin = lwr, ymax = upr), 
+              alpha = 0.5) +
+  geom_line() +
+  labs(x = "Age",
+  y = "Xenophobia",
+  caption = "(Covariates set to: Women in Denmark \n at mean levels of (parental) education)") + 
+  theme_minimal()
+```
+
+## Code
+
+```{r fig.show = 'hide', eval = FALSE}
+ggplot(data = synth_data, 
+       aes(y = fit, x = agea)) +
+  geom_ribbon(aes(ymin = lwr, ymax = upr), 
+              alpha = 0.5) +
+  geom_line() +
+  labs(x = "Age",
+  y = "Xenophobia",
+  caption = "(Covariates set to: Women in Denmark \n at mean levels of (parental) education)") + 
+  theme_minimal()
+```
+:::
+:::
+
+::: {.column width="50%"}
+```{r eval = FALSE}
+screenreg(ols6, include.ci = FALSE, digits = 4) 
+```
+:::
+:::
+
+---
+
+## One more time ...
+
+::: columns
+::: {.column width="50%"}
+```{r eval = FALSE}
+# Generate synthetic data to visualize parental education
+synth_data <- ESS %>%
+   # Generate theoretically-informative 
+   # but artificial tibble for predictions.
+   data_grid(eduyrs, par_edu, gndr, agea, cntry) %>%
+   mutate( # Set confounders constant at their mean,
+     eduyrs = mean(ESS$eduyrs, na.rm = TRUE),
+     agea = mean(ESS$agea, na.rm = TRUE),
+     gndr = "Female",
+     cntry = "Denmark") %>% # then
+   unique() # Drop duplicates.
+
+# Generate predictions and 95% confidence intervals, then
+synth_data <- predict(ols6, newdata = synth_data,
+                      interval = "confidence",
+                      level=0.95)$fit %>%
+  as_tibble() %>% # Turn into a tibble, then
+  bind_cols(synth_data, .) # Add to the synthetic data.
+```
+:::
+
+::: {.column width="50%"}
+::: panel-tabset
+## Plot
+
+```{r echo = FALSE, out.width='90%', fig.height = 3.5, fig.width = 6, eval = FALSE}
+ggplot(data = synth_data, 
+       aes(y = fit, x = par_edu)) +
+  geom_ribbon(aes(ymin = lwr, ymax = upr), 
+              alpha = 0.5) +
+  geom_line() +
+  labs(x = "Parental education",
+  y = "Xenophobia",
+  caption = "(Covariates set to: Women at mean levels of parental education)") + 
+  theme_minimal()
+```
+
+## Code
+
+```{r fig.show = 'hide', eval = FALSE}
+ggplot(data = synth_data, aes(y = fit, x = par_edu)) +
+  geom_ribbon(aes(ymin = lwr, ymax = upr), alpha = 0.5) +
+  geom_line() +
+  labs(x = "Parental education", y = "Xenophobia", 
+       caption = "(Covariates set to: Women at mean levels of parental education)") + 
+  theme_minimal()
+```
+:::
+:::
+:::
+
+---
+
+## Visualizing interactions
+
+::: columns
+::: {.column width="50%"}
+```{r eval = FALSE}
+# Estimate linear OLS with interaction effect;
+# no z-standardization if you visualize.
+ols7 <- lm_robust(formula = xeno ~ log(par_edu) + gndr + poly(agea, 2) +
+                    eduyrs*cntry,
+                  data = ESS, weights = pspwght)
+
+# Generate synthetic data to 
+# visualize parental education
+synth_data <- ESS %>%
+   # Generate theoretically-informative 
+   # but artificial tibble for predictions.
+   data_grid(par_edu, gndr, cntry, eduyrs, agea) %>%
+   mutate( # Set confounders constant at their mean,
+     # but let both cntry and eduyrs vary.
+     par_edu = mean(ESS$par_edu, na.rm = TRUE),
+     agea = mean(ESS$agea, na.rm = TRUE),
+     gndr = "Female") %>% # then
+   unique() # Drop duplicates.
+
+# Generate predictions and 95% confidence intervals, then
+synth_data <- predict(ols7, newdata = synth_data,
+                      interval = "confidence",
+                      level=0.95)$fit %>%
+  as_tibble() %>% # Turn into a tibble, then
+  bind_cols(synth_data, .) # Add to the synthetic data.
+```
+:::
+
+::: {.column width="50%"}
+```{r echo = FALSE, eval = FALSE}
+print(synth_data, n = 28)
+```
+:::
+:::
+
+---
+
+## Visualizing interactions
+
+::: panel-tabset
+## Plot
+
+```{r echo = FALSE, out.width='65%', fig.height = 3.5, fig.width = 6, eval = FALSE}
+ggplot(data = synth_data, 
+       aes(y = fit, x = eduyrs)) +
+  geom_ribbon(aes(ymin = lwr, ymax = upr, 
+                  fill = cntry),
+              alpha = 0.5) +
+  geom_line(aes(color = cntry)) +
+  labs(x = "Years of education",
+  y = "Xenophobia",
+  caption = "(Covariates set to: Women at mean levels of parental education)") + 
+  theme_minimal()
+```
+
+## Code
+
+```{r fig.show = 'hide', eval = FALSE}
+ggplot(data = synth_data, aes(y = fit, x = eduyrs)) +
+  geom_ribbon(aes(ymin = lwr, ymax = upr, 
+                  fill = cntry),
+              alpha = 0.5) +
+  geom_line(aes(color = cntry)) +
+  labs(x = "Years of education", y = "Xenophobia", 
+       caption = "(Covariates set to: Women at mean levels of parental education)") + 
+  theme_minimal()
+```
+:::
+
+---
+
+## Today's general lessons
+
+1. Linear OLS models are very versatile and can approximate very complex relationships. Theoretically, interaction effects, transformed variables and polynomials allow us to *linearize* any relationship/functional form.
+2. You can formulate conditional and non-linear relationships directly in your model's formula.
+3. It is important to visualize such complex relationships, because regression coefficients alone are hard to interpret. You can do that by making predictions from your model for synthetic data.
+
+---
+
+## Today's (important) functions
+
+1. `I()` allows you to transform predictors in the formula argument of your regression model.
+2. `poly()` allows you to introduce orthogonal polynomials to your model.
+3. `predic()` generates predictions from your model for a tibble that you feed to it.
+4. `modelr::data_grid()` generates synthetic data sets that contain all combinations of variables you feed to it.

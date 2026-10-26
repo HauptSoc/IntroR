@@ -1,0 +1,6 @@
+---
+title: "Principal Component Analysis (PCA)"
+format: html
+---
+
+{{< revealjs file="08-PCA.html" height="600px" width="100%" class="ratio ratio-16x9" >}}

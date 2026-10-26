@@ -7,7 +7,7 @@ resources:
 ## Installation
 
 - [Positron](https://positron.posit.co/download.html) als Anwendungsoberfläche. 
-- [R](https://cloud.r-project.org) als Programmiersprache
+- [R](https://cloud.r-project.org) als Programmiersprache.
 
 Positron enthält schon [Quarto]() als "Motor", in dessen Rahmen auch R ausgeführt werden kann. 
 

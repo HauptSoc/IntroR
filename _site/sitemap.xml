@@ -5,39 +5,119 @@
     <lastmod>2026-09-14T16:45:25.547Z</lastmod>
   </url>
   <url>
-    <loc>https://introR.andreas-haupt.com/sitzungen/06-abschlussprojekt.html</loc>
-    <lastmod>2026-09-14T16:45:25.597Z</lastmod>
+    <loc>https://introR.andreas-haupt.com/slides/13-RMarkdown.html</loc>
+    <lastmod>2026-09-24T09:49:33.145Z</lastmod>
   </url>
   <url>
-    <loc>https://introR.andreas-haupt.com/sitzungen/04-visualisierung.html</loc>
-    <lastmod>2026-09-21T14:36:04.534Z</lastmod>
+    <loc>https://introR.andreas-haupt.com/slides/12-Mixed.html</loc>
+    <lastmod>2026-09-24T13:09:05.275Z</lastmod>
   </url>
   <url>
-    <loc>https://introR.andreas-haupt.com/sitzungen/02-datenstrukturen.html</loc>
-    <lastmod>2026-09-21T14:36:09.331Z</lastmod>
+    <loc>https://introR.andreas-haupt.com/slides/11-GLM.html</loc>
+    <lastmod>2026-09-24T12:52:20.818Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/10-OLS-II.html</loc>
+    <lastmod>2026-09-24T13:06:33.336Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/09-OLS-I.html</loc>
+    <lastmod>2026-09-24T13:04:19.350Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/08-PCA.html</loc>
+    <lastmod>2026-09-24T12:49:40.433Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/07-Pivoting-Joining.html</loc>
+    <lastmod>2026-09-24T13:09:18.112Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/06-slides.html</loc>
+    <lastmod>2026-09-24T09:49:46.469Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/05-Piping.html</loc>
+    <lastmod>2026-09-24T12:53:43.968Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/04-slides.html</loc>
+    <lastmod>2026-09-24T09:49:46.459Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/03-Data-Frames.html</loc>
+    <lastmod>2026-09-24T12:47:00.841Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/02-slides.html</loc>
+    <lastmod>2026-09-24T09:49:46.447Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/01-Hello-R.html</loc>
+    <lastmod>2026-10-26T09:45:07.063Z</lastmod>
   </url>
   <url>
     <loc>https://introR.andreas-haupt.com/materialien.html</loc>
-    <lastmod>2026-09-21T14:35:18.122Z</lastmod>
+    <lastmod>2026-10-25T17:07:44.240Z</lastmod>
   </url>
   <url>
     <loc>https://introR.andreas-haupt.com/index.html</loc>
-    <lastmod>2026-09-21T14:36:02.157Z</lastmod>
+    <lastmod>2026-10-25T17:07:48.727Z</lastmod>
   </url>
   <url>
-    <loc>https://introR.andreas-haupt.com/sitzungen/01-einfuehrung-r.html</loc>
-    <lastmod>2026-09-21T14:36:08.240Z</lastmod>
+    <loc>https://introR.andreas-haupt.com/shownotes.html</loc>
+    <lastmod>2026-10-23T09:44:32.675Z</lastmod>
   </url>
   <url>
-    <loc>https://introR.andreas-haupt.com/sitzungen/03-datenimport-tidyverse.html</loc>
-    <lastmod>2026-09-14T16:45:25.580Z</lastmod>
+    <loc>https://introR.andreas-haupt.com/slides/01-slides.html</loc>
+    <lastmod>2026-09-24T09:49:46.428Z</lastmod>
   </url>
   <url>
-    <loc>https://introR.andreas-haupt.com/sitzungen/05-quarto-berichte.html</loc>
-    <lastmod>2026-09-14T16:45:25.584Z</lastmod>
+    <loc>https://introR.andreas-haupt.com/slides/02-Vectors.html</loc>
+    <lastmod>2026-09-24T09:51:51.161Z</lastmod>
   </url>
   <url>
-    <loc>https://introR.andreas-haupt.com/sitzungen/index.html</loc>
-    <lastmod>2026-09-14T16:45:25.553Z</lastmod>
+    <loc>https://introR.andreas-haupt.com/slides/03-slides.html</loc>
+    <lastmod>2026-09-24T09:49:46.453Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/04-Visualization-I.html</loc>
+    <lastmod>2026-09-24T12:48:00.206Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/05-slides.html</loc>
+    <lastmod>2026-09-24T09:49:46.463Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/06-Visualization-II.html</loc>
+    <lastmod>2026-09-24T12:54:19.082Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/07-slides.html</loc>
+    <lastmod>2026-09-24T09:49:46.474Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/08-slides.html</loc>
+    <lastmod>2026-09-24T09:49:46.478Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/09-slides.html</loc>
+    <lastmod>2026-09-24T09:49:46.480Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/10-slides.html</loc>
+    <lastmod>2026-09-24T09:49:46.480Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/11-slides.html</loc>
+    <lastmod>2026-09-24T09:49:46.480Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/12-slides.html</loc>
+    <lastmod>2026-09-24T09:49:46.499Z</lastmod>
+  </url>
+  <url>
+    <loc>https://introR.andreas-haupt.com/slides/13-slides.html</loc>
+    <lastmod>2026-09-24T09:49:46.505Z</lastmod>
   </url>
 </urlset>

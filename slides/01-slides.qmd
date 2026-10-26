@@ -1,0 +1,6 @@
+---
+title: "Int_R_oduction"
+format: html
+---
+
+{{< revealjs file="01-Hello-R.html" height="600px" width="100%" class="ratio ratio-16x9" >}}
