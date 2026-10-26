@@ -4,18 +4,17 @@ subtitle: "Seminar-Website"
 from: markdown+emoji
 ---
 
-Willkommen zur Seminar-Website **Verstehen, was passiert. Mit R.**
-
+# Willkommen zur Seminar-Website **Verstehen, was passiert. Mit R.**
 
 ![Artwork by Allison Horst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/7ebda7dd-2f29-44a5-b625-0e5de613c9a2_rw_1920.png?h=7c17d6041bb3dc2ae06f84bb45cccb20)
 
 # Das große Ganze
 
-[Verstehen, was passiert. Mit R. Quelle: @wickhamDataScienceImport2023](https://r4ds.hadley.nz/diagrams/data-science/whole-game.png)
+![Verstehen, was passiert. Mit R. Quelle: Wickham et al. (2023) ](https://r4ds.hadley.nz/diagrams/data-science/whole-game.png)
 
 # Wintersemester 
 
 | Folge | Thema | Must read(s) | Folien | (Finger)Übungen | Milestones | Shownotes |
 |:-------:|---------|:-------:|:-------:|:-------:|:-------:|:-------:|
-| 1  | Erst die Frage, dann das R. | [📖](https://shorthand.com/the-craft/science-journalism-examples/index.html#section-qRUiP6igQ0) | [:scroll:]() |  |  | [:computer:](shownotes.qmd#questions-first-r-later) |
+| 1  | Erst die Frage, dann das R. | [📖](https://shorthand.com/the-craft/science-journalism-examples/index.html#section-qRUiP6igQ0) | [:scroll:](slides/01-Hello-R.qmd) |  |  | [:computer:](shownotes.qmd#questions-first-r-later) |
 | 2  |  | [📖](https://shorthand.com/the-craft/science-journalism-examples/index.html#section-qRUiP6igQ0) | [:scroll:]() |  |  | [:computer:]() |

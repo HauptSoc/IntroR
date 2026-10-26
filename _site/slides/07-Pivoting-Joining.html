@@ -1,209 +1,458 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<link href="../favicon.ico" rel="icon">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Andreas Haupt">
+
+<title>Einführung in R und Quarto</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2ff81c2e5dfd9e56c4f590b9591e1eb8.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.27">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-49a824ff064150fa59632921ab93e189.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-49a824ff064150fa59632921ab93e189.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-7e4d2ef87cf748f2a4a4139bb399cdc2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-16a155b2c95cf315c35e587df34a558e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css2?family=Fira+Sans" type="text/css">
+<link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css2?family=Fira+Code" type="text/css">
 
-  <meta name="author" content="Andreas Haupt">
-  <title>Einführung in R und Quarto</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-      vertical-align: middle;
-    }
-    /* CSS for citations */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-      margin-bottom: 0em;
-    }
-    .hanging-indent div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-82f5a0aee5db2a77883d216d89dc2470.css">
-  <link rel="stylesheet" href="global.css">
-  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
-    .reveal div.sourceCode {
-      margin: 0;
-      overflow: auto;
-    }
-    .reveal div.hanging-indent {
-      margin-left: 1em;
-      text-indent: -1em;
-    }
-    .reveal .slide:not(.center) {
-      height: 100%;
-    }
-    .reveal .slide.scrollable {
-      overflow-y: auto;
-    }
-    .reveal .footnotes {
-      height: 100%;
-      overflow-y: auto;
-    }
-    .reveal .slide .absolute {
-      position: absolute;
-      display: block;
-    }
-    .reveal .footnotes ol {
-      counter-reset: ol;
-      list-style-type: none; 
-      margin-left: 0;
-    }
-    .reveal .footnotes ol li:before {
-      counter-increment: ol;
-      content: counter(ol) ". "; 
-    }
-    .reveal .footnotes ol li > p:first-child {
-      display: inline-block;
-    }
-    .reveal .slide ul,
-    .reveal .slide ol {
-      margin-bottom: 0.5em;
-    }
-    .reveal .slide ul li,
-    .reveal .slide ol li {
-      margin-top: 0.4em;
-      margin-bottom: 0.2em;
-    }
-    .reveal .slide ul[role="tablist"] li {
-      margin-bottom: 0;
-    }
-    .reveal .slide ul li > *:first-child,
-    .reveal .slide ol li > *:first-child {
-      margin-block-start: 0;
-    }
-    .reveal .slide ul li > *:last-child,
-    .reveal .slide ol li > *:last-child {
-      margin-block-end: 0;
-    }
-    .reveal .slide .columns:nth-child(3) {
-      margin-block-start: 0.8em;
-    }
-    .reveal blockquote {
-      box-shadow: none;
-    }
-    .reveal .tippy-content>* {
-      margin-top: 0.2em;
-      margin-bottom: 0.7em;
-    }
-    .reveal .tippy-content>*:last-child {
-      margin-bottom: 0.2em;
-    }
-    .reveal .slide > img.stretch.quarto-figure-center,
-    .reveal .slide > img.r-stretch.quarto-figure-center {
-      display: block;
-      margin-left: auto;
-      margin-right: auto; 
-    }
-    .reveal .slide > img.stretch.quarto-figure-left,
-    .reveal .slide > img.r-stretch.quarto-figure-left  {
-      display: block;
-      margin-left: 0;
-      margin-right: auto; 
-    }
-    .reveal .slide > img.stretch.quarto-figure-right,
-    .reveal .slide > img.r-stretch.quarto-figure-right  {
-      display: block;
-      margin-left: auto;
-      margin-right: 0; 
-    }
-  </style>
+
 </head>
-<body class="quarto-light">
-  <div class="reveal">
-    <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Einführung in R und Quarto</h1>
-  <p class="subtitle">Pivoting &amp; Joining</p>
+<body class="nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = true;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
-<div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Andreas Haupt 
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Einführung in R und Quarto</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../materialien.html"> 
+<span class="menu-text">Materialien</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-folien" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Folien</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-folien">    
+        <li>
+    <a class="dropdown-item" href="../slides/01-slides.html">
+ <span class="dropdown-text">01 – Int_R_oduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/02-slides.html">
+ <span class="dropdown-text">02 – Vectors</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/03-slides.html">
+ <span class="dropdown-text">03 – Data Frames &amp; Tibbles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/04-slides.html">
+ <span class="dropdown-text">04 – Visualization I</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/05-slides.html">
+ <span class="dropdown-text">05 – Piping &amp; Grouped Operations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/06-slides.html">
+ <span class="dropdown-text">06 – Visualization II</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/07-slides.html">
+ <span class="dropdown-text">07 – Pivoting &amp; Joining</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/08-slides.html">
+ <span class="dropdown-text">08 – Principal Component Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/09-slides.html">
+ <span class="dropdown-text">09 – Linear OLS Regression I</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/10-slides.html">
+ <span class="dropdown-text">10 – Linear OLS Regression II</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/11-slides.html">
+ <span class="dropdown-text">11 – Generalized Linear Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/12-slides.html">
+ <span class="dropdown-text">12 – Mixed Effects Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/13-slides.html">
+ <span class="dropdown-text">13 – R Markdown</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../ueber.html"> 
+<span class="menu-text">Über das Seminar</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="07-Pivoting-Joining.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Einführung in R und Quarto</h1>
+<p class="subtitle lead">Pivoting &amp; Joining</p>
 </div>
 
-</section>
-<section id="reshaping" class="slide level2">
-<h2>Reshaping</h2>
 
-<img data-src="https://www.fromthebottomoftheheap.net/assets/img/posts/tidyr-longer-wider.gif" style="width:45.0%" class="r-stretch"><div class="centered">
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Andreas Haupt </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="reshaping" class="level2">
+<h2 class="anchored" data-anchor-id="reshaping">Reshaping</h2>
+<p><img src="https://www.fromthebottomoftheheap.net/assets/img/posts/tidyr-longer-wider.gif" class="img-fluid" style="width:45.0%"></p>
+<div class="centered">
 <div class="note">
 <p><em>Source</em>: Garrick Aden-Buie’s (@grrrck) <a href="https://github.com/gadenbuie/tidyexplain">Tidy Animated Verbs</a> modified by Mara Averick (@dataandme).</p>
 </div>
 </div>
+<hr>
 </section>
-<section id="section" class="slide level2" data-background-image="https://www.eubulletin.com/wp-content/uploads/2017/12/European-WomenRights-620x280.jpg">
-<h2></h2>
+<section id="section" class="level2" data-background-image="https://www.eubulletin.com/wp-content/uploads/2017/12/European-WomenRights-620x280.jpg">
+<h2 data-background-image="https://www.eubulletin.com/wp-content/uploads/2017/12/European-WomenRights-620x280.jpg" class="anchored" data-anchor-id="section"></h2>
 <p><strong>Are countries in which more persons of immigrant origin report to face religious discrimination, also characterized by more women of native-born parents reporting gender discrimination?</strong></p>
 </section>
-<section id="lets-get-ready" class="slide level2">
-<h2>Let’s get ready</h2>
+<section id="lets-get-ready" class="level2">
+<h2 class="anchored" data-anchor-id="lets-get-ready">Let’s get ready</h2>
 </section>
-<section id="lets-get-ready-1" class="slide level2">
-<h2>Let’s get ready</h2>
+<section id="lets-get-ready-1" class="level2">
+<h2 class="anchored" data-anchor-id="lets-get-ready-1">Let’s get ready</h2>
 </section>
-<section id="grouped-operation" class="slide level2 smaller">
-<h2>Grouped operation</h2>
+<section id="grouped-operation" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="grouped-operation">Grouped operation</h2>
 <p>Along two dimensions</p>
 </section>
-<section id="grouped-operation-1" class="slide level2 smaller">
-<h2>Grouped operation</h2>
+<section id="grouped-operation-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="grouped-operation-1">Grouped operation</h2>
 <p>Along two dimensions</p>
-<div class="fragment">
+<p>. . .</p>
 <p>But we cannot answer: “Are countries in which more persons of immigrant origin report to face religious discrimination, also characterized by more women of native-born parents reporting gender discrimination?”</p>
 <p>Our data have country-groups as observational unit; <strong>the values we want to correlate are in different rows!</strong></p>
-</div>
 </section>
-<section id="pivot-wider" class="slide level2 smaller">
-<h2>Pivot wider</h2>
+<section id="pivot-wider" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="pivot-wider">Pivot wider</h2>
 <p>(i.e., reshape to wide)</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>pivot wider is used, when what you want to have as observational unit, here the country, is found in several rows.</p>
 </div><div class="column" style="width:50%;">
 <p>We want to widen the data, so that there is only one row per country and several discrimination variables - one for each comparison group.</p>
-</div></div>
+</div>
+</div>
 </section>
-<section id="pivot_widernames_from-values_from" class="slide level2">
-<h2><code>pivot_wider(names_from, values_from)</code></h2>
+<section id="pivot_widernames_from-values_from" class="level2">
+<h2 class="anchored" data-anchor-id="pivot_widernames_from-values_from"><code>pivot_wider(names_from, values_from)</code></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>We want to widen the data, so that there is only one row per country and several discrimination variables - one for each comparison group.</p>
@@ -212,19 +461,16 @@ Andreas Haupt
 <li><code>names_from</code>: The column to take variable names from.</li>
 <li><code>values_from</code>: The column to take values from.</li>
 </ul>
-</div></div>
-</section>
-<section class="slide level2">
-
-
-<img data-src="https://www.fromthebottomoftheheap.net/assets/img/posts/tidyr-longer-wider.gif" style="width:50.0%" class="r-stretch"><div class="centered">
+</div>
+</div>
+<hr>
+<p><img src="https://www.fromthebottomoftheheap.net/assets/img/posts/tidyr-longer-wider.gif" class="img-fluid" style="width:50.0%"></p>
+<div class="centered">
 <div class="note">
 <p><em>Source</em>: Garrick Aden-Buie’s (@grrrck) <a href="https://github.com/gadenbuie/tidyexplain">Tidy Animated Verbs</a> modified by Mara Averick (@dataandme).</p>
 </div>
 </div>
-</section>
-<section class="slide level2">
-
+<hr>
 <div class="centered">
 <p><strong>Are countries in which more persons of immigrant origin report to face religious discrimination, also characterized by more women of native-born parents reporting gender discrimination?</strong></p>
 </div>
@@ -233,57 +479,62 @@ Andreas Haupt
 
 </div><div class="column" style="width:50%;">
 
-</div></div>
+</div>
+</div>
 </section>
-<section id="pivot_longernames_to-values_to" class="slide level2">
-<h2><code>pivot_longer(names_to, values_to)</code></h2>
+<section id="pivot_longernames_to-values_to" class="level2">
+<h2 class="anchored" data-anchor-id="pivot_longernames_to-values_to"><code>pivot_longer(names_to, values_to)</code></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 
 </div><div class="column" style="width:50%;">
 <p><strong>Note that <code>cntry</code> is simply repeated!</strong></p>
-</div></div>
+</div>
+</div>
 </section>
-<section id="complex-reshapes" class="slide level2">
-<h2>Complex reshapes</h2>
+<section id="complex-reshapes" class="level2">
+<h2 class="anchored" data-anchor-id="complex-reshapes">Complex reshapes</h2>
 <p>Our original country data had more than one variable which we might want to pivot.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 
 </div><div class="column" style="width:50%;">
 
-</div></div>
+</div>
+</div>
 </section>
-<section id="complex-reshapes-1" class="slide level2 smaller">
-<h2>Complex reshapes</h2>
+<section id="complex-reshapes-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="complex-reshapes-1">Complex reshapes</h2>
 <p>step one</p>
+<hr>
 </section>
-<section id="section-1" class="slide level2" data-background-image="https://d33wubrfki0l68.cloudfront.net/245292d1ea724f6c3fd8a92063dcd7bfb9758d02/5751b/diagrams/relational-nycflights.png">
-<h2></h2>
+<section id="section-1" class="level2" data-background-image="https://d33wubrfki0l68.cloudfront.net/245292d1ea724f6c3fd8a92063dcd7bfb9758d02/5751b/diagrams/relational-nycflights.png">
+<h2 data-background-image="https://d33wubrfki0l68.cloudfront.net/245292d1ea724f6c3fd8a92063dcd7bfb9758d02/5751b/diagrams/relational-nycflights.png" class="anchored" data-anchor-id="section-1"></h2>
 <p><strong>Relational data</strong></p>
 </section>
-<section id="relational-data" class="slide level2">
-<h2><strong>Relational data</strong></h2>
+<section id="relational-data" class="level2">
+<h2 class="anchored" data-anchor-id="relational-data"><strong>Relational data</strong></h2>
 <p>If you work with multiple data frames, you work with relational data — if the different data frames are somehow related, that is, <strong>if they have some variable(s) in common</strong>.</p>
-
-<img data-src="https://d33wubrfki0l68.cloudfront.net/245292d1ea724f6c3fd8a92063dcd7bfb9758d02/5751b/diagrams/relational-nycflights.png" style="width:60.0%" class="r-stretch"></section>
-<section id="public-opinion-and-party-manifesto-data" class="slide level2">
-<h2>Public opinion and party manifesto data</h2>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/245292d1ea724f6c3fd8a92063dcd7bfb9758d02/5751b/diagrams/relational-nycflights.png" class="img-fluid" style="width:60.0%"></p>
+</section>
+<section id="public-opinion-and-party-manifesto-data" class="level2">
+<h2 class="anchored" data-anchor-id="public-opinion-and-party-manifesto-data">Public opinion and party manifesto data</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><img data-src="https://www.europeansocialsurvey.org/docs/img/general_banner.jpg" style="width:87.0%"></p>
+<p><img src="https://www.europeansocialsurvey.org/docs/img/general_banner.jpg" class="img-fluid" style="width:87.0%"></p>
 </div><div class="column" style="width:50%;">
-<p><img data-src="https://manifesto-project.wzb.eu/assets/logo_trans_v3_2-e1b1b6e8ace5908f1b0da7bbe4515954.png" style="width:90.0%"></p>
-<p><img data-src="images/ManifestoMap.png" style="width:90.0%"></p>
-</div></div>
+<p><img src="https://manifesto-project.wzb.eu/assets/logo_trans_v3_2-e1b1b6e8ace5908f1b0da7bbe4515954.png" class="img-fluid" style="width:90.0%"></p>
+<p><img src="images/ManifestoMap.png" class="img-fluid" style="width:90.0%"></p>
+</div>
+</div>
 </section>
-<section id="what-are-the-manifesto-data" class="slide level2">
-<h2>What are the Manifesto data?</h2>
+<section id="what-are-the-manifesto-data" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-the-manifesto-data">What are the Manifesto data?</h2>
 <div class="columns">
 <div class="column" style="width:30%;">
-<p><img data-src="images/Manifesto.png" style="width:100.0%"></p>
+<p><img src="images/Manifesto.png" class="img-fluid" style="width:100.0%"></p>
 </div><div class="column" style="width:70%;">
-<blockquote>
+<blockquote class="blockquote">
 <p>A quasi-sentence is a single statement. A grammatical sentence can contain more than one quasi sentence, but a quasi-sentence can never span over more than one grammatical sentence.</p>
 </blockquote>
 <div class="note">
@@ -291,7 +542,7 @@ Andreas Haupt
 <p><em>Source</em>: <a href="https://manifesto-project.wzb.eu/tutorials/primer">A short primer on the Manifesto Project and its methodology</a></p>
 </div>
 </div>
-<blockquote>
+<blockquote class="blockquote">
 <p>[…] President Obama has already signed into law $2 trillion in spending reductions as part of a balanced plan to reduce our deficits by over $4 trillion over the next decade // while taking immediate steps to strengthen the economy now. // This approach includes tough spending cuts that will bring annual domestic spending to its lowest level as a share of the economy in 50 years, // while still allowing us to make investments that benefit the middle class now // and reduce our deficit over a decade. […]</p>
 </blockquote>
 <div class="note">
@@ -299,98 +550,103 @@ Andreas Haupt
 <p><em>Source</em>: Democratic Party (US), Extract from 2012 Electoral Platform</p>
 </div>
 </div>
-</div></div>
-<p>Data source: <span class="citation" data-cites="volkensManifestoDataCollection2018">(<a href="#/literatur" role="doc-biblioref" onclick="">Volkens et al. 2018</a>)</span></p>
+</div>
+</div>
+<p>Data source: <span class="citation" data-cites="volkensManifestoDataCollection2018">(<a href="#ref-volkensManifestoDataCollection2018" role="doc-biblioref">Volkens et al. 2018</a>)</span></p>
 </section>
-<section id="register" class="slide level2">
-<h2>Register</h2>
+<section id="register" class="level2">
+<h2 class="anchored" data-anchor-id="register">Register</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><a href="https://manifesto-project.wzb.eu/signup">Sign up</a> for access to the Manifesto Project database and API (<code>manifestoR</code>).</p>
 </div><div class="column" style="width:50%;">
 <p>After registration, log in and access your profile:</p>
-<p><img data-src="images/APIkey.png" style="width:100.0%"></p>
+<p><img src="images/APIkey.png" class="img-fluid" style="width:100.0%"></p>
 <p>Then generate an API key, download the txt file containing it, and save it into your R folder for this course.</p>
-</div></div>
+</div>
+</div>
 </section>
-<section id="register-continued" class="slide level2">
-<h2>Register (continued)</h2>
+<section id="register-continued" class="level2">
+<h2 class="anchored" data-anchor-id="register-continued">Register (continued)</h2>
 </section>
-<section id="multiculturalism-over-time" class="slide level2">
-<h2>Multiculturalism over time</h2>
+<section id="multiculturalism-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="multiculturalism-over-time">Multiculturalism over time</h2>
 </section>
-<section id="multiculturalism-over-time-negative" class="slide level2">
-<h2>Multiculturalism over time (negative)</h2>
+<section id="multiculturalism-over-time-negative" class="level2">
+<h2 class="anchored" data-anchor-id="multiculturalism-over-time-negative">Multiculturalism over time (negative)</h2>
 </section>
-<section id="multiculturalism-over-time-net" class="slide level2">
-<h2>Multiculturalism over time (net)</h2>
+<section id="multiculturalism-over-time-net" class="level2">
+<h2 class="anchored" data-anchor-id="multiculturalism-over-time-net">Multiculturalism over time (net)</h2>
 </section>
-<section id="section-2" class="slide level2 center">
-<h2></h2>
+<section id="section-2" class="level2 center">
+<h2 class="center anchored" data-anchor-id="section-2"></h2>
 <p><strong>Does the current average (vote-share weighted) multicultural orientation of parties in a country predict persons of immigrant origin’s reports about religious discrimination?</strong></p>
 </section>
-<section id="data-preparation" class="slide level2">
-<h2>Data preparation</h2>
+<section id="data-preparation" class="level2">
+<h2 class="anchored" data-anchor-id="data-preparation">Data preparation</h2>
 </section>
-<section id="average-multicultural-orientation-by-country" class="slide level2">
-<h2>Average multicultural orientation by country</h2>
+<section id="average-multicultural-orientation-by-country" class="level2">
+<h2 class="anchored" data-anchor-id="average-multicultural-orientation-by-country">Average multicultural orientation by country</h2>
 </section>
-<section id="relational-data-1" class="slide level2">
-<h2><strong>Relational data</strong></h2>
+<section id="relational-data-1" class="level2">
+<h2 class="anchored" data-anchor-id="relational-data-1"><strong>Relational data</strong></h2>
 <p>Our two data frames are related, because we have data from several <em>countries</em>. Country is the key that allows us to relate both data frames. A <strong>key</strong> identifies a single observational unit in a data frame. From the perspective of the ESS, <code>cntry</code> is the <strong>primary key</strong>, and <code>countryname</code> is the <strong>foreign key</strong>. <strong>If we can <em>harmonize the primary and foreign key</em>, we can join/merge the data.</strong></p>
 <div class="columns">
 <div class="column" style="width:50%;">
 
 </div><div class="column" style="width:50%;">
 
-</div></div>
+</div>
+</div>
 </section>
-<section id="joinmerge" class="slide level2 smaller">
-<h2><strong>Join</strong>/merge</h2>
+<section id="joinmerge" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="joinmerge"><strong>Join</strong>/merge</h2>
 <p>four different types</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><img data-src="https://raw.githubusercontent.com/gadenbuie/tidyexplain/master/images/inner-join.gif" style="width:90.0%"></p>
+<p><img src="https://raw.githubusercontent.com/gadenbuie/tidyexplain/master/images/inner-join.gif" class="img-fluid" style="width:90.0%"></p>
 <div class="note">
 <div class="centered">
 <p><em>Source</em>: <a href="https://github.com/gadenbuie/tidyexplain">Tidy Animated Verbs</a></p>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<p><img data-src="https://raw.githubusercontent.com/gadenbuie/tidyexplain/master/images/left-join.gif" style="width:90.0%"></p>
+<p><img src="https://raw.githubusercontent.com/gadenbuie/tidyexplain/master/images/left-join.gif" class="img-fluid" style="width:90.0%"></p>
 <div class="note">
 <div class="centered">
 <p><em>Source</em>: <a href="https://github.com/gadenbuie/tidyexplain">Tidy Animated Verbs</a></p>
 </div>
 </div>
-</div></div>
+</div>
+</div>
 </section>
-<section id="joinmerge-1" class="slide level2 smaller">
-<h2><strong>Join</strong>/merge</h2>
+<section id="joinmerge-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="joinmerge-1"><strong>Join</strong>/merge</h2>
 <p>four different types</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><img data-src="https://raw.githubusercontent.com/gadenbuie/tidyexplain/master/images/right-join.gif" style="width:90.0%"></p>
+<p><img src="https://raw.githubusercontent.com/gadenbuie/tidyexplain/master/images/right-join.gif" class="img-fluid" style="width:90.0%"></p>
 <div class="note">
 <div class="centered">
 <p><em>Source</em>: <a href="https://github.com/gadenbuie/tidyexplain">Tidy Animated Verbs</a></p>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<p><img data-src="https://raw.githubusercontent.com/gadenbuie/tidyexplain/master/images/full-join.gif" style="width:90.0%"></p>
+<p><img src="https://raw.githubusercontent.com/gadenbuie/tidyexplain/master/images/full-join.gif" class="img-fluid" style="width:90.0%"></p>
 <div class="note">
 <div class="centered">
 <p><em>Source</em>: <a href="https://github.com/gadenbuie/tidyexplain">Tidy Animated Verbs</a></p>
 </div>
 </div>
-</div></div>
+</div>
+</div>
 </section>
-<section id="inner-joinmerge" class="slide level2">
-<h2>Inner join/merge</h2>
+<section id="inner-joinmerge" class="level2">
+<h2 class="anchored" data-anchor-id="inner-joinmerge">Inner join/merge</h2>
 <p>Now that we have a shared key, we can join one data frame to the other. Our primary data are ESS_cntry, because it contains our outcome: Perceived discrimination. We want to join multiculturalist orientations of parties, but only for the countries for which we have an outcome.</p>
 </section>
-<section id="does-multiculturalism-predict-discrimination" class="slide level2">
-<h2>Does multiculturalism predict discrimination?</h2>
+<section id="does-multiculturalism-predict-discrimination" class="level2">
+<h2 class="anchored" data-anchor-id="does-multiculturalism-predict-discrimination">Does multiculturalism predict discrimination?</h2>
 <div class="centered">
 <p><strong>Does the current average (vote-share weighted) multicultural orientation of parties in a country predict persons of immigrant origin’s reports about religious discrimination?</strong></p>
 </div>
@@ -399,41 +655,44 @@ Andreas Haupt
 
 </div><div class="column" style="width:50%;">
 
-</div></div>
+</div>
+</div>
 </section>
-<section id="one-to-many-joins" class="slide level2">
-<h2><strong>One-to-many joins</strong></h2>
+<section id="one-to-many-joins" class="level2">
+<h2 class="anchored" data-anchor-id="one-to-many-joins"><strong>One-to-many joins</strong></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>So far, our primary and foreign keys identified only one observation in each data frame. But you can also join one to many or many to one. An example is to join the average multiculturalist orientation of parties in one country to each ESS respondent in that country.</p>
 </div><div class="column" style="width:50%;">
-<p><img data-src="https://raw.githubusercontent.com/gadenbuie/tidyexplain/master/images/left-join-extra.gif" style="width:90.0%"></p>
+<p><img src="https://raw.githubusercontent.com/gadenbuie/tidyexplain/master/images/left-join-extra.gif" class="img-fluid" style="width:90.0%"></p>
 <div class="note">
 <div class="centered">
 <p><em>Source</em>: <a href="https://github.com/gadenbuie/tidyexplain">Tidy Animated Verbs</a></p>
 </div>
 </div>
-</div></div>
+</div>
+</div>
 </section>
-<section id="many-to-many-joins" class="slide level2 smaller">
-<h2><strong>Many-to-many joins</strong></h2>
+<section id="many-to-many-joins" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="many-to-many-joins"><strong>Many-to-many joins</strong></h2>
 <p>Be careful!</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>If neither the primary nor the foreign key are unique in their data frames, <strong>join probably does something that you do not want!</strong> It will return all possible combinations, and thereby inflate the number of observations.</p>
 </div><div class="column" style="width:50%;">
-<p><img data-src="https://d33wubrfki0l68.cloudfront.net/d37530bbf7749f48c02684013ae72b2996b07e25/37510/diagrams/join-many-to-many.png" style="width:100.0%"></p>
-</div></div>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/d37530bbf7749f48c02684013ae72b2996b07e25/37510/diagrams/join-many-to-many.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
 </section>
-<section id="todays-general-lessons" class="slide level2">
-<h2>Today’s general lessons</h2>
+<section id="todays-general-lessons" class="level2">
+<h2 class="anchored" data-anchor-id="todays-general-lessons">Today’s general lessons</h2>
 <ol type="1">
 <li>If we group data by several groups (e.g., countries and gender, or ethnicity and religion), we sometimes need to tidy/reshape data for our analyses. We might need to <em>spread</em> data (reshape from long to wide) into several columns.</li>
 <li>Oftentimes we work with several data frames/tibbles. If they have some variables in common (e.g., time, place, type) they are <em>relational data</em>, because via that shared characteristic they are related. Relational data can me joined/merged via key variables. One-to-one joins are the easiest, but even one-to-many and many-to-many joins are possible. This means, for instance, you can join about every existing country information to your ESS data, or any party information to your Manifesto data.</li>
 </ol>
 </section>
-<section id="todays-important-functions" class="slide level2">
-<h2>Today’s (important) functions</h2>
+<section id="todays-important-functions" class="level2">
+<h2 class="anchored" data-anchor-id="todays-important-functions">Today’s (important) functions</h2>
 <ol type="1">
 <li><code>spread()</code>: Reshapes the data if what you want as observational unit is found in several rows. It takes the values of a <em>key</em> variable and turns those into new columns across which cells the values of a <em>value</em> variable are spread.</li>
 <li><code>gather()</code>: The opposite of spread.</li>
@@ -441,8 +700,8 @@ Andreas Haupt
 <li>…<code>_join()</code>: joins a tibble to another tibble. There are different types of join functions. Probably the most useful one is <code>left_join()</code>, which joins a tibble to your primary tibble and keeps only rows that were in your primary tibble to begin with.</li>
 </ol>
 </section>
-<section id="literatur" class="slide level2 smaller scrollable">
-<h2>Literatur</h2>
+<section id="literatur" class="level2">
+<h2 class="anchored" data-anchor-id="literatur">Literatur</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-volkensManifestoDataCollection2018" class="csl-entry" role="listitem">
 Volkens, Andrea, Pola Lehmann, Matthieß Theres, Nicolas Merz, Sven Regel, and Bernhard Weßels. 2018. <em>The <span>Manifesto</span> <span>Data</span> <span>Collection</span>. <span>Manifesto</span> <span>Project</span> (<span>MRG</span>/<span>CMP</span>/<span>MARPOR</span>). <span>Version</span> 2018a</em>. Berlin: Wissenschaftszentrum Berlin für Sozialforschung (WZB). <a href="https://doi.org/10.25522/manifesto.mpds.2018a">https://doi.org/10.25522/manifesto.mpds.2018a</a>.
@@ -451,465 +710,513 @@ Volkens, Andrea, Pola Lehmann, Matthieß Theres, Nicolas Merz, Sven Regel, and B
 
 
 </section>
-    </div>
-  <div class="quarto-auto-generated-content" style="display: none;">
-<div class="footer footer-default">
 
-</div>
-</div></div>
+</main> <!-- /main -->
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../site_libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
-  
 
-  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+<script>
 
-  <script>
+  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
 
-      // Full list of configuration options available at:
-      // https://revealjs.com/config/
-      Reveal.initialize({
-'controlsAuto': true,
-'previewLinksAuto': false,
-'pdfSeparateFragments': false,
-'autoAnimateEasing': "ease",
-'autoAnimateDuration': 1,
-'autoAnimateUnmatched': true,
-'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'smaller': false,
- 
-        // Display controls in the bottom right corner
-        controls: false,
+  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
 
-        // Help the user learn the controls by providing hints, for example by
-        // bouncing the down arrow when they first encounter a vertical slide
-        controlsTutorial: false,
+  // slide changes (different for each slide format).
 
-        // Determines where controls appear, "edges" or "bottom-right"
-        controlsLayout: 'edges',
+  (function () {
 
-        // Visibility rule for backwards navigation arrows; "faded", "hidden"
-        // or "visible"
-        controlsBackArrows: 'faded',
+    // dispatch for htmlwidgets
 
-        // Display a presentation progress bar
-        progress: true,
+    function fireSlideEnter() {
 
-        // Display the page number of the current slide
-        slideNumber: 'c/t',
+      const event = window.document.createEvent("Event");
 
-        // 'all', 'print', or 'speaker'
-        showSlideNumber: 'all',
+      event.initEvent("slideenter", true, true);
 
-        // Add the current slide number to the URL hash so that reloading the
-        // page/copying the URL will return you to the same slide
-        hash: true,
+      window.document.dispatchEvent(event);
 
-        // Start with 1 for the hash rather than 0
-        hashOneBasedIndex: false,
+    }
 
-        // Flags if we should monitor the hash and change slides accordingly
-        respondToHashChanges: true,
 
-        // Push each slide change to the browser history
-        history: true,
 
-        // Enable keyboard shortcuts for navigation
-        keyboard: true,
+    function fireSlideChanged(previousSlide, currentSlide) {
 
-        // Enable the slide overview mode
-        overview: true,
+      fireSlideEnter();
 
-        // Disables the default reveal.js slide layout (scaling and centering)
-        // so that you can use custom CSS layout
-        disableLayout: false,
 
-        // Vertical centering of slides
-        center: false,
 
-        // Enables touch navigation on devices with touch input
-        touch: true,
+      // dispatch for shiny
 
-        // Loop the presentation
-        loop: false,
+      if (window.jQuery) {
 
-        // Change the presentation direction to be RTL
-        rtl: false,
+        if (previousSlide) {
 
-        // see https://revealjs.com/vertical-slides/#navigation-mode
-        navigationMode: 'linear',
+          window.jQuery(previousSlide).trigger("hidden");
 
-        // Randomizes the order of slides each time the presentation loads
-        shuffle: false,
+        }
 
-        // Turns fragments on and off globally
-        fragments: true,
+        if (currentSlide) {
 
-        // Flags whether to include the current fragment in the URL,
-        // so that reloading brings you to the same fragment position
-        fragmentInURL: false,
+          window.jQuery(currentSlide).trigger("shown");
 
-        // Flags if the presentation is running in an embedded mode,
-        // i.e. contained within a limited portion of the screen
-        embedded: false,
+        }
 
-        // Flags if we should show a help overlay when the questionmark
-        // key is pressed
-        help: true,
+      }
 
-        // Flags if it should be possible to pause the presentation (blackout)
-        pause: true,
+    }
 
-        // Flags if speaker notes should be visible to all viewers
-        showNotes: false,
 
-        // Global override for autoplaying embedded media (null/true/false)
-        autoPlayMedia: null,
 
-        // Global override for preloading lazy-loaded iframes (null/true/false)
-        preloadIframes: null,
+    // hookup for slidy
 
-        // Number of milliseconds between automatically proceeding to the
-        // next slide, disabled when set to 0, this value can be overwritten
-        // by using a data-autoslide attribute on your slides
-        autoSlide: 0,
+    if (window.w3c_slidy) {
 
-        // Stop auto-sliding after user input
-        autoSlideStoppable: true,
+      window.w3c_slidy.add_observer(function (slide_num) {
 
-        // Use this method for navigation when auto-sliding
-        autoSlideMethod: null,
+        // slide_num starts at position 1
 
-        // Specify the average time in seconds that you think you will spend
-        // presenting each slide. This is used to show a pacing timer in the
-        // speaker view
-        defaultTiming: null,
+        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
 
-        // Enable slide navigation via mouse wheel
-        mouseWheel: false,
-
-        // The display mode that will be used to show slides
-        display: 'block',
-
-        // Hide cursor if inactive
-        hideInactiveCursor: true,
-
-        // Time before the cursor is hidden (in ms)
-        hideCursorTime: 5000,
-
-        // Opens links in an iframe preview overlay
-        previewLinks: false,
-
-        // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'none',
-
-        // Transition speed (default/fast/slow)
-        transitionSpeed: 'default',
-
-        // Transition style for full page slide backgrounds
-        // (none/fade/slide/convex/concave/zoom)
-        backgroundTransition: 'none',
-
-        // Number of slides away from the current that are visible
-        viewDistance: 3,
-
-        // Number of slides away from the current that are visible on mobile
-        // devices. It is advisable to set this to a lower number than
-        // viewDistance in order to save resources.
-        mobileViewDistance: 2,
-
-        // The "normal" size of the presentation, aspect ratio will be preserved
-        // when the presentation is scaled to fit different resolutions. Can be
-        // specified using percentage units.
-        width: 1050,
-
-        height: 700,
-
-        // Factor of the display size that should remain empty around the content
-        margin: 0.1,
-
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
-        // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
-
-          RevealMath,
-          RevealNotes,
-          RevealSearch,
-          RevealZoom
-        ]
       });
-    </script>
-    
 
-    <script>
+    }
 
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
 
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
 
-      // slide changes (different for each slide format).
+  })();
 
-      (function () {
+</script>
 
-        // dispatch for htmlwidgets
 
-        function fireSlideEnter() {
 
-          const event = window.document.createEvent("Event");
-
-          event.initEvent("slideenter", true, true);
-
-          window.document.dispatchEvent(event);
-
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
-
-    
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          fireSlideEnter();
-
-    
-
-          // dispatch for shiny
-
-          if (window.jQuery) {
-
-            if (previousSlide) {
-
-              window.jQuery(previousSlide).trigger("hidden");
-
-            }
-
-            if (currentSlide) {
-
-              window.jQuery(currentSlide).trigger("shown");
-
-            }
-
-          }
-
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
         }
-
-    
-
-        // hookup for slidy
-
-        if (window.w3c_slidy) {
-
-          window.w3c_slidy.add_observer(function (slide_num) {
-
-            // slide_num starts at position 1
-
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
-          });
-
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-
-    
-
-      })();
-
-    </script>
-
-    
-
-    <script id="quarto-html-after-body" type="application/javascript">
-      window.document.addEventListener("DOMContentLoaded", function (event) {
-        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-        tabsets.forEach(function(tabset) {
-          const tabby = new Tabby('#' + tabset.id);
-        });
-        const isCodeAnnotation = (el) => {
-          for (const clz of el.classList) {
-            if (clz.startsWith('code-annotation-')) {                     
-              return true;
-            }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/introR\.andreas-haupt\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
-          return false;
         }
-        const onCopySuccess = function(e) {
-          // button target
-          const button = e.trigger;
-          // don't keep focus
-          button.blur();
-          // flash "checked"
-          button.classList.add('code-copy-button-checked');
-          var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
-          let tooltip;
-          if (window.bootstrap) {
-            button.setAttribute("data-bs-toggle", "tooltip");
-            button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
-            tooltip = new bootstrap.Tooltip(button, 
-              { trigger: "manual", 
-                customClass: "code-copy-button-tooltip",
-                offset: [0, -8]});
-            tooltip.show();    
-          }
-          setTimeout(function() {
-            if (tooltip) {
-              tooltip.hide();
-              button.removeAttribute("data-bs-title");
-              button.removeAttribute("data-bs-toggle");
-              button.removeAttribute("data-bs-placement");
-            }
-            button.setAttribute("title", currentTitle);
-            button.classList.remove('code-copy-button-checked');
-          }, 1000);
-          // clear code selection
-          e.clearSelection();
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-        const getTextToCopy = function(trigger) {
-          const outerScaffold = trigger.parentElement.cloneNode(true);
-          const codeEl = outerScaffold.querySelector('code');
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
           }
-          return codeEl.innerText;
         }
-        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-          text: getTextToCopy
-        });
-        clipboard.on('success', onCopySuccess);
-        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-            text: getTextToCopy,
-            container: window.document.getElementById('quarto-embedded-source-code-modal')
-          });
-          clipboardModal.on('success', onCopySuccess);
-        }
-          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-          var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/introR\.andreas-haupt\.com");
-          var isInternal = (href) => {
-              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-          }
-          // Inspect non-navigation links and adorn them if external
-         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-          for (var i=0; i<links.length; i++) {
-            const link = links[i];
-            if (!isInternal(link.href)) {
-              // undo the damage that might have been done by quarto-nav.js in the case of
-              // links that we want to consider external
-              if (link.dataset.originalHref !== undefined) {
-                link.href = link.dataset.originalHref;
-              }
-            }
-          }
-        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-          const config = {
-            allowHTML: true,
-            maxWidth: 500,
-            delay: 100,
-            arrow: false,
-            appendTo: function(el) {
-                return el.closest('section.slide') || el.parentElement;
-            },
-            interactive: true,
-            interactiveBorder: 10,
-            theme: 'light-border',
-            placement: 'bottom-start',
-          };
-          if (contentFn) {
-            config.content = contentFn;
-          }
-          if (onTriggerFn) {
-            config.onTrigger = onTriggerFn;
-          }
-          if (onUntriggerFn) {
-            config.onUntrigger = onUntriggerFn;
-          }
-            config['offset'] = [0,0];
-            config['maxWidth'] = 700;
-          window.tippy(el, config); 
-        }
-        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-        for (var i=0; i<noterefs.length; i++) {
-          const ref = noterefs[i];
-          tippyHover(ref, function() {
-            // use id or data attribute instead here
-            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-            try { href = new URL(href).hash; } catch {}
-            const id = href.replace(/^#\/?/, "");
-            const note = window.document.getElementById(id);
-            if (note) {
-              return note.innerHTML;
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
             } else {
-              return "";
+              container.appendChild(child.cloneNode(true));
+              break;
             }
-          });
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
         }
-        const findCites = (el) => {
-          const parentEl = el.parentElement;
-          if (parentEl) {
-            const cites = parentEl.dataset.cites;
-            if (cites) {
-              return {
-                el,
-                cites: cites.split(' ')
-              };
-            } else {
-              return findCites(el.parentElement)
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
             }
           } else {
-            return undefined;
-          }
-        };
-        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-        for (var i=0; i<bibliorefs.length; i++) {
-          const ref = bibliorefs[i];
-          const citeInfo = findCites(ref);
-          if (citeInfo) {
-            tippyHover(citeInfo.el, function() {
-              var popup = window.document.createElement('div');
-              citeInfo.cites.forEach(function(cite) {
-                var citeDiv = window.document.createElement('div');
-                citeDiv.classList.add('hanging-indent');
-                citeDiv.classList.add('csl-entry');
-                var biblioDiv = window.document.getElementById('ref-' + cite);
-                if (biblioDiv) {
-                  citeDiv.innerHTML = biblioDiv.innerHTML;
-                }
-                popup.appendChild(citeDiv);
-              });
-              return popup.innerHTML;
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
             });
           }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
         }
+      }, function(instance) {
       });
-      </script>
-    
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Andreas Haupt</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
 
 </body></html>
