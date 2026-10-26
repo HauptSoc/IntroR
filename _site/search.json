@@ -1,40 +1,5 @@
 [
   {
-    "objectID": "materialien.html",
-    "href": "materialien.html",
-    "title": "Materialien",
-    "section": "",
-    "text": "Positron als Anwendungsoberfläche.\nR als Programmiersprache.\n\nPositron enthält schon Quarto als “Motor”, in dessen Rahmen auch R ausgeführt werden kann.\nInstallieren Sie bitte noch über das Fenster “Terminal” folgende zwei Software-Pakete:\n\n\n\n\n\n\nImportant\n\n\n\ninstall.packages(tidyverse)\ninstall.packages(rmarkdown)"
-  },
-  {
-    "objectID": "materialien.html#installation",
-    "href": "materialien.html#installation",
-    "title": "Materialien",
-    "section": "",
-    "text": "Positron als Anwendungsoberfläche.\nR als Programmiersprache.\n\nPositron enthält schon Quarto als “Motor”, in dessen Rahmen auch R ausgeführt werden kann.\nInstallieren Sie bitte noch über das Fenster “Terminal” folgende zwei Software-Pakete:\n\n\n\n\n\n\nImportant\n\n\n\ninstall.packages(tidyverse)\ninstall.packages(rmarkdown)"
-  },
-  {
-    "objectID": "materialien.html#zentrale-literatur",
-    "href": "materialien.html#zentrale-literatur",
-    "title": "Materialien",
-    "section": "Zentrale Literatur",
-    "text": "Zentrale Literatur\n\n\nWarning: package 'slickR' was built under R version 4.3.3\n\n\n\n\n\n\nDie Buchcover werden hier unter der CC BY-NC-ND 3.0 Lizenz verwendet; alle drei Titel sind zudem als Open-Access-Bücher frei online verfügbar."
-  },
-  {
-    "objectID": "materialien.html#cheatsheets",
-    "href": "materialien.html#cheatsheets",
-    "title": "Materialien",
-    "section": "Cheatsheets",
-    "text": "Cheatsheets\n(Platzhalter — Links zu R- und Quarto-Cheatsheets.)"
-  },
-  {
-    "objectID": "materialien.html#datensätze",
-    "href": "materialien.html#datensätze",
-    "title": "Materialien",
-    "section": "Datensätze",
-    "text": "Datensätze\n(Platzhalter — Links/Downloads zu Übungsdatensätzen.)"
-  },
-  {
     "objectID": "ueber.html",
     "href": "ueber.html",
     "title": "Über das Seminar",
@@ -63,18 +28,11 @@
     "text": "Organisatorisches\n\n\n\nTermin\n(Platzhalter)\n\n\nOrt\n(Platzhalter)\n\n\nVoraussetzungen\n(Platzhalter)\n\n\nKontakt\nandreas@andreas-haupt.com"
   },
   {
-    "objectID": "slides/13-RMarkdown.html",
-    "href": "slides/13-RMarkdown.html",
-    "title": "Einführung in R und Quarto",
-    "section": "",
-    "text": "The normal work flow:\n\nR script which contains the R code that produces,\nOur R output: Figures and Tables,\nAn MS Word document, which is the report describing our results.\n\n\n\n. . .\nIt’s disadvantages:\n\nEvery time the output changes, we have to revise the Word document.\nIf we comment our R code a lot (as is good practice), we have excessive #, and much will be repeated in the ‘Data and Methods’ section of the Word document.\n\n\\(\\rightarrow\\) R Markdown combines R and Markdown to overcome these limitations."
-  },
-  {
     "objectID": "slides/13-RMarkdown.html#work-flow",
     "href": "slides/13-RMarkdown.html#work-flow",
     "title": "Einführung in R und Quarto",
-    "section": "",
-    "text": "The normal work flow:\n\nR script which contains the R code that produces,\nOur R output: Figures and Tables,\nAn MS Word document, which is the report describing our results.\n\n\n\n. . .\nIt’s disadvantages:\n\nEvery time the output changes, we have to revise the Word document.\nIf we comment our R code a lot (as is good practice), we have excessive #, and much will be repeated in the ‘Data and Methods’ section of the Word document.\n\n\\(\\rightarrow\\) R Markdown combines R and Markdown to overcome these limitations."
+    "section": "Work flow",
+    "text": "Work flow\n\n\nThe normal work flow:\n\nR script which contains the R code that produces,\nOur R output: Figures and Tables,\nAn MS Word document, which is the report describing our results.\n\n\n\n. . .\nIt’s disadvantages:\n\nEvery time the output changes, we have to revise the Word document.\nIf we comment our R code a lot (as is good practice), we have excessive #, and much will be repeated in the ‘Data and Methods’ section of the Word document.\n\n\\(\\rightarrow\\) R Markdown combines R and Markdown to overcome these limitations."
   },
   {
     "objectID": "slides/13-RMarkdown.html#ms-word-versus-markdown",
@@ -158,7 +116,7 @@
     "href": "slides/13-RMarkdown.html#further-important-r-code-chunks",
     "title": "Einführung in R und Quarto",
     "section": "Further important R code chunks",
-    "text": "Further important R code chunks\n\n\n\nOptions for (regression) tables as output:\n\nresults = 'asis' prevents Knitr from further processing the R output. This is necessary, for instance, when you generate an html regression table with ‘texreg’. Note that this will not work with a Word document as output.\n\n\n\n\nOptions for figures as output:\n\nout.width = \"90%\" size of the figure in % of the width of your document.\nfig.align = \"center\" centers the figure in the middle of the document. Alternatives are \"left\" or \"right\".\nfig.cap = \"This is my beautiful figure\" adds a caption to the figure.\ndpi = 200 defines pixel resolution of the figure.\nfig.width = 8 defines the width of the figure in inches.\nfig.height = 4 defines the height of the figure in inches."
+    "text": "Further important R code chunks\n\n\nOptions for (regression) tables as output:\n\nresults = 'asis' prevents Knitr from further processing the R output. This is necessary, for instance, when you generate an html regression table with ‘texreg’. Note that this will not work with a Word document as output.\n\n\nOptions for figures as output:\n\nout.width = \"90%\" size of the figure in % of the width of your document.\nfig.align = \"center\" centers the figure in the middle of the document. Alternatives are \"left\" or \"right\".\nfig.cap = \"This is my beautiful figure\" adds a caption to the figure.\ndpi = 200 defines pixel resolution of the figure.\nfig.width = 8 defines the width of the figure in inches.\nfig.height = 4 defines the height of the figure in inches."
   },
   {
     "objectID": "slides/13-RMarkdown.html#exercise-2-15-minutes",
@@ -235,7 +193,14 @@
     "href": "slides/13-RMarkdown.html#section-2",
     "title": "Einführung in R und Quarto",
     "section": "",
-    "text": ". . .\n Thank you for a fun course!"
+    "text": "Thank you for a fun course!"
+  },
+  {
+    "objectID": "slides/12-Mixed.html#lets-get-ready",
+    "href": "slides/12-Mixed.html#lets-get-ready",
+    "title": "Einführung in R und Quarto",
+    "section": "Let’s get ready",
+    "text": "Let’s get ready"
   },
   {
     "objectID": "slides/12-Mixed.html#re-scaled-weights-snijdersmultilevelanalysisintroduction2012-ch.-14",
@@ -249,28 +214,28 @@
     "href": "slides/12-Mixed.html#within-and-between-variation",
     "title": "Einführung in R und Quarto",
     "section": "Within and between variation",
-    "text": "Within and between variation\n\n\n\nWe have 29 clusters (groups or macro units) indexed by \\(j ( = 1, ..., N)\\).\nThe individuals (micro units) are embedded in these clusters, and indexed by \\(i ( = 1, ..., n_{j})\\).\nXenophobia is the dependent variable and varies across individuals and clusters: \\(Y_{ij}\\).\n\n\n\n\n\n\n\nPlotCode"
+    "text": "Within and between variation\n\n\n\nWe have 29 clusters (groups or macro units) indexed by \\(j ( = 1, ..., N)\\).\nThe individuals (micro units) are embedded in these clusters, and indexed by \\(i ( = 1, ..., n_{j})\\).\nXenophobia is the dependent variable and varies across individuals and clusters: \\(Y_{ij}\\)."
   },
   {
     "objectID": "slides/12-Mixed.html#do-party-positions-predict-how-people-think-about-immigration",
     "href": "slides/12-Mixed.html#do-party-positions-predict-how-people-think-about-immigration",
     "title": "Einführung in R und Quarto",
     "section": "Do party positions predict how people think about immigration?",
-    "text": "Do party positions predict how people think about immigration?\n. . .\n\n\n\nBut that would be wrong!\n\nOne of the critical OLS assumptions is the independence of errors, after all predictors \\(x_{ij}\\) have been taken into account:\n\\[\\text{Cov}(\\epsilon_{i}, \\epsilon_{i'} | x_{ij}) = 0\\] Breaching this assumptions does not bias \\(\\beta\\) estimates. But it renders them less precise and statistical inference as overoptimistic (i.e., standard errors, confidence intervals, and p-values will be too small, and t-values too large)."
+    "text": "Do party positions predict how people think about immigration?\n\n\n\n\nBut that would be wrong!\n\nOne of the critical OLS assumptions is the independence of errors, after all predictors \\(x_{ij}\\) have been taken into account:\n\\[\\text{Cov}(\\epsilon_{i}, \\epsilon_{i'} | x_{ij}) = 0\\] Breaching this assumptions does not bias \\(\\beta\\) estimates. But it renders them less precise and statistical inference as overoptimistic (i.e., standard errors, confidence intervals, and p-values will be too small, and t-values too large)."
   },
   {
     "objectID": "slides/12-Mixed.html#understanding-the-problem",
     "href": "slides/12-Mixed.html#understanding-the-problem",
     "title": "Einführung in R und Quarto",
     "section": "Understanding the problem",
-    "text": "Understanding the problem\n\n\nIn this simulated example, it is easily visible that the errors of respondents belonging to the same cluster \\(j\\) are correlated: \\(\\text{Cov}(\\epsilon_{ij}, \\epsilon_{i'j}|x_{ij}) \\neq 0\\). In consequence, the conventional OLS standard error will be too small, by a factor of:\n\\[\\tau \\simeq 1 + \\rho_{x}\\rho_{u}(\\bar{N_{g}}-1),\\] ::: {.note} where \\(\\rho_{u}\\) is the within-cluster error correlation, \\(\\rho_{x}\\) is the within-cluster correlation of predictor \\(x\\), and \\(\\bar{N_{g}}\\) is the number of observations per cluster (Cameron and Miller 2015).\nThis means, statistical inference will be increasingly overoptimistic:\nThe more of remaining variation in \\(y_{ij}\\) (i.e., \\(e_{ij}\\) ) varies across clusters.\nThe less a predictor \\(x_{ij}\\) varies within clusters.\n\nConsider our Manifesto variables: They are country-level characteristics and do not very-within out clusters at all; thus they should be badly affected.\n\n\n\n\n\n\n\n\n\n\n\n\n\n:::"
+    "text": "Understanding the problem\n\n\nIn this simulated example, it is easily visible that the errors of respondents belonging to the same cluster \\(j\\) are correlated: \\(\\text{Cov}(\\epsilon_{ij}, \\epsilon_{i'j}|x_{ij}) \\neq 0\\). In consequence, the conventional OLS standard error will be too small, by a factor of:\n\\[\\tau \\simeq 1 + \\rho_{x}\\rho_{u}(\\bar{N_{g}}-1),\\] ::: {.note} where \\(\\rho_{u}\\) is the within-cluster error correlation, \\(\\rho_{x}\\) is the within-cluster correlation of predictor \\(x\\), and \\(\\bar{N_{g}}\\) is the number of observations per cluster (Cameron and Miller 2015).\nThis means, statistical inference will be increasingly overoptimistic:\nThe more of remaining variation in \\(y_{ij}\\) (i.e., \\(e_{ij}\\) ) varies across clusters.\nThe less a predictor \\(x_{ij}\\) varies within clusters.\n\nConsider our Manifesto variables: They are country-level characteristics and do not very-within out clusters at all; thus they should be badly affected.\n\n\n\n\n\n\n\n\n\n\n\n\n:::"
   },
   {
     "objectID": "slides/12-Mixed.html#understanding-the-problem-1",
     "href": "slides/12-Mixed.html#understanding-the-problem-1",
     "title": "Einführung in R und Quarto",
     "section": "Understanding the problem",
-    "text": "Understanding the problem\n\n\nIn this simulated example, it is easily visible that the errors of respondents belonging to the same cluster \\(j\\) are correlated: \\(\\text{Cov}(\\epsilon_{ij}, \\epsilon_{i'j}|x_{ij}) \\neq 0\\). In consequence, the conventional OLS standard error will be too small, by a factor of:\n\\[\\tau \\simeq 1 + \\rho_{x}\\rho_{u}(\\bar{N_{g}}-1),\\] ::: {.note} where \\(\\rho_{u}\\) is the within-cluster error correlation, \\(\\rho_{x}\\) is the within-cluster correlation of predictor \\(x\\), and \\(\\bar{N_{g}}\\) is the number of observations per cluster (Cameron and Miller 2015).\nThis means, statistical inference will be increasingly overoptimistic:\nThe more of remaining variation in \\(y_{ij}\\) (i.e., \\(e_{ij}\\) ) varies across clusters.\nThe less a predictor \\(x_{ij}\\) varies within clusters.\n\nConsider our Manifesto variables: They are country-level characteristics and do not very-within out clusters at all; thus they should be badly affected.\n\n\n\n\n\n\n\n\n\n\n\n\nIs this an analysis of 700 random individuals, or rather of 7 countries?\n\n:::"
+    "text": "Understanding the problem\n\n\nIn this simulated example, it is easily visible that the errors of respondents belonging to the same cluster \\(j\\) are correlated: \\(\\text{Cov}(\\epsilon_{ij}, \\epsilon_{i'j}|x_{ij}) \\neq 0\\). In consequence, the conventional OLS standard error will be too small, by a factor of:\n\\[\\tau \\simeq 1 + \\rho_{x}\\rho_{u}(\\bar{N_{g}}-1),\\] ::: {.note} where \\(\\rho_{u}\\) is the within-cluster error correlation, \\(\\rho_{x}\\) is the within-cluster correlation of predictor \\(x\\), and \\(\\bar{N_{g}}\\) is the number of observations per cluster (Cameron and Miller 2015).\nThis means, statistical inference will be increasingly overoptimistic:\nThe more of remaining variation in \\(y_{ij}\\) (i.e., \\(e_{ij}\\) ) varies across clusters.\nThe less a predictor \\(x_{ij}\\) varies within clusters.\n\nConsider our Manifesto variables: They are country-level characteristics and do not very-within out clusters at all; thus they should be badly affected.\n\n\n\n\n\n\n\n\n\n\n\n\nIs this an analysis of 700 random individuals, or rather of 7 countries?\n:::"
   },
   {
     "objectID": "slides/12-Mixed.html#our-ess-data",
@@ -291,21 +256,21 @@
     "href": "slides/12-Mixed.html#solving-the-problem-the-mixed-model-solution",
     "title": "Einführung in R und Quarto",
     "section": "Solving the problem The mixed model solution",
-    "text": "Solving the problem The mixed model solution\n\n\n\nMicro-level model\n\nWe start with a micro-level model, which acknowledges that the intercept varies by cluster:\n\\[Y_{ij} = \\beta_{0 \\color{red}{j}} + \\beta_{1} x_{1ij} + R_{ij}.\\] ::: {.note} - \\(\\beta_{0j}\\) are cluster-differences in the average level of the outcome, adjusted for composition effects of the micro-level predictor(s) \\(x_{1ij}\\). - \\(x_{1ij}\\) is any micro-level predictor along with it’s slope coefficient \\(\\beta_{1}\\). \\(\\beta_{1}\\) has no subscript \\(j\\), which indicates that \\(\\beta_{1}\\) is fixed across clusters. - \\(R_{ij}\\) are common random unexplained residuals, with \\(R_{ij} = \\mathcal{N}(0,\\sigma^2)\\).\n\n\n\n\n\n\nSource: (Snijders and Bosker 2012, 45)\n\n\n\n:::"
+    "text": "Solving the problem The mixed model solution\n\n\n\nMicro-level model\n\nWe start with a micro-level model, which acknowledges that the intercept varies by cluster:\n\\[Y_{ij} = \\beta_{0 \\color{red}{j}} + \\beta_{1} x_{1ij} + R_{ij}.\\] ::: {.note} - \\(\\beta_{0j}\\) are cluster-differences in the average level of the outcome, adjusted for composition effects of the micro-level predictor(s) \\(x_{1ij}\\). - \\(x_{1ij}\\) is any micro-level predictor along with it’s slope coefficient \\(\\beta_{1}\\). \\(\\beta_{1}\\) has no subscript \\(j\\), which indicates that \\(\\beta_{1}\\) is fixed across clusters. - \\(R_{ij}\\) are common random unexplained residuals, with \\(R_{ij} = \\mathcal{N}(0,\\sigma^2)\\).\n\n\n\n\n\nSource: (Snijders and Bosker 2012, 45)\n\n\n:::"
   },
   {
     "objectID": "slides/12-Mixed.html#solving-the-problem-the-mixed-model-solution-1",
     "href": "slides/12-Mixed.html#solving-the-problem-the-mixed-model-solution-1",
     "title": "Einführung in R und Quarto",
     "section": "Solving the problem The mixed model solution",
-    "text": "Solving the problem The mixed model solution\n\n\n\nMicro-level model\n\nWe start with a micro-level model, which acknowledges that the intercept varies by cluster:\n\\[Y_{ij} = \\beta_{0 \\color{red}{j}} + \\beta_{1} x_{1ij} + R_{ij}.\\] ::: {.note} - \\(\\beta_{0j}\\) are cluster-differences in the average level of the outcome, adjusted for composition effects of the micro-level predictor(s) \\(x_{1ij}\\). - \\(x_{1ij}\\) is any micro-level predictor along with it’s slope coefficient \\(\\beta_{1}\\). \\(\\beta_{1}\\) has no subscript \\(j\\), which indicates that \\(\\beta_{1}\\) is fixed across clusters. - \\(R_{ij}\\) are common random unexplained residuals, with \\(R_{ij} = \\mathcal{N}(0,\\sigma^2)\\).\n\n\n\n\n\n:::"
+    "text": "Solving the problem The mixed model solution\n\n\n\nMicro-level model\n\nWe start with a micro-level model, which acknowledges that the intercept varies by cluster:\n\\[Y_{ij} = \\beta_{0 \\color{red}{j}} + \\beta_{1} x_{1ij} + R_{ij}.\\] ::: {.note} - \\(\\beta_{0j}\\) are cluster-differences in the average level of the outcome, adjusted for composition effects of the micro-level predictor(s) \\(x_{1ij}\\). - \\(x_{1ij}\\) is any micro-level predictor along with it’s slope coefficient \\(\\beta_{1}\\). \\(\\beta_{1}\\) has no subscript \\(j\\), which indicates that \\(\\beta_{1}\\) is fixed across clusters. - \\(R_{ij}\\) are common random unexplained residuals, with \\(R_{ij} = \\mathcal{N}(0,\\sigma^2)\\).\n\n\n\n:::"
   },
   {
     "objectID": "slides/12-Mixed.html#mixed-random-intercept-multilevel-models",
     "href": "slides/12-Mixed.html#mixed-random-intercept-multilevel-models",
     "title": "Einführung in R und Quarto",
     "section": "Mixed (random intercept) multilevel models",
-    "text": "Mixed (random intercept) multilevel models\n\n\n\nMicro-level model\n\nWe start with a micro-level model, which acknowledges that the intercept varies by cluster:\n\\[Y_{ij} = \\beta_{0 \\color{red}{j}} + \\beta_{1} x_{1ij} + R_{ij}.\\]\n\nMacro-level model\n\nWe continue with a macro-level model that takes the varying intercepts as outcome variable:\n\\[\\beta_{0 \\color{red}{j}} = \\gamma_{0} + \\gamma_{1} z_{1j} + U_{j}.\\] ::: {.note} - \\(\\gamma_{0}\\) is the overall mean intercept. - \\(z_{1j}\\) is a macro-level predictor along with its slope coefficient \\(\\gamma_{01}\\). - \\(U_{j}\\) are random unexplained group residuals, with \\(U_{j} = \\mathcal{N}(0,\\tau_{0}^2)\\). That is, the cluster-specific deviations from \\(\\gamma_{0}\\).\n\n\n\n\n\n:::"
+    "text": "Mixed (random intercept) multilevel models\n\n\n\nMicro-level model\n\nWe start with a micro-level model, which acknowledges that the intercept varies by cluster:\n\\[Y_{ij} = \\beta_{0 \\color{red}{j}} + \\beta_{1} x_{1ij} + R_{ij}.\\]\n\nMacro-level model\n\nWe continue with a macro-level model that takes the varying intercepts as outcome variable:\n\\[\\beta_{0 \\color{red}{j}} = \\gamma_{0} + \\gamma_{1} z_{1j} + U_{j}.\\] ::: {.note} - \\(\\gamma_{0}\\) is the overall mean intercept. - \\(z_{1j}\\) is a macro-level predictor along with its slope coefficient \\(\\gamma_{01}\\). - \\(U_{j}\\) are random unexplained group residuals, with \\(U_{j} = \\mathcal{N}(0,\\tau_{0}^2)\\). That is, the cluster-specific deviations from \\(\\gamma_{0}\\).\n\n\n\n:::"
   },
   {
     "objectID": "slides/12-Mixed.html#mixed-random-intercept-multilevel-models-1",
@@ -399,6 +364,13 @@
     "text": "Literatur\n\n\nCameron, A. Colin, and Douglas L. Miller. 2015. “A Practitioner’s Guide to Cluster-Robust Inference.” Journal of Human Resources 50 (2): 317–72. https://doi.org/10.3368/jhr.50.2.317.\n\n\nElff, Martin, Jan Paul Heisig, Merlin Schaeffer, and Susumu Shikano. 2020. “Multilevel Analysis with Few Clusters: Improving Likelihood-Based Methods to Provide Unbiased Estimates and Accurate Inference.” British Journal of Political Science, 1–15. https://doi.org/10.1017/S0007123419000097.\n\n\nHeisig, Jan Paul, and Merlin Schaeffer. 2019. “Why You Should Always Include a Random Slope for the Lower-Level Variable Involved in a Cross-Level Interaction.” European Sociological Review 35 (2): 258–79. https://doi.org/10.1093/esr/jcy053.\n\n\nSnijders, Tom A. B., and Roel J. Bosker. 2012. Multilevel Analysis: An Introduction to Basic and Advanced Multilevel Modeling. London: Sage."
   },
   {
+    "objectID": "slides/11-GLM.html#lets-get-ready",
+    "href": "slides/11-GLM.html#lets-get-ready",
+    "title": "Einführung in R und Quarto",
+    "section": "Let’s get ready",
+    "text": "Let’s get ready"
+  },
+  {
     "objectID": "slides/11-GLM.html#categorical-outcomes",
     "href": "slides/11-GLM.html#categorical-outcomes",
     "title": "Einführung in R und Quarto",
@@ -438,14 +410,14 @@
     "href": "slides/11-GLM.html#the-problem-of-linear-models-1",
     "title": "Einführung in R und Quarto",
     "section": "The problem of linear models",
-    "text": "The problem of linear models\n\n\nThis may happen particularly, when LPMs become complex (i.e., with many predictor variables). Note, if you only have categorical predictors, an LPM is perfectly valid and does not suffer from any problems (Angrist and Pischke 2009, Ch. 3.1.4)!\n\n\n\n\n. . .\n\n\nFor old and low-educated men from Germany, our model predicts negative probabilities to belong to a group that is discriminated based on race, ethnicity, language or religion; what is that supposed to mean?!"
+    "text": "The problem of linear models\n\n\nThis may happen particularly, when LPMs become complex (i.e., with many predictor variables). Note, if you only have categorical predictors, an LPM is perfectly valid and does not suffer from any problems (Angrist and Pischke 2009, Ch. 3.1.4)!\n\n\n\n\n\n\nFor old and low-educated men from Germany, our model predicts negative probabilities to belong to a group that is discriminated based on race, ethnicity, language or religion; what is that supposed to mean?!"
   },
   {
     "objectID": "slides/11-GLM.html#generalized-linear-models-glm",
     "href": "slides/11-GLM.html#generalized-linear-models-glm",
     "title": "Einführung in R und Quarto",
     "section": "Generalized linear models (GLM)",
-    "text": "Generalized linear models (GLM)\nThe idea of generalized linear models is to stick to a linear model (i.e., \\(\\alpha + \\beta x\\)), but to map/project its results onto the range of the outcome \\(y_{i}\\).\n. . .\n\n\nWe can achieve this by using so-called link functions \\(g^{-1}\\), along with their inverse \\(g\\):\n\n\\[\\begin{align*}\ny &= g^{-1}(\\alpha + \\beta x) \\\\\ng(y) &= \\alpha + \\beta x.\n\\end{align*}\\]"
+    "text": "Generalized linear models (GLM)\nThe idea of generalized linear models is to stick to a linear model (i.e., \\(\\alpha + \\beta x\\)), but to map/project its results onto the range of the outcome \\(y_{i}\\).\n\n\n\nWe can achieve this by using so-called link functions \\(g^{-1}\\), along with their inverse \\(g\\):\n\n\\[\\begin{align*}\ny &= g^{-1}(\\alpha + \\beta x) \\\\\ng(y) &= \\alpha + \\beta x.\n\\end{align*}\\]"
   },
   {
     "objectID": "slides/11-GLM.html#glm-for-binary-outcomes",
@@ -459,7 +431,7 @@
     "href": "slides/11-GLM.html#logistic-regression",
     "title": "Einführung in R und Quarto",
     "section": "Logistic regression",
-    "text": "Logistic regression\nAka the logistic link function\n\n\n\n\nSource: datacamp: Logistic Regression in R Tutorial\n\n\n\n. . .\n\n\\[\\text{logit}(y_{i}) = \\alpha + \\beta x\\]\n\n\\(\\alpha\\) and \\(\\beta\\) are now measured in logits (logged odds); difficult to interpret!\nRe-transformed to probabilities, the size of \\(\\beta\\) depends on the specific value of \\(x\\)!\n\nExponentiated \\(\\beta\\) (i.e., \\(e^{\\beta}\\) ) can be interpreted as odds ratios, or as multiplicative “effect” (i.e., a % increase).\n\n\n\n:::"
+    "text": "Logistic regression\nAka the logistic link function\n\n\n\n\nSource: datacamp: Logistic Regression in R Tutorial\n\n\n\n\n\\[\\text{logit}(y_{i}) = \\alpha + \\beta x\\]\n\n\\(\\alpha\\) and \\(\\beta\\) are now measured in logits (logged odds); difficult to interpret!\nRe-transformed to probabilities, the size of \\(\\beta\\) depends on the specific value of \\(x\\)!\n\nExponentiated \\(\\beta\\) (i.e., \\(e^{\\beta}\\) ) can be interpreted as odds ratios, or as multiplicative “effect” (i.e., a % increase).\n\n\n:::"
   },
   {
     "objectID": "slides/11-GLM.html#logistic-regression-in-r",
@@ -581,6 +553,13 @@
     "text": "Literatur\n\n\nAngrist, Joshua David, and Jörn-Steffen Pischke. 2009. Mostly Harmless Econometrics: An Empiricist’s Companion. Princeton: Princeton University Press."
   },
   {
+    "objectID": "slides/10-OLS-II.html#lets-get-ready",
+    "href": "slides/10-OLS-II.html#lets-get-ready",
+    "title": "Einführung in R und Quarto",
+    "section": "Let’s get ready",
+    "text": "Let’s get ready"
+  },
+  {
     "objectID": "slides/10-OLS-II.html#pca-design-matrix",
     "href": "slides/10-OLS-II.html#pca-design-matrix",
     "title": "Einführung in R und Quarto",
@@ -693,6 +672,13 @@
     "text": "Today’s (important) functions\n\nI() allows you to transform predictors in the formula argument of your regression model.\npoly() allows you to introduce orthogonal polynomials to your model.\npredic() generates predictions from your model for a tibble that you feed to it.\nmodelr::data_grid() generates synthetic data sets that contain all combinations of variables you feed to it."
   },
   {
+    "objectID": "slides/09-OLS-I.html#lets-get-ready",
+    "href": "slides/09-OLS-I.html#lets-get-ready",
+    "title": "Einführung in R und Quarto",
+    "section": "Let’s get ready",
+    "text": "Let’s get ready"
+  },
+  {
     "objectID": "slides/09-OLS-I.html#pca-design-matrix",
     "href": "slides/09-OLS-I.html#pca-design-matrix",
     "title": "Einführung in R und Quarto",
@@ -704,7 +690,7 @@
     "href": "slides/09-OLS-I.html#modeling-xenophobia",
     "title": "Einführung in R und Quarto",
     "section": "Modeling Xenophobia",
-    "text": "Modeling Xenophobia\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\nModeling\nComing up with a model of xenophobia means: Can xenophobia (i.e., \\(y\\)) be expressed as a function (i.e., \\(f()\\)) of another variable (i.e., \\(x\\))?\n\\[\\hat{y} = f(x)\\] The two critical questions are thus:\n\nWhat is \\(f()\\)?\nWhat is \\(x\\)? \n\n\nYou will need to find the answer to the second question in your research question, theory, and hypothesis."
+    "text": "Modeling Xenophobia\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\nModeling\nComing up with a model of xenophobia means: Can xenophobia (i.e., \\(y\\)) be expressed as a function (i.e., \\(f()\\)) of another variable (i.e., \\(x\\))?\n\\[\\hat{y} = f(x)\\] The two critical questions are thus:\n\nWhat is \\(f()\\)?\nWhat is \\(x\\)? \n\n\nYou will need to find the answer to the second question in your research question, theory, and hypothesis."
   },
   {
     "objectID": "slides/09-OLS-I.html#a-linear-model-of-y",
@@ -865,21 +851,21 @@
     "href": "slides/08-PCA.html#scales",
     "title": "Einführung in R und Quarto",
     "section": "Scales",
-    "text": "Scales\n\nDo items measure an underlying “latent” concept?\n\n\nFirst, check whether the \\(k\\) items correlate. ::: {.note} Maybe also use scatterplots to check whether they are linearly associated.\nSecond, we try to come up with a measurement model of the form:\\[y_i = \\beta_{1}x_{1i} + \\beta_{2}x_{2i} + ... + \\beta_{k}x_{ki}\\]\n\\(\\Rightarrow\\) But how to choose the \\(\\beta\\)?\n\n\n\nAdditive scales The old-school way\nAdditive scales assume that all items are similarly-important indicators, that is, every \\(\\beta\\) is set to \\(\\frac{1}{k}\\).\n\n:::"
+    "text": "Scales\nDo items measure an underlying “latent” concept?\n\n\nFirst, check whether the \\(k\\) items correlate. ::: {.note} Maybe also use scatterplots to check whether they are linearly associated.\nSecond, we try to come up with a measurement model of the form:\\[y_i = \\beta_{1}x_{1i} + \\beta_{2}x_{2i} + ... + \\beta_{k}x_{ki}\\]\n\\(\\Rightarrow\\) But how to choose the \\(\\beta\\)?\n\n\n\nAdditive scales The old-school way\nAdditive scales assume that all items are similarly-important indicators, that is, every \\(\\beta\\) is set to \\(\\frac{1}{k}\\).\n:::"
   },
   {
     "objectID": "slides/08-PCA.html#additive-scales",
     "href": "slides/08-PCA.html#additive-scales",
     "title": "Einführung in R und Quarto",
     "section": "Additive scales",
-    "text": "Additive scales\n\nThe old-school way to build a scale"
+    "text": "Additive scales\nThe old-school way to build a scale"
   },
   {
     "objectID": "slides/08-PCA.html#additive-scales-1",
     "href": "slides/08-PCA.html#additive-scales-1",
     "title": "Einführung in R und Quarto",
     "section": "Additive scales",
-    "text": "Additive scales\n\nThe old-school way to build a scale"
+    "text": "Additive scales\nThe old-school way to build a scale"
   },
   {
     "objectID": "slides/08-PCA.html#additive-scales-relation-to-education",
@@ -893,14 +879,14 @@
     "href": "slides/08-PCA.html#additive-scales-2",
     "title": "Einführung in R und Quarto",
     "section": "Additive scales",
-    "text": "Additive scales\n\nA first problem\n\n\nTake this two-variable case as example. As additive scale: \\(\\text{Xeno} = \\frac{1}{2}*\\text{imbgeco} + \\frac{1}{2}*\\text{imwbcnt}.\\)"
+    "text": "Additive scales\nA first problem\n\n\nTake this two-variable case as example. As additive scale: \\(\\text{Xeno} = \\frac{1}{2}*\\text{imbgeco} + \\frac{1}{2}*\\text{imwbcnt}.\\)"
   },
   {
     "objectID": "slides/08-PCA.html#additive-scales-3",
     "href": "slides/08-PCA.html#additive-scales-3",
     "title": "Einführung in R und Quarto",
     "section": "Additive scales",
-    "text": "Additive scales\n\nA first problem\n\n\nTake this two-variable case as example. As additive scale: \\(\\text{Xeno} = \\frac{1}{2}*\\text{imbgeco} + \\frac{1}{2}*\\text{imwbcnt}.\\)"
+    "text": "Additive scales\nA first problem\n\n\nTake this two-variable case as example. As additive scale: \\(\\text{Xeno} = \\frac{1}{2}*\\text{imbgeco} + \\frac{1}{2}*\\text{imwbcnt}.\\)"
   },
   {
     "objectID": "slides/08-PCA.html#section-2",
@@ -914,28 +900,28 @@
     "href": "slides/08-PCA.html#principal-components-analysis",
     "title": "Einführung in R und Quarto",
     "section": "Principal Components Analysis",
-    "text": "Principal Components Analysis\n\nThe goal\n\n\n\n\n\n\n\n\n\n\nSource: Werner et al. (2014)"
+    "text": "Principal Components Analysis\nThe goal\n\n\nSource: Werner et al. (2014)"
   },
   {
     "objectID": "slides/08-PCA.html#pca",
     "href": "slides/08-PCA.html#pca",
     "title": "Einführung in R und Quarto",
     "section": "PCA",
-    "text": "PCA\n\nIntuition of the mechanics\n\n\nAccording to PCA, it would be better to give imueclt a larger \\(\\beta\\) than imbgeco.\nThe reason is that the respondents’ answers to imueclt are more varied. That is, one could argue that they contain more information!\nVice versa, variables that have mostly the same values across cases are not very informative. The key point here is: Cases are different — but variables with little variation make them look similar. PCA thus looks to emphasize variables with a lot of variation, to clarify how cases differ."
+    "text": "PCA\nIntuition of the mechanics\n\n\nAccording to PCA, it would be better to give imueclt a larger \\(\\beta\\) than imbgeco.\nThe reason is that the respondents’ answers to imueclt are more varied. That is, one could argue that they contain more information!\nVice versa, variables that have mostly the same values across cases are not very informative. The key point here is: Cases are different — but variables with little variation make them look similar. PCA thus looks to emphasize variables with a lot of variation, to clarify how cases differ."
   },
   {
     "objectID": "slides/08-PCA.html#pca-1",
     "href": "slides/08-PCA.html#pca-1",
     "title": "Einführung in R und Quarto",
     "section": "PCA",
-    "text": "PCA\n\nIntuition of the mechanics\n\n\nOur measurement model \\(y_i = \\beta_{1}x_{1i} + \\beta_{2}x_{2i} + ... + \\beta_{k}x_{ki}\\) projects the original data onto a new variable (i.e., in PCA lingo, a new coordinate-system axis, aka a principal component). But depending on how we choose the \\(\\beta\\), many projections are possible; which one is the best?\nPCA’s answer: Choose the \\(\\beta\\) such that \\(\\text{Var}(y_i) \\rightarrow \\max\\). That is, the new variable should vary as much as possible (i.e., should contain as much information as possible).\n\n\n\nIf you stare at this animation for some time, you will notice that “the maximum variance” and “the minimum error” are reached at the same time, namely when the line points to the magenta ticks […].\n\n\nSource: “amoeba” on Stackexchange"
+    "text": "PCA\nIntuition of the mechanics\n\n\nOur measurement model \\(y_i = \\beta_{1}x_{1i} + \\beta_{2}x_{2i} + ... + \\beta_{k}x_{ki}\\) projects the original data onto a new variable (i.e., in PCA lingo, a new coordinate-system axis, aka a principal component). But depending on how we choose the \\(\\beta\\), many projections are possible; which one is the best?\nPCA’s answer: Choose the \\(\\beta\\) such that \\(\\text{Var}(y_i) \\rightarrow \\max\\). That is, the new variable should vary as much as possible (i.e., should contain as much information as possible).\n\n\n\nIf you stare at this animation for some time, you will notice that “the maximum variance” and “the minimum error” are reached at the same time, namely when the line points to the magenta ticks […].\n\n\nSource: “amoeba” on Stackexchange"
   },
   {
     "objectID": "slides/08-PCA.html#pca-2",
     "href": "slides/08-PCA.html#pca-2",
     "title": "Einführung in R und Quarto",
     "section": "PCA",
-    "text": "PCA\n\nIntuition of the mechanics\n\n\nOur measurement model \\(y_i = \\beta_{1}x_{1i} + \\beta_{2}x_{2i} + ... + \\beta_{k}x_{ki}\\) projects the original data onto a new variable (i.e., in PCA lingo, a new coordinate-system axis, aka a principal component). But depending on how we choose the \\(\\beta\\), many projections are possible; which one is the best?\nPCA’s answer: Choose the \\(\\beta\\) such that \\(\\text{Var}(y_i) \\rightarrow \\max\\). That is, the new variable should vary as much as possible (i.e., should contain as much information as possible).\n\n\n\nBy the way, you can imagine that the black line is a solid rod and each red line is a spring. The energy of the spring is proportional to its squared length (this is known in physics as the Hooke’s law), so the rod will orient itself such as to minimize the sum of these squared distances.\n\n\nSource: “amoeba” on Stackexchange"
+    "text": "PCA\nIntuition of the mechanics\n\n\nOur measurement model \\(y_i = \\beta_{1}x_{1i} + \\beta_{2}x_{2i} + ... + \\beta_{k}x_{ki}\\) projects the original data onto a new variable (i.e., in PCA lingo, a new coordinate-system axis, aka a principal component). But depending on how we choose the \\(\\beta\\), many projections are possible; which one is the best?\nPCA’s answer: Choose the \\(\\beta\\) such that \\(\\text{Var}(y_i) \\rightarrow \\max\\). That is, the new variable should vary as much as possible (i.e., should contain as much information as possible).\n\n\n\nBy the way, you can imagine that the black line is a solid rod and each red line is a spring. The energy of the spring is proportional to its squared length (this is known in physics as the Hooke’s law), so the rod will orient itself such as to minimize the sum of these squared distances.\n\n\nSource: “amoeba” on Stackexchange"
   },
   {
     "objectID": "slides/08-PCA.html#principal-components-analysis-in-r",
@@ -949,7 +935,7 @@
     "href": "slides/08-PCA.html#visualize-the-first-two-pcs",
     "title": "Einführung in R und Quarto",
     "section": "Visualize the first two PCs",
-    "text": "Visualize the first two PCs\n\nto ease interpretation\n\n\nInterpretation: As our first principal component increases by one, scores on imbgeco increase by roughly 1.8."
+    "text": "Visualize the first two PCs\nto ease interpretation\n\n\nInterpretation: As our first principal component increases by one, scores on imbgeco increase by roughly 1.8."
   },
   {
     "objectID": "slides/08-PCA.html#adding-a-pc-to-your-data",
@@ -977,7 +963,7 @@
     "href": "slides/08-PCA.html#visualize-the-first-two-pc",
     "title": "Einführung in R und Quarto",
     "section": "Visualize the first two PC",
-    "text": "Visualize the first two PC\n\nto ease interpretation\n\n\nInterpretation: Now that we have z-standardized, interpretation is easier. As our first principal component increases by one sd, imbgeco decreases by roughly 0.8 sd (i.e., \\(r = 0.8\\)).\nPC1/Dim1 clearly measures Xenophobia. PC2/Dim2 seems to have no clear interpretation."
+    "text": "Visualize the first two PC\nto ease interpretation\n\n\nInterpretation: Now that we have z-standardized, interpretation is easier. As our first principal component increases by one sd, imbgeco decreases by roughly 0.8 sd (i.e., \\(r = 0.8\\)).\nPC1/Dim1 clearly measures Xenophobia. PC2/Dim2 seems to have no clear interpretation."
   },
   {
     "objectID": "slides/08-PCA.html#pca-of-xeno--and-homophobia-items",
@@ -1036,18 +1022,11 @@
     "text": "Literatur\n\n\nWerner, Steffen, Jochen C. Rink, Ingmar H. Riedel-Kruse, and Benjamin M. Friedrich. 2014. “Shape Mode Analysis Exposes Movement Patterns in Biology: Flagella and Flatworms as Case Studies.” PLOS ONE 9 (11): e113083. https://doi.org/10.1371/journal.pone.0113083."
   },
   {
-    "objectID": "slides/07-Pivoting-Joining.html",
-    "href": "slides/07-Pivoting-Joining.html",
-    "title": "Einführung in R und Quarto",
-    "section": "",
-    "text": "Source: Garrick Aden-Buie’s (@grrrck) Tidy Animated Verbs modified by Mara Averick (@dataandme)."
-  },
-  {
     "objectID": "slides/07-Pivoting-Joining.html#reshaping",
     "href": "slides/07-Pivoting-Joining.html#reshaping",
     "title": "Einführung in R und Quarto",
-    "section": "",
-    "text": "Source: Garrick Aden-Buie’s (@grrrck) Tidy Animated Verbs modified by Mara Averick (@dataandme)."
+    "section": "Reshaping",
+    "text": "Reshaping\n\n\n\nSource: Garrick Aden-Buie’s (@grrrck) Tidy Animated Verbs modified by Mara Averick (@dataandme)."
   },
   {
     "objectID": "slides/07-Pivoting-Joining.html#section",
@@ -1082,7 +1061,7 @@
     "href": "slides/07-Pivoting-Joining.html#grouped-operation-1",
     "title": "Einführung in R und Quarto",
     "section": "Grouped operation",
-    "text": "Grouped operation\nAlong two dimensions\n. . .\nBut we cannot answer: “Are countries in which more persons of immigrant origin report to face religious discrimination, also characterized by more women of native-born parents reporting gender discrimination?”\nOur data have country-groups as observational unit; the values we want to correlate are in different rows!"
+    "text": "Grouped operation\nAlong two dimensions\n\nBut we cannot answer: “Are countries in which more persons of immigrant origin report to face religious discrimination, also characterized by more women of native-born parents reporting gender discrimination?”\nOur data have country-groups as observational unit; the values we want to correlate are in different rows!"
   },
   {
     "objectID": "slides/07-Pivoting-Joining.html#pivot-wider",
@@ -1096,7 +1075,7 @@
     "href": "slides/07-Pivoting-Joining.html#pivot_widernames_from-values_from",
     "title": "Einführung in R und Quarto",
     "section": "pivot_wider(names_from, values_from)",
-    "text": "pivot_wider(names_from, values_from)\n\n\nWe want to widen the data, so that there is only one row per country and several discrimination variables - one for each comparison group.\n\n\nnames_from: The column to take variable names from.\nvalues_from: The column to take values from.\n\n\n\n\n\n\n\nSource: Garrick Aden-Buie’s (@grrrck) Tidy Animated Verbs modified by Mara Averick (@dataandme).\n\n\n\n\nAre countries in which more persons of immigrant origin report to face religious discrimination, also characterized by more women of native-born parents reporting gender discrimination?"
+    "text": "pivot_wider(names_from, values_from)\n\n\nWe want to widen the data, so that there is only one row per country and several discrimination variables - one for each comparison group.\n\n\nnames_from: The column to take variable names from.\nvalues_from: The column to take values from."
   },
   {
     "objectID": "slides/07-Pivoting-Joining.html#pivot_longernames_to-values_to",
@@ -1145,7 +1124,7 @@
     "href": "slides/07-Pivoting-Joining.html#what-are-the-manifesto-data",
     "title": "Einführung in R und Quarto",
     "section": "What are the Manifesto data?",
-    "text": "What are the Manifesto data?\n\n\n\n\n\nA quasi-sentence is a single statement. A grammatical sentence can contain more than one quasi sentence, but a quasi-sentence can never span over more than one grammatical sentence.\n\n\n\nSource: A short primer on the Manifesto Project and its methodology\n\n\n\n[…] President Obama has already signed into law $2 trillion in spending reductions as part of a balanced plan to reduce our deficits by over $4 trillion over the next decade // while taking immediate steps to strengthen the economy now. // This approach includes tough spending cuts that will bring annual domestic spending to its lowest level as a share of the economy in 50 years, // while still allowing us to make investments that benefit the middle class now // and reduce our deficit over a decade. […]\n\n\n\nSource: Democratic Party (US), Extract from 2012 Electoral Platform\n\n\n\n\nData source: (Volkens et al. 2018)"
+    "text": "What are the Manifesto data?\n\n\n\n\n\nA quasi-sentence is a single statement. A grammatical sentence can contain more than one quasi sentence, but a quasi-sentence can never span over more than one grammatical sentence.\n\n\n\nSource: A short primer on the Manifesto Project and its methodology\n\n\n\n[…] President Obama has already signed into law $2 trillion in spending reductions as part of a balanced plan to reduce our deficits by over $4 trillion over the next decade // while taking immediate steps to strengthen the economy now. // This approach includes tough spending cuts that will bring annual domestic spending to its lowest level as a share of the economy in 50 years, // while still allowing us to make investments that benefit the middle class now // and reduce our deficit over a decade. […]\n\n\n\nSource: Democratic Party (US), Extract from 2012 Electoral Platform\n\n\n\nData source: (Volkens et al. 2018)"
   },
   {
     "objectID": "slides/07-Pivoting-Joining.html#register",
@@ -1285,21 +1264,21 @@
     "href": "slides/05-Piping.html#nested-code",
     "title": "Einführung in R und Quarto",
     "section": "Nested code",
-    "text": "Nested code\nWe have learned that R code may be nested. But too much nesting becomes unintelligible: Because R evaluates code from the inside-out, we need to read nested code from the inside-out!\n\n\n[1] 2.527274\n\n\n. . .\nAlternatively, we could write several lines of code successively and read from top to bottom. But this leads to many irrelevant intermediate objects that crowd our environment.\n\n\n[1] 2.527274"
+    "text": "Nested code\nWe have learned that R code may be nested. But too much nesting becomes unintelligible: Because R evaluates code from the inside-out, we need to read nested code from the inside-out!\n\n\n[1] 2.527274\n\n\n\nAlternatively, we could write several lines of code successively and read from top to bottom. But this leads to many irrelevant intermediate objects that crowd our environment.\n\n\n[1] 2.527274"
   },
   {
     "objectID": "slides/05-Piping.html#the-forward-pipe",
     "href": "slides/05-Piping.html#the-forward-pipe",
     "title": "Einführung in R und Quarto",
     "section": "The (forward) pipe %>%",
-    "text": "The (forward) pipe %&gt;%\nThe %&gt;% operator pipes output of one function as input to the next function. You can basically say: function(argument1 = value) can be written as value %&gt;% function().\nOr even easier, think of it as: “then” or “så”.\n\n\n[1] 2.527274\n\n\n. . ."
+    "text": "The (forward) pipe %&gt;%\nThe %&gt;% operator pipes output of one function as input to the next function. You can basically say: function(argument1 = value) can be written as value %&gt;% function().\nOr even easier, think of it as: “then” or “så”.\n\n\n[1] 2.527274"
   },
   {
     "objectID": "slides/05-Piping.html#section",
     "href": "slides/05-Piping.html#section",
     "title": "Einführung in R und Quarto",
     "section": "",
-    "text": "Belonging to aDiscriminated Minority\n\n\n\n\n  ::: {.centered} Homes of Alevis in western Turkey\n \n\n\n  \n\n:::"
+    "text": "Belonging to aDiscriminated Minority"
   },
   {
     "objectID": "slides/05-Piping.html#library-for-today",
@@ -1327,7 +1306,7 @@
     "href": "slides/05-Piping.html#the-.-aka-piping-to-specific-arguments",
     "title": "Einführung in R und Quarto",
     "section": "The . (aka piping to specific arguments)",
-    "text": "The . (aka piping to specific arguments)\nBy default, %&gt;% pipes into the first argument of a function.\n\nYou can find out what the first argument of a function is by typing ?function.\n\n\n\n[1] 5.9\n\n\n[1] 5.9\n\n\n. . .\nThe . placeholder allows us to pipe into another argument.\n\n\n[1] 5.88"
+    "text": "The . (aka piping to specific arguments)\nBy default, %&gt;% pipes into the first argument of a function.\n\nYou can find out what the first argument of a function is by typing ?function.\n\n\n\n[1] 5.9\n\n\n[1] 5.9\n\n\n\nThe . placeholder allows us to pipe into another argument.\n\n\n[1] 5.88"
   },
   {
     "objectID": "slides/05-Piping.html#why-the-.-matters",
@@ -1341,7 +1320,7 @@
     "href": "slides/05-Piping.html#advantages-of-piping-and-when-not-to-pipe",
     "title": "Einführung in R und Quarto",
     "section": "Advantages of piping (and when not to pipe)",
-    "text": "Advantages of piping (and when not to pipe)\n\nThe advantages are:\n\n\nLegible code: We can structure code from left to right, as apposed to from inside and out.\nShorter code: You minimize the need for local/intermediate variables.\nEasily mutable code: You can easily add steps anywhere in the sequence of operations.\n\n. . .\n\nBut:\n\n\nIf you have more than one or two major inputs, don’t pipe.\nIf you have more than ca. ten steps, better make intermediate objects.\nIt helps you to debug (i.e., find mistakes) and is simply easier to read."
+    "text": "Advantages of piping (and when not to pipe)\n\nThe advantages are:\n\n\nLegible code: We can structure code from left to right, as apposed to from inside and out.\nShorter code: You minimize the need for local/intermediate variables.\nEasily mutable code: You can easily add steps anywhere in the sequence of operations.\n\n\n\nBut:\n\n\nIf you have more than one or two major inputs, don’t pipe.\nIf you have more than ca. ten steps, better make intermediate objects.\nIt helps you to debug (i.e., find mistakes) and is simply easier to read."
   },
   {
     "objectID": "slides/05-Piping.html#reminder-weights",
@@ -1432,7 +1411,7 @@
     "href": "slides/03-Data-Frames.html#data-frames",
     "title": "Einführung in R und Quarto",
     "section": "Data frames",
-    "text": "Data frames\nData frames organize vectors of equal length along their indices.\n\n\n    name age      conti employed nr_kids\n1  Agnes  34     Europe    FALSE       1\n2 Martin  22     Africa     TRUE       0\n3  Hakan  42     Africa     TRUE       3\n4     Tu  12       Asia     TRUE       0\n5  Thais  76 S. America     TRUE       4\n\n\n. . .\n\nData frames are the typical “rectangular” way to organize data:"
+    "text": "Data frames\nData frames organize vectors of equal length along their indices.\n\n\n    name age      conti employed nr_kids\n1  Agnes  34     Europe    FALSE       1\n2 Martin  22     Africa     TRUE       0\n3  Hakan  42     Africa     TRUE       3\n4     Tu  12       Asia     TRUE       0\n5  Thais  76 S. America     TRUE       4\n\n\n\n\nData frames are the typical “rectangular” way to organize data:"
   },
   {
     "objectID": "slides/03-Data-Frames.html#tibbles",
@@ -1446,7 +1425,7 @@
     "href": "slides/03-Data-Frames.html#address-single-variables-the-operator",
     "title": "Einführung in R und Quarto",
     "section": "Address single variables (The $ operator)",
-    "text": "Address single variables (The $ operator)\n\n\n[1] Europe     Africa     Africa     Asia       S. America\nLevels: Africa Asia Australia Europe N. America S. America\n\n\n. . .\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   12.0    22.0    34.0    37.2    42.0    76.0 \n\n\n. . .\n\n\n    Africa       Asia  Australia     Europe N. America S. America \n         2          1          0          1          0          1 \n\n\n\nWait, why does summary() give me first some summary statistics and then a frequency table?"
+    "text": "Address single variables (The $ operator)\n\n\n[1] Europe     Africa     Africa     Asia       S. America\nLevels: Africa Asia Australia Europe N. America S. America\n\n\n\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   12.0    22.0    34.0    37.2    42.0    76.0 \n\n\n\n\n\n\n    Africa       Asia  Australia     Europe N. America S. America \n         2          1          0          1          0          1 \n\n\n\nWait, why does summary() give me first some summary statistics and then a frequency table?"
   },
   {
     "objectID": "slides/03-Data-Frames.html#select-several-variables",
@@ -1467,7 +1446,7 @@
     "href": "slides/03-Data-Frames.html#filter-cases-based-on-values-in-certain-variables",
     "title": "Einführung in R und Quarto",
     "section": "filter() cases (Based on values in certain variables)",
-    "text": "filter() cases (Based on values in certain variables)\n\n\n# A tibble: 2 × 5\n  name     age conti  employed nr_kids\n  &lt;chr&gt;  &lt;dbl&gt; &lt;fct&gt;  &lt;lgl&gt;      &lt;dbl&gt;\n1 Martin    22 Africa TRUE           0\n2 Hakan     42 Africa TRUE           3\n\n\n. . .\n\n\n# A tibble: 2 × 5\n  name     age conti  employed nr_kids\n  &lt;chr&gt;  &lt;dbl&gt; &lt;fct&gt;  &lt;lgl&gt;      &lt;dbl&gt;\n1 Martin    22 Africa TRUE           0\n2 Hakan     42 Africa TRUE           3\n\n\n\nWhy is there a , after \"Africa\"?"
+    "text": "filter() cases (Based on values in certain variables)\n\n\n# A tibble: 2 × 5\n  name     age conti  employed nr_kids\n  &lt;chr&gt;  &lt;dbl&gt; &lt;fct&gt;  &lt;lgl&gt;      &lt;dbl&gt;\n1 Martin    22 Africa TRUE           0\n2 Hakan     42 Africa TRUE           3\n\n\n\n\n\n# A tibble: 2 × 5\n  name     age conti  employed nr_kids\n  &lt;chr&gt;  &lt;dbl&gt; &lt;fct&gt;  &lt;lgl&gt;      &lt;dbl&gt;\n1 Martin    22 Africa TRUE           0\n2 Hakan     42 Africa TRUE           3\n\n\n\nWhy is there a , after \"Africa\"?"
   },
   {
     "objectID": "slides/03-Data-Frames.html#index-rows-and-columns",
@@ -1481,7 +1460,7 @@
     "href": "slides/03-Data-Frames.html#transform-recode-generate-variables-of-tibbles",
     "title": "Einführung in R und Quarto",
     "section": "Transform, recode & generate (Variables of tibbles)",
-    "text": "Transform, recode & generate (Variables of tibbles)\nTo transform and recode simply use $ to clarify which tibble you are referring to.\n\n\n[1]  -3.2 -15.2   4.8 -25.2  38.8\n\n\n\n\n[1] Europe     Afrika!    Afrika!    Asia       S. America\nLevels: Afrika! Asia Australia Europe N. America S. America\n\n\n. . .\nIf you rather want to generate a new variable, just give it a name.\n\n\n[1] -0.1305090 -0.6199178  0.1957635 -1.0277584  1.5824217"
+    "text": "Transform, recode & generate (Variables of tibbles)\nTo transform and recode simply use $ to clarify which tibble you are referring to.\n\n\n[1]  -3.2 -15.2   4.8 -25.2  38.8\n\n\n\n\n[1] Europe     Afrika!    Afrika!    Asia       S. America\nLevels: Afrika! Asia Australia Europe N. America S. America\n\n\n\nIf you rather want to generate a new variable, just give it a name.\n\n\n[1] -0.1305090 -0.6199178  0.1957635 -1.0277584  1.5824217"
   },
   {
     "objectID": "slides/03-Data-Frames.html#transform-recode-generate-several-variables-of-a-tibble",
@@ -1530,7 +1509,7 @@
     "href": "slides/03-Data-Frames.html#import-downloaded-data",
     "title": "Einführung in R und Quarto",
     "section": "Import downloaded data",
-    "text": "Import downloaded data\nThe classic way to work with actual data, is to download them to some folder and to then import them to your software environment. The tidyverse contains the following three packages:\n\n\n\n\nThe “haven” package allows you to import Stata, SPSS, and SAS files. ::: {.note} See the respective Haven Website.\n\n\n\n\n\n\n\n\n\n\n\n\nThe “readr” package allows you to import csv, tsv and fwf files. ::: {.note} See the respective Readr Website and Cheat Sheet.\n\n\n\nThe readxl package allows you to read in Excel’s xlsx files. ::: {.note} See the respective Readxl Website. ::: ::: :::"
+    "text": "Import downloaded data\nThe classic way to work with actual data, is to download them to some folder and to then import them to your software environment. The tidyverse contains the following three packages:\n\n\n\n\nThe “haven” package allows you to import Stata, SPSS, and SAS files. ::: {.note} See the respective Haven Website.\n\n\n\n\n\n\n\n\n\n\nThe “readr” package allows you to import csv, tsv and fwf files. ::: {.note} See the respective Readr Website and Cheat Sheet.\n\n\nThe readxl package allows you to read in Excel’s xlsx files. ::: {.note} See the respective Readxl Website. ::: ::: :::"
   },
   {
     "objectID": "slides/03-Data-Frames.html#importing-the-ess-via-the-ess-api",
@@ -1603,18 +1582,11 @@
     "text": "View slides in full screen"
   },
   {
-    "objectID": "slides/01-Hello-R.html",
-    "href": "slides/01-Hello-R.html",
-    "title": "Einführung in R und Quarto",
-    "section": "",
-    "text": "Source: Saskia Otto, Uni Hamburg"
-  },
-  {
     "objectID": "slides/01-Hello-R.html#what-you-will-learn",
     "href": "slides/01-Hello-R.html#what-you-will-learn",
     "title": "Einführung in R und Quarto",
-    "section": "",
-    "text": "Source: Saskia Otto, Uni Hamburg"
+    "section": "What you will learn",
+    "text": "What you will learn\n\nSource: Saskia Otto, Uni Hamburg"
   },
   {
     "objectID": "slides/01-Hello-R.html#workflow",
@@ -1635,7 +1607,7 @@
     "href": "slides/01-Hello-R.html#first-steps-with-r-creating-objects",
     "title": "Einführung in R und Quarto",
     "section": "First steps with R — Creating objects",
-    "text": "First steps with R — Creating objects\n. . .\nR is an object-oriented programming language. We create objects with the assignment operator &lt;-.\n\nThe names you give objects need to start with a letter.\n\n. . .\nThe assignment operator may be used in both directions: &lt;-, or -&gt;.\n\nThis can help you write more legible code."
+    "text": "First steps with R — Creating objects\n\nR is an object-oriented programming language. We create objects with the assignment operator &lt;-.\n\nThe names you give objects need to start with a letter.\n\n\n\nThe assignment operator may be used in both directions: &lt;-, or -&gt;.\n\nThis can help you write more legible code."
   },
   {
     "objectID": "slides/01-Hello-R.html#first-steps-with-r-creating-objects-1",
@@ -1649,35 +1621,35 @@
     "href": "slides/01-Hello-R.html#first-steps-with-r-printing-objects",
     "title": "Einführung in R und Quarto",
     "section": "First steps with R — Printing objects",
-    "text": "First steps with R — Printing objects\nYou can make R print the content of an object by typing its name.\n\n\n[1] 7\n\n\n. . .\n\n\n[1] 8\n\n\n[1] \"Yes, you can also assign text\""
+    "text": "First steps with R — Printing objects\nYou can make R print the content of an object by typing its name.\n\n\n[1] 7\n\n\n\n\n\n[1] 8\n\n\n[1] \"Yes, you can also assign text\""
   },
   {
     "objectID": "slides/01-Hello-R.html#printing-neq-assigning",
     "href": "slides/01-Hello-R.html#printing-neq-assigning",
     "title": "Einführung in R und Quarto",
     "section": "Printing \\(\\neq\\) assigning!",
-    "text": "Printing \\(\\neq\\) assigning!\nIf you don’t use the assignment operator, R will simply print the result of an operation without changing that object (i.e., without any further consequences).\n\n\n[1] 10\n\n\n[1] 7\n\n\n. . .\nIf you actually want to create or modify objects, you need to use the assignment operator and explicitly assign the result of your operation to the object you want to change.\n\n\n[1] 10\n\n\n. . .\nThe short-hand version for assigning and printing an object right away uses surrounding ():\n\n\n[1] 7"
+    "text": "Printing \\(\\neq\\) assigning!\nIf you don’t use the assignment operator, R will simply print the result of an operation without changing that object (i.e., without any further consequences).\n\n\n[1] 10\n\n\n[1] 7\n\n\n\nIf you actually want to create or modify objects, you need to use the assignment operator and explicitly assign the result of your operation to the object you want to change.\n\n\n[1] 10\n\n\n\n\nThe short-hand version for assigning and printing an object right away uses surrounding ():\n\n\n[1] 7"
   },
   {
     "objectID": "slides/01-Hello-R.html#first-steps-with-r-functions",
     "href": "slides/01-Hello-R.html#first-steps-with-r-functions",
     "title": "Einführung in R und Quarto",
     "section": "First steps with R — Functions",
-    "text": "First steps with R — Functions\nFunctions do the work in R. You call/use them by: function_name(argument1 = value1, argument2 = value2, ...)\n. . .\nThe seq() function, for instance, produces a sequence of numbers and has (among others) the arguments from and to.\n\n\n[1] 1 2 3 4 5\n\n\n. . .\nTo shorten code, R can infer the arguments by their position (i.e., the positions of supplied values).\n\n(i.e., Here R assumes you mean from-to and not to-from)\n\n\n\n[1] 1 2 3 4 5"
+    "text": "First steps with R — Functions\nFunctions do the work in R. You call/use them by: function_name(argument1 = value1, argument2 = value2, ...)\n\nThe seq() function, for instance, produces a sequence of numbers and has (among others) the arguments from and to.\n\n\n[1] 1 2 3 4 5\n\n\n\n\nTo shorten code, R can infer the arguments by their position (i.e., the positions of supplied values).\n\n(i.e., Here R assumes you mean from-to and not to-from)\n\n\n\n[1] 1 2 3 4 5"
   },
   {
     "objectID": "slides/01-Hello-R.html#first-steps-with-r-object-classes",
     "href": "slides/01-Hello-R.html#first-steps-with-r-object-classes",
     "title": "Einführung in R und Quarto",
     "section": "First steps with R — Object classes",
-    "text": "First steps with R — Object classes\nWhat a function does, depends on the type of object you feed to its arguments as values. The class() function tells you what class/type of object your are dealing with:\n\n\n[1] \"integer\"\n\n\n[1] \"character\"\n\n\n. . .\nFunctions will throw an error message, if you feed them with an object of a class it cannot handle:\n\n\nError in `seq.default()`:\n! 'from' must be a finite number\n\n\n. . .\nAlthough functions do stuff with objects we feed to them, they are also objects themselves:\n\n\n[1] \"function\""
+    "text": "First steps with R — Object classes\nWhat a function does, depends on the type of object you feed to its arguments as values. The class() function tells you what class/type of object your are dealing with:\n\n\n[1] \"integer\"\n\n\n[1] \"character\"\n\n\n\nFunctions will throw an error message, if you feed them with an object of a class it cannot handle:\n\n\nError in `seq.default()`:\n! 'from' must be a finite number\n\n\n\n\nAlthough functions do stuff with objects we feed to them, they are also objects themselves:\n\n\n[1] \"function\""
   },
   {
     "objectID": "slides/01-Hello-R.html#arithmetic-operators",
     "href": "slides/01-Hello-R.html#arithmetic-operators",
     "title": "Einführung in R und Quarto",
     "section": "Arithmetic operators",
-    "text": "Arithmetic operators\nLike any decent calculator, R knows how to handle basic arithmetic:\n\n\n[1] 5\n\n\n[1] -1\n\n\n[1] 6\n\n\n[1] 0.6666667\n\n\n[1] 8\n\n\n. . .\nOther mathematical operations are implemented as functions:\n\n\n[1] 1 2 3 4 5\n\n\n[1] 1.000000 1.414214 1.732051 2.000000 2.236068"
+    "text": "Arithmetic operators\nLike any decent calculator, R knows how to handle basic arithmetic:\n\n\n[1] 5\n\n\n[1] -1\n\n\n[1] 6\n\n\n[1] 0.6666667\n\n\n[1] 8\n\n\n\nOther mathematical operations are implemented as functions:\n\n\n[1] 1 2 3 4 5\n\n\n[1] 1.000000 1.414214 1.732051 2.000000 2.236068"
   },
   {
     "objectID": "slides/01-Hello-R.html#logical-boolean-operators",
@@ -1729,6 +1701,48 @@
     "text": "Literatur"
   },
   {
+    "objectID": "materialien.html",
+    "href": "materialien.html",
+    "title": "Materialien",
+    "section": "",
+    "text": "Positron als Anwendungsoberfläche.\nR als Programmiersprache.\n\nPositron enthält schon Quarto als “Motor”, in dessen Rahmen auch R ausgeführt werden kann.\nInstallieren Sie bitte noch über das Fenster “Terminal” folgende zwei Software-Pakete:\n\n\n\n\n\n\nImportant\n\n\n\ninstall.packages(tidyverse)\ninstall.packages(rmarkdown)"
+  },
+  {
+    "objectID": "materialien.html#installation",
+    "href": "materialien.html#installation",
+    "title": "Materialien",
+    "section": "",
+    "text": "Positron als Anwendungsoberfläche.\nR als Programmiersprache.\n\nPositron enthält schon Quarto als “Motor”, in dessen Rahmen auch R ausgeführt werden kann.\nInstallieren Sie bitte noch über das Fenster “Terminal” folgende zwei Software-Pakete:\n\n\n\n\n\n\nImportant\n\n\n\ninstall.packages(tidyverse)\ninstall.packages(rmarkdown)"
+  },
+  {
+    "objectID": "materialien.html#zentrale-literatur",
+    "href": "materialien.html#zentrale-literatur",
+    "title": "Materialien",
+    "section": "Zentrale Literatur",
+    "text": "Zentrale Literatur\n\n\nWarning: package 'slickR' was built under R version 4.3.3\n\n\n\n\n\n\nDie Buchcover werden hier unter der CC BY-NC-ND 3.0 Lizenz verwendet; alle drei Titel sind zudem als Open-Access-Bücher frei online verfügbar."
+  },
+  {
+    "objectID": "materialien.html#cheatsheets",
+    "href": "materialien.html#cheatsheets",
+    "title": "Materialien",
+    "section": "Cheatsheets",
+    "text": "Cheatsheets\n(Platzhalter — Links zu R- und Quarto-Cheatsheets.)"
+  },
+  {
+    "objectID": "materialien.html#datensätze",
+    "href": "materialien.html#datensätze",
+    "title": "Materialien",
+    "section": "Datensätze",
+    "text": "Datensätze\n(Platzhalter — Links/Downloads zu Übungsdatensätzen.)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Verstehen, was passiert. Mit R.",
+    "section": "",
+    "text": "Willkommen zur Seminar-Website Verstehen, was passiert. Mit R.\n\n\n\nArtwork by Allison Horst\n\n\n\n\nDas große Ganze\n\n\n\nVerstehen, was passiert. Mit R. Quelle: Wickham et al. (2023)\n\n\n\n\nWintersemester\n\n\n\nFolge\nThema\nMust read(s)\nFolien\n(Finger)Übungen\nMilestones\nShownotes\n\n\n\n\n1\nErst die Frage, dann das R.\n📖\n📜\n\n\n💻\n\n\n2\n\n📖\n📜\n\n\n💻"
+  },
+  {
     "objectID": "shownotes.html",
     "href": "shownotes.html",
     "title": "Shownotes",
@@ -1754,7 +1768,7 @@
     "href": "slides/02-Vectors.html#atomic-vector",
     "title": "Einführung in R und Quarto",
     "section": "(atomic) Vector",
-    "text": "(atomic) Vector\nThe most fundamental data type in R is a (atomic) vector: a sequence/chain/series of information. You can “concatenate” information into a vector by using c():\n\n\n[1] 5 4 3 2 4\n\n\n. . .\nYou can access a specific element of a vector via it’s vector[index]:\n\n\n[1] 4\n\n\n. . .\nIf you want to access several elements, you need to supply another vector to the vector’s index:\n\n\n[1] 4 2"
+    "text": "(atomic) Vector\nThe most fundamental data type in R is a (atomic) vector: a sequence/chain/series of information. You can “concatenate” information into a vector by using c():\n\n\n[1] 5 4 3 2 4\n\n\n\nYou can access a specific element of a vector via it’s vector[index]:\n\n\n[1] 4\n\n\n\n\nIf you want to access several elements, you need to supply another vector to the vector’s index:\n\n\n[1] 4 2"
   },
   {
     "objectID": "slides/02-Vectors.html#numeric-vectors",
@@ -1768,7 +1782,7 @@
     "href": "slides/02-Vectors.html#transform-numeric-vectors",
     "title": "Einführung in R und Quarto",
     "section": "Transform numeric vectors",
-    "text": "Transform numeric vectors\nTo transform numeric vectors, you can use …\n… arithmetic operators + - * / ^.\n\n\n[1] 10  9  8  7  9\n\n\n. . .\n… a myriad of different functions. ::: {.note} See Chapter 5 Data transformation of Grolemund and Wickham (2017) for further examples. :::\n\n\n[1] 3.321928 3.169925 3.000000 2.807355 3.169925\n\n\n. . .\n\n\nWatch out, R simply overrides existing objects without a warning!\n\n\n. . .\nBecause R is nested, you can combine arithmetic operators and several functions in one line.\n\n\n[1]  1.1606991  0.3872282 -0.4774386 -1.4577170  0.3872282"
+    "text": "Transform numeric vectors\nTo transform numeric vectors, you can use …\n… arithmetic operators + - * / ^.\n\n\n[1] 10  9  8  7  9\n\n\n\n… a myriad of different functions. ::: {.note} See Chapter 5 Data transformation of Grolemund and Wickham (2017) for further examples. :::\n\n\n[1] 3.321928 3.169925 3.000000 2.807355 3.169925\n\n\n\n\n\n\nWatch out, R simply overrides existing objects without a warning!\n\n\n\n\nBecause R is nested, you can combine arithmetic operators and several functions in one line.\n\n\n[1]  1.1606991  0.3872282 -0.4774386 -1.4577170  0.3872282"
   },
   {
     "objectID": "slides/02-Vectors.html#factor-vectors",
@@ -1789,21 +1803,21 @@
     "href": "slides/02-Vectors.html#recoding-factors",
     "title": "Einführung in R und Quarto",
     "section": "Recoding factors",
-    "text": "Recoding factors\n\nBecause factors are categorical, they cannot be numerically transformed. ::: {.note} What would be Africa devided by half in comparison to Europe devided by half?\n\n\nIf you nevertheless try to numerically transform a factor, the result is NA (i.e., “not available”).\n\n\n[1] NA NA NA NA NA\n\n\n\n\nIn R factors need to be handled as fundamentally different from numeric!\n\n\n:::\n. . .\n\nBase R is rather confusing when it comes to factors. We learn to use recode functions from the forcats package, which is part of the tidyverse."
+    "text": "Recoding factors\n\nBecause factors are categorical, they cannot be numerically transformed. ::: {.note} What would be Africa devided by half in comparison to Europe devided by half?\n\nIf you nevertheless try to numerically transform a factor, the result is NA (i.e., “not available”).\n\n\n[1] NA NA NA NA NA\n\n\n\n\nIn R factors need to be handled as fundamentally different from numeric!\n\n\n:::\n\n\nBase R is rather confusing when it comes to factors. We learn to use recode functions from the forcats package, which is part of the tidyverse."
   },
   {
     "objectID": "slides/02-Vectors.html#wait-whats-a-package",
     "href": "slides/02-Vectors.html#wait-whats-a-package",
     "title": "Einführung in R und Quarto",
     "section": "Wait, what’s a package?",
-    "text": "Wait, what’s a package?\n\n\n\n. . .\n\nA package is a collection of functions and their documentation (sometimes also data). Some packages are pre-installed as sub-packages of R’s Base package. In addition, there are, currently, +17,000 (user-written) packages on the Comprehensive R Archive Network (CRAN). The tidyverse and its forcats package are such user-written packages.\nYou can install any of the +17,000 (user-written) packages using install.packages(\"name_of_the_package\").\nPlease all install the tidyverse package now by typing: install.packages(\"tidyverse\") into the console.\n\nDo not add the install.packages() call to your R Scripts! You will need to install a package only once, and not every time you run your script. If you want to update, use update.packages()."
+    "text": "Wait, what’s a package?\n\n\n\n\nA package is a collection of functions and their documentation (sometimes also data). Some packages are pre-installed as sub-packages of R’s Base package. In addition, there are, currently, +17,000 (user-written) packages on the Comprehensive R Archive Network (CRAN). The tidyverse and its forcats package are such user-written packages.\nYou can install any of the +17,000 (user-written) packages using install.packages(\"name_of_the_package\").\nPlease all install the tidyverse package now by typing: install.packages(\"tidyverse\") into the console.\n\nDo not add the install.packages() call to your R Scripts! You will need to install a package only once, and not every time you run your script. If you want to update, use update.packages()."
   },
   {
     "objectID": "slides/02-Vectors.html#the-library",
     "href": "slides/02-Vectors.html#the-library",
     "title": "Einführung in R und Quarto",
     "section": "The library",
-    "text": "The library\n\n\nBecause there are so many user-written packages, they oftentimes contain functions with conflicting names. To avoid conflicts, you need to specify for each R session, which packages you want to work with. You do that, by adding the packages to your current R session’s library.\nIt is good practice to add all packages to the library on the very top of an R script. Please all add the tidyverse to your library by writing the following as the very first line in your R script.\nSome tidyverse functions conflict with Base R’s Stats package. ::: {.note} You can always address a function from a specific package by initiating it with package::function().\n\n\n\n\n\n:::"
+    "text": "The library\n\n\nBecause there are so many user-written packages, they oftentimes contain functions with conflicting names. To avoid conflicts, you need to specify for each R session, which packages you want to work with. You do that, by adding the packages to your current R session’s library.\nIt is good practice to add all packages to the library on the very top of an R script. Please all add the tidyverse to your library by writing the following as the very first line in your R script.\nSome tidyverse functions conflict with Base R’s Stats package. ::: {.note} You can always address a function from a specific package by initiating it with package::function().\n\n\n\n:::"
   },
   {
     "objectID": "slides/02-Vectors.html#back-to-recoding-factors",
@@ -1831,7 +1845,7 @@
     "href": "slides/02-Vectors.html#character-vectors",
     "title": "Einführung in R und Quarto",
     "section": "Character vectors",
-    "text": "Character vectors\n\n\nCharacter/string vectors are sequences of text.\n\n\n[1] \"Thi\" \"!\"   \"a\"   \"goo\" \"rea\"\n\n\nYou can manipulate them using string functions and regular expressions \\(\\rightarrow\\) ::: {.alert} advanced R course (taught by Friedolin Merhout ;)\n\n\n\n\n\n:::"
+    "text": "Character vectors\n\n\nCharacter/string vectors are sequences of text.\n\n\n[1] \"Thi\" \"!\"   \"a\"   \"goo\" \"rea\"\n\n\nYou can manipulate them using string functions and regular expressions \\(\\rightarrow\\) ::: {.alert} advanced R course (taught by Friedolin Merhout ;)\n\n\n\n:::"
   },
   {
     "objectID": "slides/02-Vectors.html#logical-vectors",
@@ -1852,7 +1866,7 @@
     "href": "slides/02-Vectors.html#na-not-available",
     "title": "Einführung in R und Quarto",
     "section": "NA: Not Available",
-    "text": "NA: Not Available\nIn general, missing values in R are NA, impossible values (devision by 0) are NaN (Not a Number).\n. . .\n\n\nMany functions will not ignore NA by default and thus return NA.\n\n\n[1] NA\n\n\n[1] 3.6\n\n\n\nis.na() generates logical vectors that identify missing values.\n\n\n[1] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE\n\n\n[1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE\n\n\n[1] 1 2 3 5 7"
+    "text": "NA: Not Available\nIn general, missing values in R are NA, impossible values (devision by 0) are NaN (Not a Number).\n\n\n\nMany functions will not ignore NA by default and thus return NA.\n\n\n[1] NA\n\n\n[1] 3.6\n\n\n\nis.na() generates logical vectors that identify missing values.\n\n\n[1] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE\n\n\n[1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE\n\n\n[1] 1 2 3 5 7"
   },
   {
     "objectID": "slides/02-Vectors.html#todays-general-lessons",
@@ -1964,7 +1978,7 @@
     "href": "slides/04-Visualization-I.html#geometric-objects-as-what-do-you-visualize-your-data",
     "title": "Einführung in R und Quarto",
     "section": "Geometric objects As what do you visualize your data?",
-    "text": "Geometric objects As what do you visualize your data?\n\nHow are these two plots similar?\n\n\n\n\n\n\n\n\n\n\nThey show the same data, but expressed as different geometric objects.\nggplot2 contains +30 geoms. Extension packages contain even more."
+    "text": "Geometric objects As what do you visualize your data?\n\nHow are these two plots similar?\n\n\n\n\n\n\n\n\n\nThey show the same data, but expressed as different geometric objects.\nggplot2 contains +30 geoms. Extension packages contain even more."
   },
   {
     "objectID": "slides/04-Visualization-I.html#geometric-objects-as-what-do-you-visualize-your-data-1",
@@ -1985,7 +1999,7 @@
     "href": "slides/04-Visualization-I.html#geoms-aestetics-some-aestetics-are-geom-specific",
     "title": "Einführung in R und Quarto",
     "section": "Geoms & aestetics Some aestetics are geom specific",
-    "text": "Geoms & aestetics Some aestetics are geom specific\n\n\n\n\n\n\n\n\n\nWe can use the color aestetic in both plots.\nWe cannot use shape for lines and line types for points.\nNote that ggplot2 automatically groups data for geoms whenever you map an aesthetic to a categorical variable!"
+    "text": "Geoms & aestetics Some aestetics are geom specific\n\n\n\n\n\n\n\n\nWe can use the color aestetic in both plots.\nWe cannot use shape for lines and line types for points.\nNote that ggplot2 automatically groups data for geoms whenever you map an aesthetic to a categorical variable!"
   },
   {
     "objectID": "slides/04-Visualization-I.html#multiple-geoms-are-layered-on-top-of-each-other",
@@ -2006,7 +2020,7 @@
     "href": "slides/04-Visualization-I.html#global-aestetics",
     "title": "Einführung in R und Quarto",
     "section": "Global aestetics",
-    "text": "Global aestetics\nTo avoid repetitive code, we can specify global aestetics, which (by default) hold for all geoms.\n\nBy the way, this is a nice example why graphics are great for data exploration:"
+    "text": "Global aestetics\nTo avoid repetitive code, we can specify global aestetics, which (by default) hold for all geoms."
   },
   {
     "objectID": "slides/04-Visualization-I.html#local-aestetics-for-the-single-geoms",
@@ -2072,18 +2086,11 @@
     "text": "View slides in full screen"
   },
   {
-    "objectID": "slides/06-Visualization-II.html",
-    "href": "slides/06-Visualization-II.html",
-    "title": "Einführung in R und Quarto",
-    "section": "",
-    "text": "Source: Wickham & Grolemund “R for Data Science”"
-  },
-  {
     "objectID": "slides/06-Visualization-II.html#the-final-pieces-of-ggplot2s-grammar",
     "href": "slides/06-Visualization-II.html#the-final-pieces-of-ggplot2s-grammar",
     "title": "Einführung in R und Quarto",
-    "section": "",
-    "text": "Source: Wickham & Grolemund “R for Data Science”"
+    "section": "The final pieces of ggplot2’s grammar",
+    "text": "The final pieces of ggplot2’s grammar\n\n\nSource: Wickham & Grolemund “R for Data Science”"
   },
   {
     "objectID": "slides/06-Visualization-II.html#lets-get-ready",
@@ -2167,7 +2174,7 @@
     "href": "slides/06-Visualization-II.html#statistical-transformations-like-a-pro-1",
     "title": "Einführung in R und Quarto",
     "section": "Statistical transformations — Like a pro …",
-    "text": "Statistical transformations — Like a pro …\nIf we statistically transform data by ourselves and then wish to plot the resulting data, we have to:\n\nGive ggplot2 both x and y for its coordinate system.\nTell the geom that we do not wish to use the default stat, but instead use the statistically-transformed data as raw input without further transformation (i.e., \"identity\", aka “leave as it”).\n\n\n\n\n\n\n\n\n\nAgain a nice example how we are quicker to pick up the differences in the plot."
+    "text": "Statistical transformations — Like a pro …\nIf we statistically transform data by ourselves and then wish to plot the resulting data, we have to:\n\nGive ggplot2 both x and y for its coordinate system.\nTell the geom that we do not wish to use the default stat, but instead use the statistically-transformed data as raw input without further transformation (i.e., \"identity\", aka “leave as it”).\n\n\n\n\n\n\n\n\nAgain a nice example how we are quicker to pick up the differences in the plot."
   },
   {
     "objectID": "slides/06-Visualization-II.html#statistical-transformations-like-a-pro-2",
@@ -2308,12 +2315,5 @@
     "title": "Dynamic Documents mit R Markdown",
     "section": "",
     "text": "View slides in full screen"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Verstehen, was passiert. Mit R.",
-    "section": "",
-    "text": "Willkommen zur Seminar-Website Verstehen, was passiert. Mit R.\n\n\n\nArtwork by Allison Horst\n\n\n\n\nDas große Ganze\n\n\n\nVerstehen, was passiert. Mit R. Quelle: Wickham et al. (2023)\n\n\n\n\nWintersemester\n\n\n\nFolge\nThema\nMust read(s)\nFolien\n(Finger)Übungen\nMilestones\nShownotes\n\n\n\n\n1\nErst die Frage, dann das R.\n📖\n📜\n\n\n💻\n\n\n2\n\n📖\n📜\n\n\n💻"
   }
 ]
