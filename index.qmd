@@ -15,6 +15,6 @@ from: markdown+emoji
 # Wintersemester 
 
 | Folge | Thema | Must read(s) | Folien | (Finger)Übungen | Milestones | Shownotes |
-|:-------:|---------|:-------:|:-------:|:-------:|:-------:|:-------:|
-| 1  | Erst die Frage, dann das R. | [📖](https://shorthand.com/the-craft/science-journalism-examples/index.html#section-qRUiP6igQ0) | [:scroll:](slides/01-slides.qmd) |  |  | [:computer:](shownotes.qmd#questions-first-r-later) |
-| 2  |  | [📖](https://shorthand.com/the-craft/science-journalism-examples/index.html#section-qRUiP6igQ0) | [:scroll:]() |  |  | [:computer:]() |
+|:-----:|--------------------|:-------:|:-------:|:-------:|:-------:|:-------:|
+| 1  | Erst die Frage, dann das R. | [📖](https://shorthand.com/the-craft/science-journalism-examples/index.html#section-qRUiP6igQ0) | [:scroll:](slides/01-Hello-R.html) |  |  | [:computer:](shownotes.qmd#questions-first-r-later) |
+| 2  | Warum wir erst aufräumen müssen, damit es schön werden kann.  | [📖](https://r4ds.hadley.nz/data-visualize.html) | [:scroll:](slides/02-Vectors.html) | [:bar_chart:](excercises/01-gender.html) |  | |

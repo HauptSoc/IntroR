@@ -1,0 +1,80 @@
+---
+title: "Weiblich, männlich und alles dazwischen"
+from: markdown+emoji
+bibliography: introR.bib
+execute: 
+  echo: false
+  cache: true
+  message: false
+  warning: false
+---
+
+# Ziele für die Sitzung
+
+Inhaltliches Ziel: Wer fühlt sich wie stark "männlich" oder "weiblich" und von was hängt das ab?
+
+Didaktisches Ziel: Eine schöne Visualisierung einer "Abhängigkeit" des sich "männlich" oder "weiblich" Fühlens. Bauen Sie dazu - so sinnvoll wie nötig - den Graph von @wickhamDataScienceImport2023 aus [Kapitel 1](https://r4ds.hadley.nz/data-visualize.html) nach. 
+
+## Die Daten
+
+Wir haben neue ALLBUS Daten von 2025. Diese sind für die deutsche Wohnbevölkerung (in privaten Haushalten) repräsentativ. Sie erhalten einen Teil des Datensatzes mit einer Auswahl der Variablen [hier](./data/genderdata.rds).
+
+```{r}
+# Das ist ein R-Code-Block
+# Mit der Raute können Sie **innerhalb** eines Code-Blocks Kommentare verfassen.
+library(haven)
+library(dplyr)
+
+allbus <- read_dta("C:/Daten/Allbus/2025/ZA9090_v1-0-0.dta") |>
+  select(eastwest, age, sex, gender_m, gender_f, mstat, incc, hhincc, id03, id07)
+
+#saveRDS(allbus, file = "data/genderdata.rds")
+```
+
+### Codebuch
+
+Bevor wir mit den Daten arbeiten, lohnt sich ein Blick ins Codebuch: Jede Variable hat einen Namen, ein Label (die eigentliche Frage) und teils Value Labels (wofür steht z.B. die Zahl `-9`?). 
+
+```{r}
+#| echo: false
+#| results: asis
+library(bslib)
+library(purrr)
+library(htmltools)
+
+# Für jede Variable ein Akkordeon-Panel mit Label, Value Labels (falls
+# vorhanden) und ein paar Beispielwerten bauen.
+panels <- imap(allbus, function(x, varname) {
+
+  var_label <- attr(x, "label")
+  val_labels <- attr(x, "labels")
+
+  body <- tagList(
+    tags$p(tags$strong("Frage/Label: "), var_label %||% "(kein Label vorhanden)"),
+    tags$p(tags$strong("Typ: "), class(x)[1]),
+    if (!is.null(val_labels)) {
+      tagList(
+        tags$p(tags$strong("Value Labels:")),
+        tags$table(
+          class = "table table-sm",
+          tags$thead(tags$tr(tags$th("Code"), tags$th("Bedeutung"))),
+          tags$tbody(
+            map2(val_labels, names(val_labels), function(code, label) {
+              tags$tr(tags$td(code), tags$td(label))
+            })
+          )
+        )
+      )
+    } else {
+      tags$p(em("Keine Value Labels – vermutlich eine metrische Variable."))
+    },
+    tags$p(tags$strong("Beispielwerte: "), paste(head(as.numeric(x), 5), collapse = ", "))
+  )
+
+  accordion_panel(title = varname, body)
+})
+
+# unname(): imap() behält die Spaltennamen als Listennamen bei; accordion()
+# würde benannte Argumente sonst als HTML-Attribute statt als Panels lesen.
+accordion(!!!unname(panels), id = "codebuch", open = FALSE)
+```

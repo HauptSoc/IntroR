@@ -29,6 +29,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2; background-color: #282a36; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #ff79c6; } /* Annotation */
+    code span.at { color: #ff79c6; } /* Attribute */
+    code span.bn { color: #bd93f9; } /* BaseN */
+    code span.bu { color: #8be9fd; } /* BuiltIn */
+    code span.cf { color: #ff79c6; } /* ControlFlow */
+    code span.ch { color: #f1fa8c; } /* Char */
+    code span.cn { color: #bd93f9; font-weight: bold; } /* Constant */
+    code span.co { color: #6272a4; } /* Comment */
+    code span.cv { color: #8be9fd; } /* CommentVar */
+    code span.do { color: #ffb86c; } /* Documentation */
+    code span.dt { color: #8be9fd; font-style: italic; } /* DataType */
+    code span.dv { color: #bd93f9; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #8be9fd; } /* Extension */
+    code span.fl { color: #bd93f9; } /* Float */
+    code span.fu { color: #50fa7b; } /* Function */
+    code span.im { color: #ff79c6; } /* Import */
+    code span.in { color: #f1fa8c; } /* Information */
+    code span.kw { color: #ff79c6; } /* Keyword */
+    code span.op { color: #f8f8f2; } /* Operator */
+    code span.ot { color: #50fa7b; } /* Other */
+    code span.pp { color: #ff79c6; } /* Preprocessor */
+    code span.re { color: #8be9fd; } /* RegionMarker */
+    code span.sc { color: #ff79c6; } /* SpecialChar */
+    code span.ss { color: #f1fa8c; } /* SpecialString */
+    code span.st { color: #f1fa8c; } /* String */
+    code span.va { color: #8be9fd; } /* Variable */
+    code span.vs { color: #f1fa8c; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -161,18 +227,12 @@ Andreas Haupt
 </div>
 
 </section>
-<section id="section" class="slide level2" data-background-image="https://cdn.datamentor.io/wp-content/uploads/2017/11/r-vector.jpg">
-<h2></h2>
-</section>
-<section class="slide level2">
-
-<iframe src="https://app.sli.do/event/aflvddc2" height="100%" width="100%" frameborder="0" style="min-height: 560px;">
-</iframe>
-</section>
 <section id="atomic-vector" class="slide level2">
 <h2>(atomic) Vector</h2>
 <p>The most fundamental data type in R is a (atomic) <strong>vector</strong>: a sequence/chain/series of information. You can “concatenate” information into a vector by using <code>c()</code>:</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Concatenate the sequence 5 4 3 2 1 to a vector, assign it to object x1, and print it.</span></span>
+<span id="cb1-2"><a></a>(x1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5 4 3 2 4</code></pre>
 </div>
@@ -180,6 +240,8 @@ Andreas Haupt
 <div class="fragment">
 <p>You can access a specific <em>element</em> of a vector via it’s vector[<strong>index</strong>]:</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Print the second element of x1.</span></span>
+<span id="cb3-2"><a></a>x1[<span class="dv">2</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
@@ -188,13 +250,15 @@ Andreas Haupt
 <div class="fragment">
 <p>If you want to access several elements, you need to supply another vector to the vector’s index:</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># Print the second and fourth element of x1.</span></span>
+<span id="cb5-2"><a></a>x1[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4 2</code></pre>
 </div>
 </div>
 </div>
 </section>
-<section id="section-1" class="slide level2" data-background-image="https://markosun.files.wordpress.com/2015/06/world-leaders-heights-gra-008.jpg">
+<section id="section" class="slide level2" data-background-image="https://markosun.files.wordpress.com/2015/06/world-leaders-heights-gra-008.jpg">
 <h2></h2>
 </section>
 <section id="numeric-vectors" class="slide level2">
@@ -203,9 +267,11 @@ Andreas Haupt
 <div class="column" style="width:50%;">
 <p><strong>Numeric</strong> vectors are sequences of numbers.</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>x1 <span class="co"># Print x1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5 4 3 2 4</code></pre>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">class</span>(x1) <span class="co"># What class of object is x1?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "numeric"</code></pre>
 </div>
@@ -219,6 +285,7 @@ Andreas Haupt
 <p>To transform numeric vectors, you can use …</p>
 <p>… <em>arithmetic operators</em> <code>+ - * / ^</code>.</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>(x1 <span class="ot">&lt;-</span> x1 <span class="sc">+</span> <span class="dv">5</span>) <span class="co"># Assign the object X1 plus 5 added to each of its elements to x1.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10  9  8  7  9</code></pre>
 </div>
@@ -226,6 +293,7 @@ Andreas Haupt
 <div class="fragment">
 <p>… a myriad of different <em>functions</em>.<br> ::: {.note} See Chapter <a href="http://r4ds.had.co.nz/transform.html">5 Data transformation</a> of <span class="citation" data-cites="grolemundDataScience2017">Grolemund and Wickham (<a href="#/literatur" role="doc-biblioref" onclick="">2017</a>)</span> for further examples. :::</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>(x1 <span class="ot">&lt;-</span> <span class="fu">log2</span>(x1)) <span class="co"># Assign the logarithm with base 2 of x1 to x1.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.321928 3.169925 3.000000 2.807355 3.169925</code></pre>
 </div>
@@ -241,13 +309,14 @@ Andreas Haupt
 <div class="fragment">
 <p>Because R is <strong>nested</strong>, you can combine arithmetic operators and several functions in one line.</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>(x1 <span class="ot">&lt;-</span> (x1 <span class="sc">-</span> <span class="fu">mean</span>(x1)) <span class="sc">/</span> <span class="fu">sd</span>(x1)) <span class="co"># z-standardize x1.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  1.1606991  0.3872282 -0.4774386 -1.4577170  0.3872282</code></pre>
 </div>
 </div>
 </div>
 </section>
-<section id="section-2" class="slide level2" data-background-image="images/Categorical.jpg">
+<section id="section-1" class="slide level2" data-background-image="images/Categorical.jpg">
 <h2></h2>
 </section>
 <section id="factor-vectors" class="slide level2">
@@ -258,6 +327,16 @@ Andreas Haupt
 </div><div class="column" style="width:50%;">
 <p><strong>Factors</strong> are for categorical variables that make a distinction but whose values cannot be compared on a common scale. They are composed of a sequence of categorical <em>values</em> (i.e., argument x), and a (ideally comprehensive) list of potential <em>levels</em> (i.e., theoretically-possible values).</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="co"># Concatenate argument "x" to a factor and give it a</span></span>
+<span id="cb17-2"><a></a><span class="co"># comprehensive list "levels" of all potential categories.</span></span>
+<span id="cb17-3"><a></a>conti <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb17-4"><a></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="st">"Europe"</span>, <span class="st">"Africa"</span>, <span class="st">"Africa"</span>, <span class="st">"Asia"</span>, <span class="st">"S.America"</span>),</span>
+<span id="cb17-5"><a></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Africa"</span>, <span class="st">"Asia"</span>, <span class="st">"Australia"</span>,</span>
+<span id="cb17-6"><a></a>             <span class="st">"Europe"</span>, <span class="st">"N.America"</span>, <span class="st">"S.America"</span>)</span>
+<span id="cb17-7"><a></a>)</span>
+<span id="cb17-8"><a></a></span>
+<span id="cb17-9"><a></a><span class="co"># Print a frequency table of our new factor vector.</span></span>
+<span id="cb17-10"><a></a><span class="fu">table</span>(conti)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>conti
    Africa      Asia Australia    Europe N.America S.America 
@@ -290,6 +369,7 @@ Andreas Haupt
 </div><p><br></p>
 <p>If you nevertheless try to numerically transform a factor,<br> the result is <code>NA</code> (i.e., “not available”).</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>conti <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA NA NA NA NA</code></pre>
 </div>
@@ -325,6 +405,10 @@ Andreas Haupt
 <div class="column" style="width:50%;">
 <p>Because there are so many user-written packages, they oftentimes contain functions with <em>conflicting names</em>. To avoid conflicts, you need to specify for each R session, which packages you want to work with. You do that, by adding the packages to your current R session’s <strong>library</strong>.</p>
 <p>It is good practice to add all packages to the library on the very top of an R script. Please all add the tidyverse to your library by writing the following as the very first line in your R script.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="co"># Add tidyverse package to library</span></span>
+<span id="cb21-2"><a></a><span class="fu">library</span>(tidyverse) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <p>Some tidyverse functions conflict with Base R’s Stats package. ::: {.note} You can always address a function from a specific package by initiating it with <code>package::function()</code>.</p>
 </div></div>
 <div class="column" style="width:50%;">
@@ -339,6 +423,17 @@ Andreas Haupt
 </div><div class="column" style="width:50%;">
 <p>Factors can best be <strong>recoded</strong> with <code>forcats::fct_recode()</code>.</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="co"># Recode conti to Danish. Watch out: first the new, then the old value...</span></span>
+<span id="cb22-2"><a></a>conti <span class="ot">&lt;-</span> <span class="fu">fct_recode</span>(conti,</span>
+<span id="cb22-3"><a></a>                    <span class="st">"Europa"</span> <span class="ot">=</span> <span class="st">"Europe"</span>,</span>
+<span id="cb22-4"><a></a>                    <span class="st">"Afrika"</span> <span class="ot">=</span> <span class="st">"Africa"</span>,</span>
+<span id="cb22-5"><a></a>                    <span class="st">"Asien"</span> <span class="ot">=</span> <span class="st">"Asia"</span>,</span>
+<span id="cb22-6"><a></a>                    <span class="st">"Suedamerika"</span> <span class="ot">=</span> <span class="st">"S. America"</span>,</span>
+<span id="cb22-7"><a></a>                    <span class="st">"Nordamerika"</span> <span class="ot">=</span> <span class="st">"N. America"</span>,</span>
+<span id="cb22-8"><a></a>                    <span class="st">"Australien"</span> <span class="ot">=</span> <span class="st">"Australia"</span>)</span>
+<span id="cb22-9"><a></a></span>
+<span id="cb22-10"><a></a><span class="co"># Frequency table of conti.</span></span>
+<span id="cb22-11"><a></a><span class="fu">table</span>(conti) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>conti
     Afrika      Asien Australien     Europa  N.America  S.America 
@@ -355,12 +450,21 @@ Andreas Haupt
 </div><div class="column" style="width:50%;">
 <p>forcats contains <a href="https://forcats.tidyverse.org/reference/index.html">many more useful functions</a> to handle factors!<br> ::: {.note} Also check out <a href="https://r4ds.had.co.nz/factors.html">Chapter 15 Factors</a> of <span class="citation" data-cites="grolemundDataScience2017">Grolemund and Wickham (<a href="#/literatur" role="doc-biblioref" onclick="">2017</a>)</span>.</p>
 </div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>conti <span class="ot">&lt;-</span> <span class="fu">fct_drop</span>(conti) <span class="co"># Drop unused levels.</span></span>
+<span id="cb24-2"><a></a></span>
+<span id="cb24-3"><a></a><span class="co"># Frequency table of conti.</span></span>
+<span id="cb24-4"><a></a><span class="fu">table</span>(conti) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>conti
    Afrika     Asien    Europa S.America 
         2         1         1         1 </code></pre>
 </div>
 </div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="co"># Reorder factor levels by hand</span></span>
+<span id="cb26-2"><a></a>conti <span class="ot">&lt;-</span> <span class="fu">fct_relevel</span>(conti, <span class="st">"Europa"</span>, <span class="st">"Afrika"</span>, <span class="st">"Suedamerika"</span>, <span class="st">"Asien"</span>)</span>
+<span id="cb26-3"><a></a></span>
+<span id="cb26-4"><a></a><span class="co"># Frequency table of conti.</span></span>
+<span id="cb26-5"><a></a><span class="fu">table</span>(conti) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>conti
    Europa    Afrika     Asien S.America 
@@ -376,11 +480,16 @@ Andreas Haupt
 <div class="column" style="width:50%;">
 <p><strong>Dates</strong> are vectors of the Year-Month-Day (and sometimes -Time) format.</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">Sys.Date</span>() <span class="co"># Tell me the date</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2026-09-24"</code></pre>
+<pre><code>[1] "2026-10-30"</code></pre>
 </div>
 </div>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="co"># Evaluate the logical statement that</span></span>
+<span id="cb30-2"><a></a><span class="co"># today is smaller (i.e., before) </span></span>
+<span id="cb30-3"><a></a><span class="co"># than the deadline for the exam.</span></span>
+<span id="cb30-4"><a></a><span class="fu">Sys.Date</span>() <span class="sc">&lt;</span> <span class="st">"2020-05-25"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
@@ -396,6 +505,13 @@ Andreas Haupt
 <div class="column" style="width:50%;">
 <p><strong>Character</strong>/string vectors are sequences of text.</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="co"># Concatenate these five strings as one vector </span></span>
+<span id="cb32-2"><a></a><span class="co"># and assign it to object "x2".</span></span>
+<span id="cb32-3"><a></a>x2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"This is"</span>, <span class="st">"!"</span>, <span class="st">"a"</span>, <span class="st">"good idea"</span>, <span class="st">"really"</span>)</span>
+<span id="cb32-4"><a></a></span>
+<span id="cb32-5"><a></a><span class="co"># Return only the first to third character </span></span>
+<span id="cb32-6"><a></a><span class="co"># of each string-element of x2.</span></span>
+<span id="cb32-7"><a></a>(x2 <span class="ot">&lt;-</span> <span class="fu">str_sub</span>(x2, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">end =</span> <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Thi" "!"   "a"   "goo" "rea"</code></pre>
 </div>
@@ -411,11 +527,18 @@ Andreas Haupt
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><strong>Logical</strong> vectors are sequences of <code>TRUE</code> and <code>FALSE</code> statements:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>x3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <p>Internally, R uses <em>logical vectors for case selection</em>. They are thus very important!</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>x2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Thi" "!"   "a"   "goo" "rea"</code></pre>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="co"># Print those elements that x3 identifies as TRUE, </span></span>
+<span id="cb37-2"><a></a><span class="co"># but not the FALSE ones.</span></span>
+<span id="cb37-3"><a></a>x2[x3]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Thi" "a"   "goo"</code></pre>
 </div>
@@ -429,15 +552,24 @@ Andreas Haupt
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="co"># Concacenate the sequence 1-4 to a numeric vector</span></span>
+<span id="cb39-2"><a></a>(x4 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">4</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4</code></pre>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="co"># Replace the third element with the word "test"</span></span>
+<span id="cb41-2"><a></a>x4[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">"test"</span> </span>
+<span id="cb41-3"><a></a>x4 <span class="co"># print x4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "1"    "2"    "test" "4"   </code></pre>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="co"># What type of object is x4?</span></span>
+<span id="cb43-2"><a></a><span class="fu">class</span>(x4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="co"># Make x4 a numeric vector again</span></span>
+<span id="cb45-2"><a></a><span class="fu">as.numeric</span>(x4) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  1  2 NA  4</code></pre>
 </div>
@@ -454,14 +586,22 @@ Andreas Haupt
 <section id="na-not-available" class="slide level2">
 <h2><strong>NA</strong>: <strong>N</strong>ot <strong>A</strong>vailable</h2>
 <p>In general, missing values in R are <code>NA</code>, impossible values (devision by 0) are <code>NaN</code> (Not a Number).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>x5 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="fragment">
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Many functions will not ignore <code>NA</code> by default and thus return <code>NA</code>.</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a><span class="co"># Estimate mean of x5</span></span>
+<span id="cb48-2"><a></a><span class="fu">mean</span>(x5)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a><span class="co"># Estimate mean of x5 ignoring </span></span>
+<span id="cb50-2"><a></a><span class="co"># the NA (i.e., casewise deletion)</span></span>
+<span id="cb50-3"><a></a><span class="fu">mean</span>(x5, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.6</code></pre>
 </div>
@@ -469,12 +609,18 @@ Andreas Haupt
 </div><div class="column" style="width:50%;">
 <p><code>is.na()</code> generates logical vectors that identify missing values.</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a><span class="co"># Which elements are missing?</span></span>
+<span id="cb52-2"><a></a><span class="fu">is.na</span>(x5) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a><span class="co"># Which elements are not missing?</span></span>
+<span id="cb54-2"><a></a><span class="sc">!</span><span class="fu">is.na</span>(x5) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE</code></pre>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a><span class="co"># Print only non-missing values of x5</span></span>
+<span id="cb56-2"><a></a>x5[<span class="sc">!</span><span class="fu">is.na</span>(x5)] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 5 7</code></pre>
 </div>

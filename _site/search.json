@@ -1607,49 +1607,70 @@
     "href": "slides/01-Hello-R.html#first-steps-with-r-creating-objects",
     "title": "Einführung in R und Quarto",
     "section": "First steps with R — Creating objects",
-    "text": "First steps with R — Creating objects\n\nR is an object-oriented programming language. We create objects with the assignment operator &lt;-.\n\nThe names you give objects need to start with a letter.\n\n\n\nThe assignment operator may be used in both directions: &lt;-, or -&gt;.\n\nThis can help you write more legible code."
+    "text": "First steps with R — Creating objects\n\n# I am a comment; the hashtag \"#\" makes me one.\n# It is good programming style to use me a lot ;).\n\n\nR is an object-oriented programming language. We create objects with the assignment operator &lt;-.\n\nThe names you give objects need to start with a letter.\n\n\n# Create a new object \"test_object\" and assign to it the result of 5 + 2\ntest_object &lt;- 5 + 2\n\n\n\nThe assignment operator may be used in both directions: &lt;-, or -&gt;.\n\nThis can help you write more legible code.\n\n\n5 + 3 -&gt; another_test_object # Create another object"
   },
   {
     "objectID": "slides/01-Hello-R.html#first-steps-with-r-creating-objects-1",
     "href": "slides/01-Hello-R.html#first-steps-with-r-creating-objects-1",
     "title": "Einführung in R und Quarto",
     "section": "First steps with R — Creating objects",
-    "text": "First steps with R — Creating objects\nObjects can contain all kinds of information."
+    "text": "First steps with R — Creating objects\nObjects can contain all kinds of information.\n\ntext_object &lt;- \"Yes, you can also assign text\""
   },
   {
     "objectID": "slides/01-Hello-R.html#first-steps-with-r-printing-objects",
     "href": "slides/01-Hello-R.html#first-steps-with-r-printing-objects",
     "title": "Einführung in R und Quarto",
     "section": "First steps with R — Printing objects",
-    "text": "First steps with R — Printing objects\nYou can make R print the content of an object by typing its name.\n\n\n[1] 7\n\n\n\n\n\n[1] 8\n\n\n[1] \"Yes, you can also assign text\""
+    "text": "First steps with R — Printing objects\nYou can make R print the content of an object by typing its name.\n\ntest_object # Print object\n\n[1] 7\n\n\n\n\nanother_test_object\n\n[1] 8\n\ntext_object\n\n[1] \"Yes, you can also assign text\""
   },
   {
     "objectID": "slides/01-Hello-R.html#printing-neq-assigning",
     "href": "slides/01-Hello-R.html#printing-neq-assigning",
     "title": "Einführung in R und Quarto",
     "section": "Printing \\(\\neq\\) assigning!",
-    "text": "Printing \\(\\neq\\) assigning!\nIf you don’t use the assignment operator, R will simply print the result of an operation without changing that object (i.e., without any further consequences).\n\n\n[1] 10\n\n\n[1] 7\n\n\n\nIf you actually want to create or modify objects, you need to use the assignment operator and explicitly assign the result of your operation to the object you want to change.\n\n\n[1] 10\n\n\n\n\nThe short-hand version for assigning and printing an object right away uses surrounding ():\n\n\n[1] 7"
+    "text": "Printing \\(\\neq\\) assigning!\nIf you don’t use the assignment operator, R will simply print the result of an operation without changing that object (i.e., without any further consequences).\n\ntest_object + 3 # Print the result of adding 3 to the content of test_object + 3.\n\n[1] 10\n\ntest_object # Print the content of test_object.\n\n[1] 7"
+  },
+  {
+    "objectID": "slides/01-Hello-R.html#printing-neq-assigning-1",
+    "href": "slides/01-Hello-R.html#printing-neq-assigning-1",
+    "title": "Einführung in R und Quarto",
+    "section": "Printing \\(\\neq\\) assigning!",
+    "text": "Printing \\(\\neq\\) assigning!\nIf you actually want to create or modify objects, you need to use the assignment operator and explicitly assign the result of your operation to the object you want to change.\n\ntest_object &lt;- test_object + 3 # Assign to test_object: the result of adding 3 to the content of test_object.\ntest_object # Print the content of test_object\n\n[1] 10\n\n\nThe short-hand version for assigning and printing an object right away uses surrounding ():\n\n(test_object &lt;- 5 + 2) # Assign the result of 5 + 2 to \"test_object\" and print tat object's content.\n\n[1] 7"
   },
   {
     "objectID": "slides/01-Hello-R.html#first-steps-with-r-functions",
     "href": "slides/01-Hello-R.html#first-steps-with-r-functions",
     "title": "Einführung in R und Quarto",
     "section": "First steps with R — Functions",
-    "text": "First steps with R — Functions\nFunctions do the work in R. You call/use them by: function_name(argument1 = value1, argument2 = value2, ...)\n\nThe seq() function, for instance, produces a sequence of numbers and has (among others) the arguments from and to.\n\n\n[1] 1 2 3 4 5\n\n\n\n\nTo shorten code, R can infer the arguments by their position (i.e., the positions of supplied values).\n\n(i.e., Here R assumes you mean from-to and not to-from)\n\n\n\n[1] 1 2 3 4 5"
+    "text": "First steps with R — Functions\nFunctions do the work in R. You call/use them by: function_name(argument1 = value1, argument2 = value2, ...)\nThe seq() function, for instance, produces a sequence of numbers and has (among others) the arguments from and to.\n\n(yet_another_object &lt;- seq(from = 1, to = 5))\n\n[1] 1 2 3 4 5"
+  },
+  {
+    "objectID": "slides/01-Hello-R.html#printing-neq-assigning-2",
+    "href": "slides/01-Hello-R.html#printing-neq-assigning-2",
+    "title": "Einführung in R und Quarto",
+    "section": "Printing \\(\\neq\\) assigning!",
+    "text": "Printing \\(\\neq\\) assigning!\nTo shorten code, R can infer the arguments by their position (i.e., the positions of supplied values).\n\n(i.e., Here R assumes you mean from-to and not to-from)\n\n\n(yet_another_object &lt;- seq(1, 5))\n\n[1] 1 2 3 4 5"
   },
   {
     "objectID": "slides/01-Hello-R.html#first-steps-with-r-object-classes",
     "href": "slides/01-Hello-R.html#first-steps-with-r-object-classes",
     "title": "Einführung in R und Quarto",
     "section": "First steps with R — Object classes",
-    "text": "First steps with R — Object classes\nWhat a function does, depends on the type of object you feed to its arguments as values. The class() function tells you what class/type of object your are dealing with:\n\n\n[1] \"integer\"\n\n\n[1] \"character\"\n\n\n\nFunctions will throw an error message, if you feed them with an object of a class it cannot handle:\n\n\nError in `seq.default()`:\n! 'from' must be a finite number\n\n\n\n\nAlthough functions do stuff with objects we feed to them, they are also objects themselves:\n\n\n[1] \"function\""
+    "text": "First steps with R — Object classes\nWhat a function does, depends on the type of object you feed to its arguments as values. The class() function tells you what class/type of object your are dealing with:\n\nclass(yet_another_object) # \"yet_another_object\" contails whole numbers, so it is:\n\n[1] \"integer\"\n\nclass(text_object) # \"text_object\" contains a sentence, so it is:\n\n[1] \"character\""
+  },
+  {
+    "objectID": "slides/01-Hello-R.html#first-steps-with-r-object-classes-1",
+    "href": "slides/01-Hello-R.html#first-steps-with-r-object-classes-1",
+    "title": "Einführung in R und Quarto",
+    "section": "First steps with R — Object classes",
+    "text": "First steps with R — Object classes\nFunctions will throw an error message, if you feed them with an object of a class it cannot handle:\n\nalphabet &lt;- seq(from = \"a\", to = \"z\")\n\nError in `seq.default()`:\n! 'from' must be a finite number\n\n\n\nAlthough functions do stuff with objects we feed to them, they are also objects themselves:\n\nclass(seq)\n\n[1] \"function\""
   },
   {
     "objectID": "slides/01-Hello-R.html#arithmetic-operators",
     "href": "slides/01-Hello-R.html#arithmetic-operators",
     "title": "Einführung in R und Quarto",
     "section": "Arithmetic operators",
-    "text": "Arithmetic operators\nLike any decent calculator, R knows how to handle basic arithmetic:\n\n\n[1] 5\n\n\n[1] -1\n\n\n[1] 6\n\n\n[1] 0.6666667\n\n\n[1] 8\n\n\n\nOther mathematical operations are implemented as functions:\n\n\n[1] 1 2 3 4 5\n\n\n[1] 1.000000 1.414214 1.732051 2.000000 2.236068"
+    "text": "Arithmetic operators\nLike any decent calculator, R knows how to handle basic arithmetic:\n\n2 + 3 # Plus\n\n[1] 5\n\n2 - 3 # Minus\n\n[1] -1\n\n2 * 3 # Multiplication\n\n[1] 6\n\n2 / 3 # Devision\n\n[1] 0.6666667\n\n2^3   # Power\n\n[1] 8\n\n\n\nOther mathematical operations are implemented as functions:\n\nyet_another_object # Print another_object.\n\n[1] 1 2 3 4 5\n\nsqrt(yet_another_object) # Print square root of every element contained in another_object.\n\n[1] 1.000000 1.414214 1.732051 2.000000 2.236068"
   },
   {
     "objectID": "slides/01-Hello-R.html#logical-boolean-operators",
@@ -1663,14 +1684,14 @@
     "href": "slides/01-Hello-R.html#logical-boolean-operators-in-action",
     "title": "Einführung in R und Quarto",
     "section": "Logical (Boolean) operators — In action",
-    "text": "Logical (Boolean) operators — In action\n\n\n[1] FALSE\n\n\n[1] TRUE\n\n\n[1] TRUE\n\n\n[1] FALSE\n\n\n[1] TRUE\n\n\n[1] TRUE\n\n\n[1] FALSE\n\n\n[1] TRUE\n\n\n[1] TRUE"
+    "text": "Logical (Boolean) operators — In action\n\nx &lt;- 2    # Assign 2 to object x\nx == 3    # equals\n\n[1] FALSE\n\nx != 3    # unequals\n\n[1] TRUE\n\nx &lt; 5     # less than\n\n[1] TRUE\n\nx &gt; 5     # greater than\n\n[1] FALSE\n\nx &lt;= 5    # less or equal\n\n[1] TRUE\n\nx &gt;= 2    # greater or equal\n\n[1] TRUE\n\nx &gt; 5 & 6 # greater than 5 and greater than 6\n\n[1] FALSE\n\nx &gt; 5 | 1 # greater than 5 or greater then 1\n\n[1] TRUE\n\nx &gt;= (5 & 6) | (5 & 1) | (1 & 2) # Complex comparison\n\n[1] TRUE"
   },
   {
     "objectID": "slides/01-Hello-R.html#getting-help",
     "href": "slides/01-Hello-R.html#getting-help",
     "title": "Einführung in R und Quarto",
     "section": "Getting help",
-    "text": "Getting help\nR has a steep learning curve and is, at times, simply frustrating. The documentation of a specific function can be accessed via typing ?&lt;NAME_OF_FUNCTION&gt;.\nYou can find further useful links on the course website."
+    "text": "Getting help\nR has a steep learning curve and is, at times, simply frustrating. The documentation of a specific function can be accessed via typing ?&lt;NAME_OF_FUNCTION&gt;.\n\n?seq()\n\nYou can find further useful links on the course website."
   },
   {
     "objectID": "slides/01-Hello-R.html#todays-general-lessons",
@@ -1736,11 +1757,25 @@
     "text": "Datensätze\n(Platzhalter — Links/Downloads zu Übungsdatensätzen.)"
   },
   {
+    "objectID": "excercises/01-gender.html",
+    "href": "excercises/01-gender.html",
+    "title": "Weiblich, männlich und alles dazwischen",
+    "section": "",
+    "text": "Inhaltliches Ziel: Wer fühlt sich wie stark “männlich” oder “weiblich” und von was hängt das ab?\nDidaktisches Ziel: Eine schöne Visualisierung einer “Abhängigkeit” des sich “männlich” oder “weiblich” Fühlens. Bauen Sie dazu - so sinnvoll wie nötig - den Graph von Wickham, Cetinkaya-Rundel, and Grolemund (2023) aus Kapitel 1 nach.\n\n\nWir haben neue ALLBUS Daten von 2025. Diese sind für die deutsche Wohnbevölkerung (in privaten Haushalten) repräsentativ. Sie erhalten einen Teil des Datensatzes mit einer Auswahl der Variablen hier.\n\n\nBevor wir mit den Daten arbeiten, lohnt sich ein Blick ins Codebuch: Jede Variable hat einen Namen, ein Label (die eigentliche Frage) und teils Value Labels (wofür steht z.B. die Zahl -9?).\n\n\n\n\n\neastwest\n\n\n\n\n\nFrage/Label: \nERHEBUNGSGEBIET (WOHNGEBIET): WEST - OST\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n1\nALTE BUNDESLAENDER\n\n\n2\nNEUE BUNDESLAENDER\n\n\n\n\n\nBeispielwerte: \n1, 1, 2, 1, 1\n\n\n\n\n\n\n\n\nage\n\n\n\n\n\nFrage/Label: \nALTER: BEFRAGTE(R)\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n-32\nNICHT GENERIERBAR\n\n\n\n\n\nBeispielwerte: \n52, 51, 32, 60, 76\n\n\n\n\n\n\n\n\nsex\n\n\n\n\n\nFrage/Label: \nGESCHLECHT, BEFRAGTE(R)\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n-9\nKEINE ANGABE\n\n\n1\nMANN\n\n\n2\nFRAU\n\n\n3\nDIVERS\n\n\n\n\n\nBeispielwerte: \n1, 2, 2, 2, 2\n\n\n\n\n\n\n\n\ngender_m\n\n\n\n\n\nFrage/Label: \nWIE MAENNLICH FUEHLEN SIE SICH?\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n-99\nABGEBROCHEN\n\n\n-42\nDATENFEHLER: MFN\n\n\n-9\nKEINE ANGABE\n\n\n0\nGAR NICHT MAENNLICH\n\n\n1\n..\n\n\n2\n..\n\n\n3\n..\n\n\n4\nSEHR MAENNLICH\n\n\n\n\n\nBeispielwerte: \n4, 0, 0, 2, 0\n\n\n\n\n\n\n\n\ngender_f\n\n\n\n\n\nFrage/Label: \nWIE WEIBLICH FUEHLEN SIE SICH?\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n-99\nABGEBROCHEN\n\n\n-9\nKEINE ANGABE\n\n\n0\nGAR NICHT WEIBLICH\n\n\n1\n..\n\n\n2\n..\n\n\n3\n..\n\n\n4\nSEHR WEIBLICH\n\n\n\n\n\nBeispielwerte: \n1, 4, 4, 2, 4\n\n\n\n\n\n\n\n\nmstat\n\n\n\n\n\nFrage/Label: \nFAMILIENSTAND, BEFRAGTE(R)\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n-99\nABGEBROCHEN\n\n\n-42\nDATENFEHLER: MFN\n\n\n-9\nKEINE ANGABE\n\n\n1\nVERHEIRAT.ZUSAM.LEB.\n\n\n2\nVERH.GETRENNT LEBEND\n\n\n3\nVERWITWET\n\n\n4\nGESCHIEDEN\n\n\n5\nLEDIG\n\n\n\n\n\nBeispielwerte: \n1, 1, -99, 1, 1\n\n\n\n\n\n\n\n\nincc\n\n\n\n\n\nFrage/Label: \nNETTOEINKOMMEN(OFFENE+LISTENANGABE),KAT.\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n-50\nKEIN EINKOMMEN\n\n\n-32\nNICHT GENERIERBAR\n\n\n-9\nKEINE ANGABE\n\n\n-7\nVERWEIGERT\n\n\n1\nUNTER 200 EURO\n\n\n2\n200 - 299 EURO\n\n\n3\n300 - 399 EURO\n\n\n4\n400 - 499 EURO\n\n\n5\n500-624 EURO\n\n\n6\n625 - 749 EURO\n\n\n7\n750 - 874 EURO\n\n\n8\n875 - 999 EURO\n\n\n9\n1000 - 1124 EURO\n\n\n10\n1125 - 1249 EURO\n\n\n11\n1250 - 1374 EURO\n\n\n12\n1375 - 1499 EURO\n\n\n13\n1500 - 1749 EURO\n\n\n14\n1750 - 1999 EURO\n\n\n15\n2000 - 2249 EURO\n\n\n16\n2250 - 2499 EURO\n\n\n17\n2500 - 2749 EURO\n\n\n18\n2750 - 2999 EURO\n\n\n19\n3000 - 3499 EURO\n\n\n20\n3500 - 3999 EURO\n\n\n21\n4000 - 4499 EURO\n\n\n22\n4500 - 4999 EURO\n\n\n23\n5000 - 5999 EURO\n\n\n24\n6000 - 7499 EURO\n\n\n25\n7500 - 9999 EURO\n\n\n26\n10000 EURO UND MEHR\n\n\n\n\n\nBeispielwerte: \n15, 14, -32, 7, 7\n\n\n\n\n\n\n\n\nhhincc\n\n\n\n\n\nFrage/Label: \nHAUSHALTSEINK.(OFFENE+LISTENANGABE),KAT.\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n-50\nKEIN EINKOMMEN\n\n\n-32\nNICHT GENERIERBAR\n\n\n-9\nKEINE ANGABE\n\n\n-7\nVERWEIGERT\n\n\n1\nUNTER 200 EURO\n\n\n2\n200 - 299 EURO\n\n\n3\n300 - 399 EURO\n\n\n4\n400 - 499 EURO\n\n\n5\n500-624 EURO\n\n\n6\n625 - 749 EURO\n\n\n7\n750 - 874 EURO\n\n\n8\n875 - 999 EURO\n\n\n9\n1000 - 1124 EURO\n\n\n10\n1125 - 1249 EURO\n\n\n11\n1250 - 1374 EURO\n\n\n12\n1375 - 1499 EURO\n\n\n13\n1500 - 1749 EURO\n\n\n14\n1750 - 1999 EURO\n\n\n15\n2000 - 2249 EURO\n\n\n16\n2250 - 2499 EURO\n\n\n17\n2500 - 2749 EURO\n\n\n18\n2750 - 2999 EURO\n\n\n19\n3000 - 3499 EURO\n\n\n20\n3500 - 3999 EURO\n\n\n21\n4000 - 4499 EURO\n\n\n22\n4500 - 4999 EURO\n\n\n23\n5000 - 5999 EURO\n\n\n24\n6000 - 7499 EURO\n\n\n25\n7500 - 9999 EURO\n\n\n26\n10000 EURO UND MEHR\n\n\n\n\n\nBeispielwerte: \n23, 19, -32, 9, 23\n\n\n\n\n\n\n\n\nid03\n\n\n\n\n\nFrage/Label: \nOBEN-UNTEN-SKALA: SELBSTEINSTUF., BEFR.\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n-42\nDATENFEHLER: MFN\n\n\n-9\nKEINE ANGABE\n\n\n1\nUNTEN\n\n\n2\n..\n\n\n3\n..\n\n\n4\n..\n\n\n5\n..\n\n\n6\n..\n\n\n7\n..\n\n\n8\n..\n\n\n9\n..\n\n\n10\nOBEN\n\n\n\n\n\nBeispielwerte: \n6, 6, 6, 5, 8\n\n\n\n\n\n\n\n\nid07\n\n\n\n\n\nFrage/Label: \nDISKRIMINIERUNG WG. EIGENEM GESCHLECHT\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n-99\nABGEBROCHEN\n\n\n-9\nKEINE ANGABE\n\n\n1\nSEHR OFT\n\n\n2\nOFT\n\n\n3\nMANCHMAL\n\n\n4\nSELTEN\n\n\n5\nNIE\n\n\n\n\n\nBeispielwerte: \n5, 4, 2, 5, 3"
+  },
+  {
+    "objectID": "excercises/01-gender.html#die-daten",
+    "href": "excercises/01-gender.html#die-daten",
+    "title": "Weiblich, männlich und alles dazwischen",
+    "section": "",
+    "text": "Wir haben neue ALLBUS Daten von 2025. Diese sind für die deutsche Wohnbevölkerung (in privaten Haushalten) repräsentativ. Sie erhalten einen Teil des Datensatzes mit einer Auswahl der Variablen hier.\n\n\nBevor wir mit den Daten arbeiten, lohnt sich ein Blick ins Codebuch: Jede Variable hat einen Namen, ein Label (die eigentliche Frage) und teils Value Labels (wofür steht z.B. die Zahl -9?).\n\n\n\n\n\neastwest\n\n\n\n\n\nFrage/Label: \nERHEBUNGSGEBIET (WOHNGEBIET): WEST - OST\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n1\nALTE BUNDESLAENDER\n\n\n2\nNEUE BUNDESLAENDER\n\n\n\n\n\nBeispielwerte: \n1, 1, 2, 1, 1\n\n\n\n\n\n\n\n\nage\n\n\n\n\n\nFrage/Label: \nALTER: BEFRAGTE(R)\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n-32\nNICHT GENERIERBAR\n\n\n\n\n\nBeispielwerte: \n52, 51, 32, 60, 76\n\n\n\n\n\n\n\n\nsex\n\n\n\n\n\nFrage/Label: \nGESCHLECHT, BEFRAGTE(R)\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n-9\nKEINE ANGABE\n\n\n1\nMANN\n\n\n2\nFRAU\n\n\n3\nDIVERS\n\n\n\n\n\nBeispielwerte: \n1, 2, 2, 2, 2\n\n\n\n\n\n\n\n\ngender_m\n\n\n\n\n\nFrage/Label: \nWIE MAENNLICH FUEHLEN SIE SICH?\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n-99\nABGEBROCHEN\n\n\n-42\nDATENFEHLER: MFN\n\n\n-9\nKEINE ANGABE\n\n\n0\nGAR NICHT MAENNLICH\n\n\n1\n..\n\n\n2\n..\n\n\n3\n..\n\n\n4\nSEHR MAENNLICH\n\n\n\n\n\nBeispielwerte: \n4, 0, 0, 2, 0\n\n\n\n\n\n\n\n\ngender_f\n\n\n\n\n\nFrage/Label: \nWIE WEIBLICH FUEHLEN SIE SICH?\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n-99\nABGEBROCHEN\n\n\n-9\nKEINE ANGABE\n\n\n0\nGAR NICHT WEIBLICH\n\n\n1\n..\n\n\n2\n..\n\n\n3\n..\n\n\n4\nSEHR WEIBLICH\n\n\n\n\n\nBeispielwerte: \n1, 4, 4, 2, 4\n\n\n\n\n\n\n\n\nmstat\n\n\n\n\n\nFrage/Label: \nFAMILIENSTAND, BEFRAGTE(R)\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n-99\nABGEBROCHEN\n\n\n-42\nDATENFEHLER: MFN\n\n\n-9\nKEINE ANGABE\n\n\n1\nVERHEIRAT.ZUSAM.LEB.\n\n\n2\nVERH.GETRENNT LEBEND\n\n\n3\nVERWITWET\n\n\n4\nGESCHIEDEN\n\n\n5\nLEDIG\n\n\n\n\n\nBeispielwerte: \n1, 1, -99, 1, 1\n\n\n\n\n\n\n\n\nincc\n\n\n\n\n\nFrage/Label: \nNETTOEINKOMMEN(OFFENE+LISTENANGABE),KAT.\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n-50\nKEIN EINKOMMEN\n\n\n-32\nNICHT GENERIERBAR\n\n\n-9\nKEINE ANGABE\n\n\n-7\nVERWEIGERT\n\n\n1\nUNTER 200 EURO\n\n\n2\n200 - 299 EURO\n\n\n3\n300 - 399 EURO\n\n\n4\n400 - 499 EURO\n\n\n5\n500-624 EURO\n\n\n6\n625 - 749 EURO\n\n\n7\n750 - 874 EURO\n\n\n8\n875 - 999 EURO\n\n\n9\n1000 - 1124 EURO\n\n\n10\n1125 - 1249 EURO\n\n\n11\n1250 - 1374 EURO\n\n\n12\n1375 - 1499 EURO\n\n\n13\n1500 - 1749 EURO\n\n\n14\n1750 - 1999 EURO\n\n\n15\n2000 - 2249 EURO\n\n\n16\n2250 - 2499 EURO\n\n\n17\n2500 - 2749 EURO\n\n\n18\n2750 - 2999 EURO\n\n\n19\n3000 - 3499 EURO\n\n\n20\n3500 - 3999 EURO\n\n\n21\n4000 - 4499 EURO\n\n\n22\n4500 - 4999 EURO\n\n\n23\n5000 - 5999 EURO\n\n\n24\n6000 - 7499 EURO\n\n\n25\n7500 - 9999 EURO\n\n\n26\n10000 EURO UND MEHR\n\n\n\n\n\nBeispielwerte: \n15, 14, -32, 7, 7\n\n\n\n\n\n\n\n\nhhincc\n\n\n\n\n\nFrage/Label: \nHAUSHALTSEINK.(OFFENE+LISTENANGABE),KAT.\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n-50\nKEIN EINKOMMEN\n\n\n-32\nNICHT GENERIERBAR\n\n\n-9\nKEINE ANGABE\n\n\n-7\nVERWEIGERT\n\n\n1\nUNTER 200 EURO\n\n\n2\n200 - 299 EURO\n\n\n3\n300 - 399 EURO\n\n\n4\n400 - 499 EURO\n\n\n5\n500-624 EURO\n\n\n6\n625 - 749 EURO\n\n\n7\n750 - 874 EURO\n\n\n8\n875 - 999 EURO\n\n\n9\n1000 - 1124 EURO\n\n\n10\n1125 - 1249 EURO\n\n\n11\n1250 - 1374 EURO\n\n\n12\n1375 - 1499 EURO\n\n\n13\n1500 - 1749 EURO\n\n\n14\n1750 - 1999 EURO\n\n\n15\n2000 - 2249 EURO\n\n\n16\n2250 - 2499 EURO\n\n\n17\n2500 - 2749 EURO\n\n\n18\n2750 - 2999 EURO\n\n\n19\n3000 - 3499 EURO\n\n\n20\n3500 - 3999 EURO\n\n\n21\n4000 - 4499 EURO\n\n\n22\n4500 - 4999 EURO\n\n\n23\n5000 - 5999 EURO\n\n\n24\n6000 - 7499 EURO\n\n\n25\n7500 - 9999 EURO\n\n\n26\n10000 EURO UND MEHR\n\n\n\n\n\nBeispielwerte: \n23, 19, -32, 9, 23\n\n\n\n\n\n\n\n\nid03\n\n\n\n\n\nFrage/Label: \nOBEN-UNTEN-SKALA: SELBSTEINSTUF., BEFR.\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n-42\nDATENFEHLER: MFN\n\n\n-9\nKEINE ANGABE\n\n\n1\nUNTEN\n\n\n2\n..\n\n\n3\n..\n\n\n4\n..\n\n\n5\n..\n\n\n6\n..\n\n\n7\n..\n\n\n8\n..\n\n\n9\n..\n\n\n10\nOBEN\n\n\n\n\n\nBeispielwerte: \n6, 6, 6, 5, 8\n\n\n\n\n\n\n\n\nid07\n\n\n\n\n\nFrage/Label: \nDISKRIMINIERUNG WG. EIGENEM GESCHLECHT\n\n\nTyp: \nhaven_labelled\n\n\nValue Labels:\n\n\n\n\n\nCode\nBedeutung\n\n\n\n\n-99\nABGEBROCHEN\n\n\n-9\nKEINE ANGABE\n\n\n1\nSEHR OFT\n\n\n2\nOFT\n\n\n3\nMANCHMAL\n\n\n4\nSELTEN\n\n\n5\nNIE\n\n\n\n\n\nBeispielwerte: \n5, 4, 2, 5, 3"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Verstehen, was passiert. Mit R.",
     "section": "",
-    "text": "Willkommen zur Seminar-Website Verstehen, was passiert. Mit R.\n\n\n\nArtwork by Allison Horst\n\n\n\n\nDas große Ganze\n\n\n\nVerstehen, was passiert. Mit R. Quelle: Wickham et al. (2023)\n\n\n\n\nWintersemester\n\n\n\nFolge\nThema\nMust read(s)\nFolien\n(Finger)Übungen\nMilestones\nShownotes\n\n\n\n\n1\nErst die Frage, dann das R.\n📖\n📜\n\n\n💻\n\n\n2\n\n📖\n📜\n\n\n💻"
+    "text": "Willkommen zur Seminar-Website Verstehen, was passiert. Mit R.\n\n\n\nArtwork by Allison Horst\n\n\n\n\nDas große Ganze\n\n\n\nVerstehen, was passiert. Mit R. Quelle: Wickham et al. (2023)\n\n\n\n\nWintersemester\n\n\n\nFolge\nThema\nMust read(s)\nFolien\n(Finger)Übungen\nMilestones\nShownotes\n\n\n\n\n1\nErst die Frage, dann das R.\n📖\n📜\n\n\n💻\n\n\n2\nWarum wir erst aufräumen müssen, damit es schön werden kann.\n📖\n📜\n📊"
   },
   {
     "objectID": "shownotes.html",
@@ -1768,28 +1803,28 @@
     "href": "slides/02-Vectors.html#atomic-vector",
     "title": "Einführung in R und Quarto",
     "section": "(atomic) Vector",
-    "text": "(atomic) Vector\nThe most fundamental data type in R is a (atomic) vector: a sequence/chain/series of information. You can “concatenate” information into a vector by using c():\n\n\n[1] 5 4 3 2 4\n\n\n\nYou can access a specific element of a vector via it’s vector[index]:\n\n\n[1] 4\n\n\n\n\nIf you want to access several elements, you need to supply another vector to the vector’s index:\n\n\n[1] 4 2"
+    "text": "(atomic) Vector\nThe most fundamental data type in R is a (atomic) vector: a sequence/chain/series of information. You can “concatenate” information into a vector by using c():\n\n# Concatenate the sequence 5 4 3 2 1 to a vector, assign it to object x1, and print it.\n(x1 &lt;- c(5, 4, 3, 2, 4))\n\n[1] 5 4 3 2 4\n\n\n\nYou can access a specific element of a vector via it’s vector[index]:\n\n# Print the second element of x1.\nx1[2]\n\n[1] 4\n\n\n\n\nIf you want to access several elements, you need to supply another vector to the vector’s index:\n\n# Print the second and fourth element of x1.\nx1[c(2, 4)]\n\n[1] 4 2"
   },
   {
     "objectID": "slides/02-Vectors.html#numeric-vectors",
     "href": "slides/02-Vectors.html#numeric-vectors",
     "title": "Einführung in R und Quarto",
     "section": "Numeric vectors",
-    "text": "Numeric vectors\n\n\nNumeric vectors are sequences of numbers.\n\n\n[1] 5 4 3 2 4\n\n\n[1] \"numeric\""
+    "text": "Numeric vectors\n\n\nNumeric vectors are sequences of numbers.\n\nx1 # Print x1\n\n[1] 5 4 3 2 4\n\nclass(x1) # What class of object is x1?\n\n[1] \"numeric\""
   },
   {
     "objectID": "slides/02-Vectors.html#transform-numeric-vectors",
     "href": "slides/02-Vectors.html#transform-numeric-vectors",
     "title": "Einführung in R und Quarto",
     "section": "Transform numeric vectors",
-    "text": "Transform numeric vectors\nTo transform numeric vectors, you can use …\n… arithmetic operators + - * / ^.\n\n\n[1] 10  9  8  7  9\n\n\n\n… a myriad of different functions. ::: {.note} See Chapter 5 Data transformation of Grolemund and Wickham (2017) for further examples. :::\n\n\n[1] 3.321928 3.169925 3.000000 2.807355 3.169925\n\n\n\n\n\n\nWatch out, R simply overrides existing objects without a warning!\n\n\n\n\nBecause R is nested, you can combine arithmetic operators and several functions in one line.\n\n\n[1]  1.1606991  0.3872282 -0.4774386 -1.4577170  0.3872282"
+    "text": "Transform numeric vectors\nTo transform numeric vectors, you can use …\n… arithmetic operators + - * / ^.\n\n(x1 &lt;- x1 + 5) # Assign the object X1 plus 5 added to each of its elements to x1.\n\n[1] 10  9  8  7  9\n\n\n\n… a myriad of different functions. ::: {.note} See Chapter 5 Data transformation of Grolemund and Wickham (2017) for further examples. :::\n\n(x1 &lt;- log2(x1)) # Assign the logarithm with base 2 of x1 to x1.\n\n[1] 3.321928 3.169925 3.000000 2.807355 3.169925\n\n\n\n\n\n\nWatch out, R simply overrides existing objects without a warning!\n\n\n\n\nBecause R is nested, you can combine arithmetic operators and several functions in one line.\n\n(x1 &lt;- (x1 - mean(x1)) / sd(x1)) # z-standardize x1.\n\n[1]  1.1606991  0.3872282 -0.4774386 -1.4577170  0.3872282"
   },
   {
     "objectID": "slides/02-Vectors.html#factor-vectors",
     "href": "slides/02-Vectors.html#factor-vectors",
     "title": "Einführung in R und Quarto",
     "section": "Factor vectors",
-    "text": "Factor vectors\n\n\n\n\nFactors are for categorical variables that make a distinction but whose values cannot be compared on a common scale. They are composed of a sequence of categorical values (i.e., argument x), and a (ideally comprehensive) list of potential levels (i.e., theoretically-possible values).\n\n\nconti\n   Africa      Asia Australia    Europe N.America S.America \n        2         1         0         1         0         1"
+    "text": "Factor vectors\n\n\n\n\nFactors are for categorical variables that make a distinction but whose values cannot be compared on a common scale. They are composed of a sequence of categorical values (i.e., argument x), and a (ideally comprehensive) list of potential levels (i.e., theoretically-possible values).\n\n# Concatenate argument \"x\" to a factor and give it a\n# comprehensive list \"levels\" of all potential categories.\nconti &lt;- factor(\n  x = c(\"Europe\", \"Africa\", \"Africa\", \"Asia\", \"S.America\"),\n  levels = c(\"Africa\", \"Asia\", \"Australia\",\n             \"Europe\", \"N.America\", \"S.America\")\n)\n\n# Print a frequency table of our new factor vector.\ntable(conti)\n\nconti\n   Africa      Asia Australia    Europe N.America S.America \n        2         1         0         1         0         1"
   },
   {
     "objectID": "slides/02-Vectors.html#factors-instead-of-labels",
@@ -1803,7 +1838,7 @@
     "href": "slides/02-Vectors.html#recoding-factors",
     "title": "Einführung in R und Quarto",
     "section": "Recoding factors",
-    "text": "Recoding factors\n\nBecause factors are categorical, they cannot be numerically transformed. ::: {.note} What would be Africa devided by half in comparison to Europe devided by half?\n\nIf you nevertheless try to numerically transform a factor, the result is NA (i.e., “not available”).\n\n\n[1] NA NA NA NA NA\n\n\n\n\nIn R factors need to be handled as fundamentally different from numeric!\n\n\n:::\n\n\nBase R is rather confusing when it comes to factors. We learn to use recode functions from the forcats package, which is part of the tidyverse."
+    "text": "Recoding factors\n\nBecause factors are categorical, they cannot be numerically transformed. ::: {.note} What would be Africa devided by half in comparison to Europe devided by half?\n\nIf you nevertheless try to numerically transform a factor, the result is NA (i.e., “not available”).\n\nconti * 2\n\n[1] NA NA NA NA NA\n\n\n\n\nIn R factors need to be handled as fundamentally different from numeric!\n\n\n:::\n\n\nBase R is rather confusing when it comes to factors. We learn to use recode functions from the forcats package, which is part of the tidyverse."
   },
   {
     "objectID": "slides/02-Vectors.html#wait-whats-a-package",
@@ -1817,56 +1852,56 @@
     "href": "slides/02-Vectors.html#the-library",
     "title": "Einführung in R und Quarto",
     "section": "The library",
-    "text": "The library\n\n\nBecause there are so many user-written packages, they oftentimes contain functions with conflicting names. To avoid conflicts, you need to specify for each R session, which packages you want to work with. You do that, by adding the packages to your current R session’s library.\nIt is good practice to add all packages to the library on the very top of an R script. Please all add the tidyverse to your library by writing the following as the very first line in your R script.\nSome tidyverse functions conflict with Base R’s Stats package. ::: {.note} You can always address a function from a specific package by initiating it with package::function().\n\n\n\n:::"
+    "text": "The library\n\n\nBecause there are so many user-written packages, they oftentimes contain functions with conflicting names. To avoid conflicts, you need to specify for each R session, which packages you want to work with. You do that, by adding the packages to your current R session’s library.\nIt is good practice to add all packages to the library on the very top of an R script. Please all add the tidyverse to your library by writing the following as the very first line in your R script.\n\n# Add tidyverse package to library\nlibrary(tidyverse) \n\nSome tidyverse functions conflict with Base R’s Stats package. ::: {.note} You can always address a function from a specific package by initiating it with package::function().\n\n\n\n:::"
   },
   {
     "objectID": "slides/02-Vectors.html#back-to-recoding-factors",
     "href": "slides/02-Vectors.html#back-to-recoding-factors",
     "title": "Einführung in R und Quarto",
     "section": "Back to recoding factors",
-    "text": "Back to recoding factors\n\n\n\n\nFactors can best be recoded with forcats::fct_recode().\n\n\nconti\n    Afrika      Asien Australien     Europa  N.America  S.America \n         2          1          0          1          0          1"
+    "text": "Back to recoding factors\n\n\n\n\nFactors can best be recoded with forcats::fct_recode().\n\n# Recode conti to Danish. Watch out: first the new, then the old value...\nconti &lt;- fct_recode(conti,\n                    \"Europa\" = \"Europe\",\n                    \"Afrika\" = \"Africa\",\n                    \"Asien\" = \"Asia\",\n                    \"Suedamerika\" = \"S. America\",\n                    \"Nordamerika\" = \"N. America\",\n                    \"Australien\" = \"Australia\")\n\n# Frequency table of conti.\ntable(conti) \n\nconti\n    Afrika      Asien Australien     Europa  N.America  S.America \n         2          1          0          1          0          1"
   },
   {
     "objectID": "slides/02-Vectors.html#back-to-recoding-factors-1",
     "href": "slides/02-Vectors.html#back-to-recoding-factors-1",
     "title": "Einführung in R und Quarto",
     "section": "Back to recoding factors",
-    "text": "Back to recoding factors\n\n\n\n\nforcats contains many more useful functions to handle factors! ::: {.note} Also check out Chapter 15 Factors of Grolemund and Wickham (2017).\n\n\nconti\n   Afrika     Asien    Europa S.America \n        2         1         1         1 \n\n\n\nconti\n   Europa    Afrika     Asien S.America \n        1         2         1         1 \n\n\n\n:::"
+    "text": "Back to recoding factors\n\n\n\n\nforcats contains many more useful functions to handle factors! ::: {.note} Also check out Chapter 15 Factors of Grolemund and Wickham (2017).\n\nconti &lt;- fct_drop(conti) # Drop unused levels.\n\n# Frequency table of conti.\ntable(conti) \n\nconti\n   Afrika     Asien    Europa S.America \n        2         1         1         1 \n\n\n# Reorder factor levels by hand\nconti &lt;- fct_relevel(conti, \"Europa\", \"Afrika\", \"Suedamerika\", \"Asien\")\n\n# Frequency table of conti.\ntable(conti) \n\nconti\n   Europa    Afrika     Asien S.America \n        1         2         1         1 \n\n\n\n:::"
   },
   {
     "objectID": "slides/02-Vectors.html#date-vectors",
     "href": "slides/02-Vectors.html#date-vectors",
     "title": "Einführung in R und Quarto",
     "section": "Date vectors",
-    "text": "Date vectors\n\n\nDates are vectors of the Year-Month-Day (and sometimes -Time) format.\n\n\n[1] \"2026-09-24\"\n\n\n\n\n[1] FALSE\n\n\nDate vectors are complex, because time is not metric \\(\\rightarrow\\) advanced R course."
+    "text": "Date vectors\n\n\nDates are vectors of the Year-Month-Day (and sometimes -Time) format.\n\nSys.Date() # Tell me the date\n\n[1] \"2026-10-30\"\n\n\n\n# Evaluate the logical statement that\n# today is smaller (i.e., before) \n# than the deadline for the exam.\nSys.Date() &lt; \"2020-05-25\"\n\n[1] FALSE\n\n\nDate vectors are complex, because time is not metric \\(\\rightarrow\\) advanced R course."
   },
   {
     "objectID": "slides/02-Vectors.html#character-vectors",
     "href": "slides/02-Vectors.html#character-vectors",
     "title": "Einführung in R und Quarto",
     "section": "Character vectors",
-    "text": "Character vectors\n\n\nCharacter/string vectors are sequences of text.\n\n\n[1] \"Thi\" \"!\"   \"a\"   \"goo\" \"rea\"\n\n\nYou can manipulate them using string functions and regular expressions \\(\\rightarrow\\) ::: {.alert} advanced R course (taught by Friedolin Merhout ;)\n\n\n\n:::"
+    "text": "Character vectors\n\n\nCharacter/string vectors are sequences of text.\n\n# Concatenate these five strings as one vector \n# and assign it to object \"x2\".\nx2 &lt;- c(\"This is\", \"!\", \"a\", \"good idea\", \"really\")\n\n# Return only the first to third character \n# of each string-element of x2.\n(x2 &lt;- str_sub(x2, start = 1, end = 3))\n\n[1] \"Thi\" \"!\"   \"a\"   \"goo\" \"rea\"\n\n\nYou can manipulate them using string functions and regular expressions \\(\\rightarrow\\) ::: {.alert} advanced R course (taught by Friedolin Merhout ;)\n\n\n\n:::"
   },
   {
     "objectID": "slides/02-Vectors.html#logical-vectors",
     "href": "slides/02-Vectors.html#logical-vectors",
     "title": "Einführung in R und Quarto",
     "section": "Logical vectors",
-    "text": "Logical vectors\n\n\nLogical vectors are sequences of TRUE and FALSE statements:\nInternally, R uses logical vectors for case selection. They are thus very important!\n\n\n[1] \"Thi\" \"!\"   \"a\"   \"goo\" \"rea\"\n\n\n[1] \"Thi\" \"a\"   \"goo\""
+    "text": "Logical vectors\n\n\nLogical vectors are sequences of TRUE and FALSE statements:\n\nx3 &lt;- c(TRUE, FALSE, TRUE, TRUE, FALSE)\n\nInternally, R uses logical vectors for case selection. They are thus very important!\n\nx2\n\n[1] \"Thi\" \"!\"   \"a\"   \"goo\" \"rea\"\n\n# Print those elements that x3 identifies as TRUE, \n# but not the FALSE ones.\nx2[x3]\n\n[1] \"Thi\" \"a\"   \"goo\""
   },
   {
     "objectID": "slides/02-Vectors.html#no-mixed-vectors",
     "href": "slides/02-Vectors.html#no-mixed-vectors",
     "title": "Einführung in R und Quarto",
     "section": "No mixed vectors",
-    "text": "No mixed vectors\n\n\n\n\n[1] 1 2 3 4\n\n\n[1] \"1\"    \"2\"    \"test\" \"4\"   \n\n\n[1] \"character\"\n\n\n[1]  1  2 NA  4\n\n\n\n\n\nA (atomic) vector cannot mix types!"
+    "text": "No mixed vectors\n\n\n\n# Concacenate the sequence 1-4 to a numeric vector\n(x4 &lt;- seq(1, 4)) \n\n[1] 1 2 3 4\n\n# Replace the third element with the word \"test\"\nx4[3] &lt;- \"test\" \nx4 # print x4\n\n[1] \"1\"    \"2\"    \"test\" \"4\"   \n\n# What type of object is x4?\nclass(x4)\n\n[1] \"character\"\n\n# Make x4 a numeric vector again\nas.numeric(x4) \n\n[1]  1  2 NA  4\n\n\n\n\n\nA (atomic) vector cannot mix types!"
   },
   {
     "objectID": "slides/02-Vectors.html#na-not-available",
     "href": "slides/02-Vectors.html#na-not-available",
     "title": "Einführung in R und Quarto",
     "section": "NA: Not Available",
-    "text": "NA: Not Available\nIn general, missing values in R are NA, impossible values (devision by 0) are NaN (Not a Number).\n\n\n\nMany functions will not ignore NA by default and thus return NA.\n\n\n[1] NA\n\n\n[1] 3.6\n\n\n\nis.na() generates logical vectors that identify missing values.\n\n\n[1] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE\n\n\n[1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE\n\n\n[1] 1 2 3 5 7"
+    "text": "NA: Not Available\nIn general, missing values in R are NA, impossible values (devision by 0) are NaN (Not a Number).\n\nx5 &lt;- c(1, 2, 3, NA, 5, NA, 7)\n\n\n\n\nMany functions will not ignore NA by default and thus return NA.\n\n# Estimate mean of x5\nmean(x5)\n\n[1] NA\n\n# Estimate mean of x5 ignoring \n# the NA (i.e., casewise deletion)\nmean(x5, na.rm = TRUE) \n\n[1] 3.6\n\n\n\nis.na() generates logical vectors that identify missing values.\n\n# Which elements are missing?\nis.na(x5) \n\n[1] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE\n\n# Which elements are not missing?\n!is.na(x5) \n\n[1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE\n\n# Print only non-missing values of x5\nx5[!is.na(x5)] \n\n[1] 1 2 3 5 7"
   },
   {
     "objectID": "slides/02-Vectors.html#todays-general-lessons",

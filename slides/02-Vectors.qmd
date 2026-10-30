@@ -11,7 +11,8 @@ format:
     fig-align: center
 editor: source
 execute:
-  echo: false
+  echo: true
+  cache: true
   message: false
   warning: false
 ---
@@ -20,11 +21,6 @@ execute:
 library(tidyverse)
 ```
 
-## {background-image="https://cdn.datamentor.io/wp-content/uploads/2017/11/r-vector.jpg"}
-
----
-
-<iframe src="https://app.sli.do/event/aflvddc2" height="100%" width="100%" frameBorder="0" style="min-height: 560px;"></iframe>
 
 ## (atomic) Vector
 

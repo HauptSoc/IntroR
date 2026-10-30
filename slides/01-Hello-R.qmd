@@ -11,7 +11,7 @@ format:
     fig-align: center
 editor: source
 execute:
-  echo: false
+  echo: true
   message: false
   warning: false
 ---
@@ -103,7 +103,7 @@ test_object + 3 # Print the result of adding 3 to the content of test_object + 3
 test_object # Print the content of test_object.
 ```
 
-. . .
+## Printing $\neq$ assigning!
 
 If you actually want to create or modify objects, you need to use the assignment operator and explicitly assign the result of your operation to the object you want to change.
 
@@ -111,8 +111,6 @@ If you actually want to create or modify objects, you need to use the assignment
 test_object <- test_object + 3 # Assign to test_object: the result of adding 3 to the content of test_object.
 test_object # Print the content of test_object
 ```
-
-. . .
 
 The short-hand version for assigning and printing an object right away uses surrounding `()`:
 ```{r}
@@ -124,14 +122,13 @@ The short-hand version for assigning and printing an object right away uses surr
 Functions do the work in R. You call/use them by:<br> `
 function_name(argument1 = value1, argument2 = value2, ...)`
 
-. . .
 
 The `seq()` function, for instance, produces a sequence of numbers and has (among others) the arguments `from` and `to`.
 ```{r}
 (yet_another_object <- seq(from = 1, to = 5))
 ```
 
-. . .
+## Printing $\neq$ assigning!
 
 To shorten code, R can infer the arguments by their position (i.e., the positions of supplied values).<br>
 
@@ -152,8 +149,7 @@ class(yet_another_object) # "yet_another_object" contails whole numbers, so it i
 class(text_object) # "text_object" contains a sentence, so it is:
 ```
 
-. . .
-
+## First steps with R — Object **classes**
 Functions will throw an error message, if you feed them with an object of a class it cannot handle:
 
 ```{r error = TRUE}
