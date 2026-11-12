@@ -1396,8 +1396,8 @@
     "objectID": "slides/03-Data-Frames.html#some-vectors",
     "href": "slides/03-Data-Frames.html#some-vectors",
     "title": "Einführung in R und Quarto",
-    "section": "Some vectors",
-    "text": "Some vectors\n\n\n[1] 34 22 42 12 76\n\n\n[1] Europe     Africa     Africa     Asia       S. America\nLevels: Africa Asia Australia Europe N. America S. America\n\n\n[1] FALSE  TRUE  TRUE  TRUE  TRUE\n\n\n[1] \"Agnes\"  \"Martin\" \"Hakan\"  \"Tu\"     \"Thais\" \n\n\n[1] 1 0 3 0 4"
+    "section": "",
+    "text": "[1] 52 51 32 60 76\n\n\n[1] Mann Frau Frau Frau Frau\nLevels: Mann Frau Divers\n\n\n[1] West West Ost  West West\nLevels: West Ost\n\n\n[1] 2000 1800  950 1300 1300\n\n\n[1] 6 6 6 5 8\n\n\n\nData Frames"
   },
   {
     "objectID": "slides/03-Data-Frames.html#section",
@@ -1411,91 +1411,91 @@
     "href": "slides/03-Data-Frames.html#data-frames",
     "title": "Einführung in R und Quarto",
     "section": "Data frames",
-    "text": "Data frames\nData frames organize vectors of equal length along their indices.\n\n\n    name age      conti employed nr_kids\n1  Agnes  34     Europe    FALSE       1\n2 Martin  22     Africa     TRUE       0\n3  Hakan  42     Africa     TRUE       3\n4     Tu  12       Asia     TRUE       0\n5  Thais  76 S. America     TRUE       4\n\n\n\n\nData frames are the typical “rectangular” way to organize data:"
+    "text": "Data frames\nData frames organize vectors of equal length along their indices.\n\n\n   sex age eastwest incc id03\n1 Mann  52     West 2000    6\n2 Frau  51     West 1800    6\n3 Frau  32      Ost  950    6\n4 Frau  60     West 1300    5\n5 Frau  76     West 1300    8\n\n\n\nData frames are the typical “rectangular” way to organize data:"
   },
   {
     "objectID": "slides/03-Data-Frames.html#tibbles",
     "href": "slides/03-Data-Frames.html#tibbles",
     "title": "Einführung in R und Quarto",
     "section": "Tibbles",
-    "text": "Tibbles\nTibbles are data frames. But they have some improved features, so we will work with them.\n\n\n\n\n    name age      conti employed nr_kids\n1  Agnes  34     Europe    FALSE       1\n2 Martin  22     Africa     TRUE       0\n3  Hakan  42     Africa     TRUE       3\n4     Tu  12       Asia     TRUE       0\n5  Thais  76 S. America     TRUE       4\n\n\n\n\n\n# A tibble: 5 × 5\n  name     age conti      employed nr_kids\n  &lt;chr&gt;  &lt;dbl&gt; &lt;fct&gt;      &lt;lgl&gt;      &lt;dbl&gt;\n1 Agnes     34 Europe     FALSE          1\n2 Martin    22 Africa     TRUE           0\n3 Hakan     42 Africa     TRUE           3\n4 Tu        12 Asia       TRUE           0\n5 Thais     76 S. America TRUE           4"
+    "text": "Tibbles\nTibbles are data frames. But they have some improved features, so we will work with them.\n\n\n\n\n   sex age eastwest incc id03\n1 Mann  52     West 2000    6\n2 Frau  51     West 1800    6\n3 Frau  32      Ost  950    6\n4 Frau  60     West 1300    5\n5 Frau  76     West 1300    8\n\n\n\n\n\n# A tibble: 5 × 5\n  sex     age eastwest  incc  id03\n  &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt;\n1 Mann     52 West      2000     6\n2 Frau     51 West      1800     6\n3 Frau     32 Ost        950     6\n4 Frau     60 West      1300     5\n5 Frau     76 West      1300     8"
   },
   {
     "objectID": "slides/03-Data-Frames.html#address-single-variables-the-operator",
     "href": "slides/03-Data-Frames.html#address-single-variables-the-operator",
     "title": "Einführung in R und Quarto",
     "section": "Address single variables (The $ operator)",
-    "text": "Address single variables (The $ operator)\n\n\n[1] Europe     Africa     Africa     Asia       S. America\nLevels: Africa Asia Australia Europe N. America S. America\n\n\n\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   12.0    22.0    34.0    37.2    42.0    76.0 \n\n\n\n\n\n\n    Africa       Asia  Australia     Europe N. America S. America \n         2          1          0          1          0          1 \n\n\n\nWait, why does summary() give me first some summary statistics and then a frequency table?"
+    "text": "Address single variables (The $ operator)\n\n\n[1] West West Ost  West West\nLevels: West Ost\n\n\n. . .\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   32.0    51.0    52.0    54.2    60.0    76.0 \n\n\n. . .\n\n\n  Mann   Frau Divers \n     1      4      0 \n\n\n\nWait, why does summary() give me first some summary statistics and then a frequency table?"
   },
   {
     "objectID": "slides/03-Data-Frames.html#select-several-variables",
     "href": "slides/03-Data-Frames.html#select-several-variables",
     "title": "Einführung in R und Quarto",
     "section": "select() several variables",
-    "text": "select() several variables\n\n\n# A tibble: 5 × 2\n  name   nr_kids\n  &lt;chr&gt;    &lt;dbl&gt;\n1 Agnes        1\n2 Martin       0\n3 Hakan        3\n4 Tu           0\n5 Thais        4"
+    "text": "select() several variables\n\n\n# A tibble: 5 × 2\n  sex    id03\n  &lt;fct&gt; &lt;dbl&gt;\n1 Mann      6\n2 Frau      6\n3 Frau      6\n4 Frau      5\n5 Frau      8"
   },
   {
     "objectID": "slides/03-Data-Frames.html#select-several-variables-1",
     "href": "slides/03-Data-Frames.html#select-several-variables-1",
     "title": "Einführung in R und Quarto",
     "section": "select() several variables",
-    "text": "select() several variables\nselect() has a couple of nice helper functions, see ?select for details.\n\n\n# A tibble: 5 × 2\n  name   nr_kids\n  &lt;chr&gt;    &lt;dbl&gt;\n1 Agnes        1\n2 Martin       0\n3 Hakan        3\n4 Tu           0\n5 Thais        4"
+    "text": "select() several variables\nselect() has a couple of nice helper functions, see ?select for details.\n\n\n# A tibble: 5 × 2\n   incc  id03\n  &lt;dbl&gt; &lt;dbl&gt;\n1  2000     6\n2  1800     6\n3   950     6\n4  1300     5\n5  1300     8"
   },
   {
     "objectID": "slides/03-Data-Frames.html#filter-cases-based-on-values-in-certain-variables",
     "href": "slides/03-Data-Frames.html#filter-cases-based-on-values-in-certain-variables",
     "title": "Einführung in R und Quarto",
     "section": "filter() cases (Based on values in certain variables)",
-    "text": "filter() cases (Based on values in certain variables)\n\n\n# A tibble: 2 × 5\n  name     age conti  employed nr_kids\n  &lt;chr&gt;  &lt;dbl&gt; &lt;fct&gt;  &lt;lgl&gt;      &lt;dbl&gt;\n1 Martin    22 Africa TRUE           0\n2 Hakan     42 Africa TRUE           3\n\n\n\n\n\n# A tibble: 2 × 5\n  name     age conti  employed nr_kids\n  &lt;chr&gt;  &lt;dbl&gt; &lt;fct&gt;  &lt;lgl&gt;      &lt;dbl&gt;\n1 Martin    22 Africa TRUE           0\n2 Hakan     42 Africa TRUE           3\n\n\n\nWhy is there a , after \"Africa\"?"
+    "text": "filter() cases (Based on values in certain variables)\n\n\n# A tibble: 1 × 5\n  sex     age eastwest  incc  id03\n  &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt;\n1 Frau     32 Ost        950     6\n\n\n. . .\n\n\n# A tibble: 1 × 5\n  sex     age eastwest  incc  id03\n  &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt;\n1 Frau     32 Ost        950     6\n\n\n\nWhy is there a , after \"Ost\"?"
   },
   {
     "objectID": "slides/03-Data-Frames.html#index-rows-and-columns",
     "href": "slides/03-Data-Frames.html#index-rows-and-columns",
     "title": "Einführung in R und Quarto",
     "section": "Index (Rows, and columns)",
-    "text": "Index (Rows, and columns)\nIn contrast to vectors, data frames and tibbles have rows and columns. As in matrix algebra, R’s index thus distinguishes [rows, columns]. The , after \"Africa\" tells R that we talk about rows. To understand how the index method works, remember logical vectors:\n\n\n\n\n[1] Europe     Africa     Africa     Asia       S. America\nLevels: Africa Asia Australia Europe N. America S. America\n\n\n[1] FALSE  TRUE  TRUE FALSE FALSE\n\n\n# A tibble: 2 × 5\n  name     age conti  employed nr_kids\n  &lt;chr&gt;  &lt;dbl&gt; &lt;fct&gt;  &lt;lgl&gt;      &lt;dbl&gt;\n1 Martin    22 Africa TRUE           0\n2 Hakan     42 Africa TRUE           3\n\n\n\n. . .\n\n\n# A tibble: 5 × 6\n  name     age conti      employed nr_kids selector\n  &lt;chr&gt;  &lt;dbl&gt; &lt;fct&gt;      &lt;lgl&gt;      &lt;dbl&gt; &lt;lgl&gt;   \n1 Agnes     34 Europe     FALSE          1 FALSE   \n2 Martin    22 Africa     TRUE           0 TRUE    \n3 Hakan     42 Africa     TRUE           3 TRUE    \n4 Tu        12 Asia       TRUE           0 FALSE   \n5 Thais     76 S. America TRUE           4 FALSE"
+    "text": "Index (Rows, and columns)\nIn contrast to vectors, data frames and tibbles have rows and columns. As in matrix algebra, R’s index thus distinguishes [rows, columns]. The , after \"Ost\" tells R that we talk about rows. To understand how the index method works, remember logical vectors:\n\n\n\n\n[1] West West Ost  West West\nLevels: West Ost\n\n\n[1] FALSE FALSE  TRUE FALSE FALSE\n\n\n# A tibble: 1 × 5\n  sex     age eastwest  incc  id03\n  &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt;\n1 Frau     32 Ost        950     6\n\n\n\n. . .\n\n\n# A tibble: 5 × 6\n  sex     age eastwest  incc  id03 selector\n  &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;   \n1 Mann     52 West      2000     6 FALSE   \n2 Frau     51 West      1800     6 FALSE   \n3 Frau     32 Ost        950     6 TRUE    \n4 Frau     60 West      1300     5 FALSE   \n5 Frau     76 West      1300     8 FALSE"
   },
   {
     "objectID": "slides/03-Data-Frames.html#transform-recode-generate-variables-of-tibbles",
     "href": "slides/03-Data-Frames.html#transform-recode-generate-variables-of-tibbles",
     "title": "Einführung in R und Quarto",
     "section": "Transform, recode & generate (Variables of tibbles)",
-    "text": "Transform, recode & generate (Variables of tibbles)\nTo transform and recode simply use $ to clarify which tibble you are referring to.\n\n\n[1]  -3.2 -15.2   4.8 -25.2  38.8\n\n\n\n\n[1] Europe     Afrika!    Afrika!    Asia       S. America\nLevels: Afrika! Asia Australia Europe N. America S. America\n\n\n\nIf you rather want to generate a new variable, just give it a name.\n\n\n[1] -0.1305090 -0.6199178  0.1957635 -1.0277584  1.5824217"
+    "text": "Transform, recode & generate (Variables of tibbles)\nTo transform and recode simply use $ to clarify which tibble you are referring to.\n\n\n[1]  -2.2  -3.2 -22.2   5.8  21.8\n\n\n\n\n[1] West               West               Neue Bundeslaender West              \n[5] West              \nLevels: West Neue Bundeslaender\n\n\n. . .\nIf you rather want to generate a new variable, just give it a name.\n\n\n[1] -0.1379860 -0.2007069 -1.3924038  0.3637812  1.3673154"
   },
   {
     "objectID": "slides/03-Data-Frames.html#transform-recode-generate-several-variables-of-a-tibble",
     "href": "slides/03-Data-Frames.html#transform-recode-generate-several-variables-of-a-tibble",
     "title": "Einführung in R und Quarto",
     "section": "Transform, recode & generate (Several variables of a tibble)",
-    "text": "Transform, recode & generate (Several variables of a tibble)\nIf you want to transform and recode several variables from the same tibble, get used to use mutate(). ::: {.note} You will better understand why in Session 6 on piping! :::\n\n\n# A tibble: 5 × 8\n  name      age conti      employed nr_kids selector  z_age z_nr_kids\n  &lt;chr&gt;   &lt;dbl&gt; &lt;fct&gt;      &lt;lgl&gt;      &lt;dbl&gt; &lt;lgl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 Agnes   -3.20 Europa!    FALSE       -0.6 FALSE    -0.131    -0.330\n2 Martin -15.2  Afrika!    TRUE        -1.6 TRUE     -0.620    -0.881\n3 Hakan    4.8  Afrika!    TRUE         1.4 TRUE      0.196     0.771\n4 Tu     -25.2  Asien!     TRUE        -1.6 FALSE    -1.03     -0.881\n5 Thais   38.8  S. America TRUE         2.4 FALSE     1.58      1.32 \n\n\n\nAlso, look how RStudio structures the brackets. It helps you to understand, within which function things are happening."
+    "text": "Transform, recode & generate (Several variables of a tibble)\nIf you want to transform and recode several variables from the same tibble, get used to use mutate(). ::: {.note} You will better understand why in Session 6 on piping! :::\n\n\n# A tibble: 5 × 8\n  sex      age eastwest            incc  id03 selector  z_age z_incc\n  &lt;fct&gt;  &lt;dbl&gt; &lt;fct&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;     &lt;dbl&gt;  &lt;dbl&gt;\n1 Mann   -2.20 Alte Bundeslaender   530     6 FALSE    -0.138  1.25 \n2 Frau   -3.20 Alte Bundeslaender   330     6 FALSE    -0.201  0.779\n3 Frau  -22.2  Neue Bundeslaender  -520     6 TRUE     -1.39  -1.23 \n4 Frau    5.8  Alte Bundeslaender  -170     5 FALSE     0.364 -0.401\n5 Frau   21.8  Alte Bundeslaender  -170     8 FALSE     1.37  -0.401\n\n\n\nAlso, look how RStudio structures the brackets. It helps you to understand, within which function things are happening."
   },
   {
     "objectID": "slides/03-Data-Frames.html#conditional-transform-recode-i.e.-for-filtered-cases",
     "href": "slides/03-Data-Frames.html#conditional-transform-recode-i.e.-for-filtered-cases",
     "title": "Einführung in R und Quarto",
     "section": "Conditional transform & recode ((i.e., for filtered cases))",
-    "text": "Conditional transform & recode ((i.e., for filtered cases))\nTo transform/recode only among certain cases, use case_when().\n\n\n# A tibble: 5 × 8\n  name      age conti      employed nr_kids selector  z_age z_nr_kids\n  &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;      &lt;lgl&gt;      &lt;dbl&gt; &lt;lgl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 Agnes   -3.20 Europa!    FALSE       -0.6 FALSE    -0.131    -0.330\n2 Martin -15.2  Antarctica TRUE        -1.6 TRUE     -0.620    -0.881\n3 Hakan    4.8  Afrika!    TRUE         1.4 TRUE      0.196     0.771\n4 Tu     -25.2  Antarctica TRUE        -1.6 FALSE    -1.03     -0.881\n5 Thais   38.8  S. America TRUE         2.4 FALSE     1.58      1.32"
+    "text": "Conditional transform & recode ((i.e., for filtered cases))\nTo transform/recode only among certain cases, use case_when().\n\n\n# A tibble: 5 × 8\n  sex       age eastwest            incc  id03 selector  z_age z_incc\n  &lt;chr&gt;   &lt;dbl&gt; &lt;fct&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;     &lt;dbl&gt;  &lt;dbl&gt;\n1 Mann    -2.20 Alte Bundeslaender   530     6 FALSE    -0.138  1.25 \n2 Frau    -3.20 Alte Bundeslaender   330     6 FALSE    -0.201  0.779\n3 Divers -22.2  Neue Bundeslaender  -520     6 TRUE     -1.39  -1.23 \n4 Frau     5.8  Alte Bundeslaender  -170     5 FALSE     0.364 -0.401\n5 Frau    21.8  Alte Bundeslaender  -170     8 FALSE     1.37  -0.401"
   },
   {
     "objectID": "slides/03-Data-Frames.html#conditional-transform-recode-i.e.-for-filtered-cases-1",
     "href": "slides/03-Data-Frames.html#conditional-transform-recode-i.e.-for-filtered-cases-1",
     "title": "Einführung in R und Quarto",
     "section": "Conditional transform & recode ((i.e., for filtered cases))",
-    "text": "Conditional transform & recode ((i.e., for filtered cases))\nThe three lines of this case_when() application do the following thing:\n\nFor all non-employed African cases ~ recode conti to “Atlantis”.\nFor all those who’re younger than 0 and have less than -1 kids ~ recode conti to “Antarctica”.\nAll remaining cases ~ use their original conti values, but transform them to a character vector.\n\n\nRemember, R is class sensitive! It will not combine numeric information into a character vector. Because we give case_when() \"Atlantis\" and \"Antarctica\" as new values, it assumes that we want to make conti a character vector. Thus we cannot supply the former factor values (which are integer) in line three."
+    "text": "Conditional transform & recode ((i.e., for filtered cases))\nThe three lines of this case_when() application do the following thing:\n\nFor all cases from the Neue Bundeslaender with a below-average income ~ recode sex to “Divers”.\nFor all those who’re younger than 0 and score below 1 on the Oben-Unten-Skala ~ recode sex to “Keine Angabe”.\nAll remaining cases ~ use their original sex values, but transform them to a character vector.\n\n\nRemember, R is class sensitive! It will not combine numeric information into a character vector. Because we give case_when() \"Divers\" and \"Keine Angabe\" as new values, it assumes that we want to make sex a character vector. Thus we cannot supply the former factor values (which are integer) in line three."
   },
   {
     "objectID": "slides/03-Data-Frames.html#case_when-and-na",
     "href": "slides/03-Data-Frames.html#case_when-and-na",
     "title": "Einführung in R und Quarto",
     "section": "case_when() and NA",
-    "text": "case_when() and NA\n\n\n# A tibble: 5 × 8\n  name      age conti      employed nr_kids selector  z_age z_nr_kids\n  &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;      &lt;lgl&gt;      &lt;dbl&gt; &lt;lgl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 Agnes   -3.20 &lt;NA&gt;       FALSE       -0.6 FALSE    -0.131    -0.330\n2 Martin -15.2  Antarctica TRUE        -1.6 TRUE     -0.620    -0.881\n3 Hakan    4.8  &lt;NA&gt;       TRUE         1.4 TRUE      0.196     0.771\n4 Tu     -25.2  Antarctica TRUE        -1.6 FALSE    -1.03     -0.881\n5 Thais   38.8  &lt;NA&gt;       TRUE         2.4 FALSE     1.58      1.32 \n\n\nIn R vectors are type sensitive; the elements of one vector may only be of one type. If you type ?NA, you will learn:\n\n“NA is a logical constant of length 1 which contains a missing value indicator. NA can be coerced to any other vector type except raw.”"
+    "text": "case_when() and NA\n\n\nError in `mutate()`:\nℹ In argument: `sex = case_when(...)`.\nCaused by error in `case_when()`:\n! Can't combine `..1 (right)` &lt;character&gt; and `..3 (right)` &lt;double&gt;.\n\n\nIn R vectors are type sensitive; the elements of one vector may only be of one type. Because we give case_when() \"Divers\" and \"Keine Angabe\" as new values, it wants to make sex a character vector. But NA is a logical constant, and NA_real_ a numeric one — neither combines with character values. If you type ?NA, you will learn:\n\n“NA is a logical constant of length 1 which contains a missing value indicator. NA can be coerced to any other vector type except raw.”"
   },
   {
     "objectID": "slides/03-Data-Frames.html#case_when-and-na-1",
     "href": "slides/03-Data-Frames.html#case_when-and-na-1",
     "title": "Einführung in R und Quarto",
     "section": "case_when() and NA",
-    "text": "case_when() and NA\nNA are type sensitive, too! Therefore, coerce NA to character/numeric with as.character()/as.numeric().\n\n\n# A tibble: 5 × 8\n  name      age conti      employed nr_kids selector  z_age z_nr_kids\n  &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;      &lt;lgl&gt;      &lt;dbl&gt; &lt;lgl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 Agnes   -3.20 &lt;NA&gt;       FALSE       -0.6 FALSE    -0.131    -0.330\n2 Martin -15.2  Antarctica TRUE        -1.6 TRUE     -0.620    -0.881\n3 Hakan    4.8  &lt;NA&gt;       TRUE         1.4 TRUE      0.196     0.771\n4 Tu     -25.2  Antarctica TRUE        -1.6 FALSE    -1.03     -0.881\n5 Thais   38.8  &lt;NA&gt;       TRUE         2.4 FALSE     1.58      1.32 \n\n\n\nAlternatively, you can also use type-specific NA: NA_character_, NA_real_, etc.."
+    "text": "case_when() and NA\nNA are type sensitive, too! Therefore, coerce NA to character/numeric with as.character()/as.numeric().\n\n\n# A tibble: 5 × 8\n  sex       age eastwest            incc  id03 selector  z_age z_incc\n  &lt;chr&gt;   &lt;dbl&gt; &lt;fct&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;     &lt;dbl&gt;  &lt;dbl&gt;\n1 &lt;NA&gt;    -2.20 Alte Bundeslaender   530     6 FALSE    -0.138  1.25 \n2 &lt;NA&gt;    -3.20 Alte Bundeslaender   330     6 FALSE    -0.201  0.779\n3 Divers -22.2  Neue Bundeslaender  -520     6 TRUE     -1.39  -1.23 \n4 &lt;NA&gt;     5.8  Alte Bundeslaender  -170     5 FALSE     0.364 -0.401\n5 &lt;NA&gt;    21.8  Alte Bundeslaender  -170     8 FALSE     1.37  -0.401\n\n\n\nAlternatively, you can also use type-specific NA: NA_character_, NA_real_, etc.."
   },
   {
     "objectID": "slides/03-Data-Frames.html#section-2",
@@ -1509,7 +1509,7 @@
     "href": "slides/03-Data-Frames.html#import-downloaded-data",
     "title": "Einführung in R und Quarto",
     "section": "Import downloaded data",
-    "text": "Import downloaded data\nThe classic way to work with actual data, is to download them to some folder and to then import them to your software environment. The tidyverse contains the following three packages:\n\n\n\n\nThe “haven” package allows you to import Stata, SPSS, and SAS files. ::: {.note} See the respective Haven Website.\n\n\n\n\n\n\n\n\n\n\nThe “readr” package allows you to import csv, tsv and fwf files. ::: {.note} See the respective Readr Website and Cheat Sheet.\n\n\nThe readxl package allows you to read in Excel’s xlsx files. ::: {.note} See the respective Readxl Website. ::: ::: :::"
+    "text": "Import downloaded data\nThe classic way to work with actual data, is to download them to some folder and to then import them to your software environment. The tidyverse contains the following three packages:\n\n\n\n\nThe “haven” package allows you to import Stata, SPSS, and SAS files. ::: {.note} See the respective Haven Website.\n\n\n\n\n\n\n\n\n\n\n\n\nThe “readr” package allows you to import csv, tsv and fwf files. ::: {.note} See the respective Readr Website and Cheat Sheet.\n\n\n\nThe readxl package allows you to read in Excel’s xlsx files. ::: {.note} See the respective Readxl Website. ::: ::: :::"
   },
   {
     "objectID": "slides/03-Data-Frames.html#importing-the-ess-via-the-ess-api",
@@ -1565,7 +1565,7 @@
     "href": "slides/03-Data-Frames.html#todays-important-functions",
     "title": "Einführung in R und Quarto",
     "section": "Today’s (important) functions",
-    "text": "Today’s (important) functions\n\ndata.frame(): organize several vectors of equal length by their index.\nas_tibble(): take a data frame and make it a Tibble.\nsummary(): Give a summary of an object.\nselect(): select several variables from a data frame/Tibble.\nfilter(): filter cases based on values in certain variables.\nmutate(): Adds new variables and preserves existing. Good for recoding several variables.\ncase_when(): Conditional recode for cases filtered in complex ways.\nas_factor(): Make a labelled Stata/SPSS variable a factor.\nzap_labels(): Make a labelled Stata/SPSS variable numeric."
+    "text": "Today’s (important) functions\n\ndata.frame(): organize several vectors of equal length by their index.\nas_tibble(): take a data frame and make it a Tibble.\nread_rds(): import an R data file (.rds) into your session.\nsummary(): Give a summary of an object.\nselect(): select several variables from a data frame/Tibble.\nfilter(): filter cases based on values in certain variables.\nmutate(): Adds new variables and preserves existing. Good for recoding several variables.\ncase_when(): Conditional recode for cases filtered in complex ways.\nas_factor(): Make a labelled Stata/SPSS variable a factor.\nzap_labels(): Make a labelled Stata/SPSS variable numeric."
   },
   {
     "objectID": "slides/03-Data-Frames.html#literatur",
@@ -2350,5 +2350,19 @@
     "title": "Dynamic Documents mit R Markdown",
     "section": "",
     "text": "View slides in full screen"
+  },
+  {
+    "objectID": "slides/03-Data-Frames.html#first-steps-with-the-genderdata",
+    "href": "slides/03-Data-Frames.html#first-steps-with-the-genderdata",
+    "title": "Einführung in R und Quarto",
+    "section": "First steps with the genderdata",
+    "text": "First steps with the genderdata\n\n\n\n\n. . .\n\nNot very telling…But remember, R does not do labels, in contrast to Stata or SPSS!"
+  },
+  {
+    "objectID": "slides/03-Data-Frames.html",
+    "href": "slides/03-Data-Frames.html",
+    "title": "Einführung in R und Quarto",
+    "section": "",
+    "text": "[1] 52 51 32 60 76\n\n\n[1] Mann Frau Frau Frau Frau\nLevels: Mann Frau Divers\n\n\n[1] West West Ost  West West\nLevels: West Ost\n\n\n[1] 2000 1800  950 1300 1300\n\n\n[1] 6 6 6 5 8\n\n\n\nData Frames"
   }
 ]
