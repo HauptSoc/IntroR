@@ -1,0 +1,15 @@
+{
+  "hash": "994b0e6a316ca4ceb2e5ad8996f50948",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"May the data come!\"\nfrom: markdown+emoji\nbibliography: introR.bib\nexecute: \n  echo: true\n  output: false\n  cache: true\n  message: false\n  warning: false\n---\n\n## Libraries first!\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(haven)\n```\n:::\n\n\n## Ein paar (ausgedachte) Daten\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Now create a couple of vectors, similar to\n# the variables in the ALLBUS gender data.\n(age <- c(52, 51, 32, 60, 76))\n(sex <- factor(x = c(\"Mann\", \"Frau\", \"Frau\", \"Frau\", \"Frau\"),\n               levels = c(\"Mann\", \"Frau\", \"Divers\")))\n(eastwest <- factor(x = c(\"West\", \"West\", \"Ost\", \"West\", \"West\"),\n                    levels = c(\"West\", \"Ost\")))\n(incc <- c(2000, 1800, 950, 1300, 1300))\n(id03 <- c(6, 6, 6, 5, 8))\n```\n:::\n\n\n## Data Frames\n\n**Data frames** organize vectors of *equal length* along their indices.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Bind our 5 vectors along their index into a data frame.\n# Assign that data frame to object \"Dat\".\n(Dat <- data.frame(sex, age, eastwest, incc, id03))\n```\n:::\n\n\n## Tibbles \n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Make Dat a tibble and assign it to object \"Dat\",\n# (effectively overwriting Dat as a tibble).\n(Dat <- as_tibble(Dat))\n```\n:::\n\n\n\n## Address single variables (The `$` operator)\n\n```r\n# Return variable \"eastwest\" contained in tibble Dat.\n# (R for Data Science mentions two further commands.)\nDat$eastwest\n```\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

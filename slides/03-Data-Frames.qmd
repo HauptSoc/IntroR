@@ -26,10 +26,11 @@ library(haven) # Read and handle SPSS, Stata & SAS data (no need to install)
 ```{r}
 # Import the ALLBUS 2025 data on gender attitudes,
 # which you have downloaded into your data folder.
-genderdata <- read_rds("../excercises/data/genderdata.rds")
+genderdata <- read_rds("../data/genderdata.rds")
 ```
 
 ```{r}
+#| include: false
 # Now create a couple of vectors, similar to
 # the variables in the ALLBUS gender data.
 (age <- c(52, 51, 32, 60, 76))
@@ -41,16 +42,51 @@ genderdata <- read_rds("../excercises/data/genderdata.rds")
 (id03 <- c(6, 6, 6, 5, 8))
 ```
 
+```r
+# Now create a couple of vectors, similar to
+# the variables in the ALLBUS gender data.
+(age <- c(52, 51, 32, 60, 76))
+(sex <- factor(x = c("Mann", "Frau", "Frau", "Frau", "Frau"),
+               levels = c("Mann", "Frau", "Divers")))
+(eastwest <- factor(x = c("West", "West", "Ost", "West", "West"),
+                    levels = c("West", "Ost")))
+(incc <- c(2000, 1800, 950, 1300, 1300))
+(id03 <- c(6, 6, 6, 5, 8))
+```
+
+::: {.fragment}
+```{r}
+age
+sex
+eastwest
+incc
+id03
+```
+:::
+
 
 ## Data frames
 
 **Data frames** organize vectors of *equal length* along their indices.
 
 ```{r}
+#| include: false
 # Bind our 5 vectors along their index into a data frame.
 # Assign that data frame to object "Dat".
 (Dat <- data.frame(sex, age, eastwest, incc, id03))
 ```
+
+```r
+# Bind our 5 vectors along their index into a data frame.
+# Assign that data frame to object "Dat".
+(Dat <- data.frame(sex, age, eastwest, incc, id03))
+```
+
+::: {.fragment}
+```{r}
+Dat
+```
+:::
 
 
 ## Tibbles
@@ -59,73 +95,162 @@ genderdata <- read_rds("../excercises/data/genderdata.rds")
 
 ::: columns
 ::: {.column width="50%"}
-```{r}
-# As a comparison, print the former(!) 
+```r
+# As a comparison, print the former(!)
 # data frame Dat.
 Dat
 ```
+
+::: {.fragment}
+```{r}
+Dat
+```
+:::
 :::
 
 ::: {.column width="50%"}
 ```{r}
-# Make Dat a tibble and assign it to object "Dat", 
+#| include: false
+# Make Dat a tibble and assign it to object "Dat",
 # (effectively overwriting Dat as a tibble).
-(Dat <- as_tibble(Dat)) 
+(Dat <- as_tibble(Dat))
 ```
+
+```r
+# Make Dat a tibble and assign it to object "Dat",
+# (effectively overwriting Dat as a tibble).
+(Dat <- as_tibble(Dat))
+```
+
+::: {.fragment}
+```{r}
+Dat
+```
+:::
 :::
 :::
 
 ## Address single variables (The `$` operator)
 
-```{r}
-# Return variable "eastwest" contained in tibble Dat. 
+```r
+# Return variable "eastwest" contained in tibble Dat.
 # (R for Data Science mentions two further commands.)
 Dat$eastwest
 ```
 
-
+::: {.fragment}
 ```{r}
+Dat$eastwest
+```
+:::
+
+
+```r
 # Give a summary of numeric vector age contained in Dat.
-summary(Dat$age) 
+summary(Dat$age)
 ```
 
-
+::: {.fragment}
 ```{r}
-# Give a summary of factor vector sex contained in Dat.
-summary(Dat$sex) 
+summary(Dat$age)
 ```
+:::
+
+
+```r
+# Give a summary of factor vector sex contained in Dat.
+summary(Dat$sex)
+```
+
+::: {.fragment}
+```{r}
+summary(Dat$sex)
+```
+:::
 
 ## `select()` several variables
 
 ```{r}
-# Select from tibble Dat the variables sex and id03, 
+#| include: false
+# Select from tibble Dat the variables sex and id03,
 # and assign them to the new object Dat_small.
 (Dat_small <- select(Dat, sex, id03))
 ```
 
+```r
+# Select from tibble Dat the variables sex and id03,
+# and assign them to the new object Dat_small.
+(Dat_small <- select(Dat, sex, id03))
+```
+
+::: {.fragment}
+```{r}
+Dat_small
+```
+:::
+
 ## `select()` several variables
 
 `select()` has a couple of nice **helper functions**, see `?select` for details.
+
 ```{r}
-# Select from object Dat all variables that start with i, 
+#| include: false
+# Select from object Dat all variables that start with i,
 # and assign the result to a new object Dat_small.
 (Dat_small <- select(Dat, starts_with("i")))
 ```
 
+```r
+# Select from object Dat all variables that start with i,
+# and assign the result to a new object Dat_small.
+(Dat_small <- select(Dat, starts_with("i")))
+```
+
+::: {.fragment}
+```{r}
+Dat_small
+```
+:::
+
 ## `filter()` cases (Based on values in certain variables)
 
 ```{r}
-# Either, use dplyr's (part of tidyverse) filter() function, 
+#| include: false
+# Either, use dplyr's (part of tidyverse) filter() function,
 # to return all cases contained in Dat living in Ost.
 (Dat_small <- dplyr::filter(Dat, eastwest == "Ost"))
 ```
 
+```r
+# Either, use dplyr's (part of tidyverse) filter() function,
+# to return all cases contained in Dat living in Ost.
+(Dat_small <- dplyr::filter(Dat, eastwest == "Ost"))
+```
+
+::: {.fragment}
+```{r}
+Dat_small
+```
+:::
+
 . . .
 
 ```{r}
+#| include: false
 # Or use the index, to achieve the same.
 (Dat_small <- Dat[Dat$eastwest == "Ost", ])
 ```
+
+```r
+# Or use the index, to achieve the same.
+(Dat_small <- Dat[Dat$eastwest == "Ost", ])
+```
+
+::: {.fragment}
+```{r}
+Dat_small
+```
+:::
 
 ::: {.centered}
 Why is there a `,` after `"Ost"`?
@@ -138,52 +263,129 @@ In contrast to vectors, data frames and tibbles have rows and columns. As in mat
 ::: columns
 ::: {.column width="50%"}
 ```{r}
+#| include: false
 # Print factor eastwest contained in tibble Dat.
-Dat$eastwest 
+Dat$eastwest
 
-# Return a logical vector of whether the different 
+# Return a logical vector of whether the different
 # elements in Dat$eastwest equal "Ost".
 Dat$eastwest == "Ost"
 
 # Feed the logical vector to the index of Dat
 # to select TRUE cases living in Ost.
-(Dat_small <- Dat[Dat$eastwest == "Ost", ]) 
+(Dat_small <- Dat[Dat$eastwest == "Ost", ])
 ```
+
+```r
+# Print factor eastwest contained in tibble Dat.
+Dat$eastwest
+
+# Return a logical vector of whether the different
+# elements in Dat$eastwest equal "Ost".
+Dat$eastwest == "Ost"
+
+# Feed the logical vector to the index of Dat
+# to select TRUE cases living in Ost.
+(Dat_small <- Dat[Dat$eastwest == "Ost", ])
+```
+
+::: {.fragment}
+```{r}
+Dat$eastwest
+Dat$eastwest == "Ost"
+Dat_small
+```
+:::
 :::
 
 ::: {.column width="50%"}
 . . .
 
 ```{r}
-# Create a new logical variable called "selector", 
+#| include: false
+# Create a new logical variable called "selector",
 # which identifies cases living in Ost in Dat$eastwest.
 Dat$selector <- Dat$eastwest == "Ost"
 
 # Print Dat.
-Dat 
+Dat
 ```
+
+```r
+# Create a new logical variable called "selector",
+# which identifies cases living in Ost in Dat$eastwest.
+Dat$selector <- Dat$eastwest == "Ost"
+
+# Print Dat.
+Dat
+```
+
+::: {.fragment}
+```{r}
+Dat
+```
+:::
 :::
 :::
 
 ## Transform, recode & generate (Variables of tibbles)
 
-To transform and recode simply use `$` to clarify which tibble you are referring to. 
+To transform and recode simply use `$` to clarify which tibble you are referring to.
+
 ```{r}
+#| include: false
 # Center age around the average age.
 (Dat$age <- Dat$age - mean(Dat$age))
 ```
 
+```r
+# Center age around the average age.
+(Dat$age <- Dat$age - mean(Dat$age))
+```
+
+::: {.fragment}
 ```{r}
+Dat$age
+```
+:::
+
+```{r}
+#| include: false
 # Recode "Ost" to "Neue Bundeslaender".
 (Dat$eastwest <- fct_recode(Dat$eastwest, "Neue Bundeslaender" = "Ost"))
 ```
 
-If you rather want to generate a new variable, just give it a name.
+```r
+# Recode "Ost" to "Neue Bundeslaender".
+(Dat$eastwest <- fct_recode(Dat$eastwest, "Neue Bundeslaender" = "Ost"))
+```
+
+::: {.fragment}
 ```{r}
-# Devide age by its standard deviation; 
+Dat$eastwest
+```
+:::
+
+If you rather want to generate a new variable, just give it a name.
+
+```{r}
+#| include: false
+# Devide age by its standard deviation;
 # now it is z-standardized (mean = 0, sd = 1).
 (Dat$z_age <- Dat$age / sd(Dat$age))
 ```
+
+```r
+# Devide age by its standard deviation;
+# now it is z-standardized (mean = 0, sd = 1).
+(Dat$z_age <- Dat$age / sd(Dat$age))
+```
+
+::: {.fragment}
+```{r}
+Dat$z_age
+```
+:::
 
 ## Transform, recode & generate (Several variables of a tibble)
 
@@ -193,15 +395,33 @@ You will better understand why in Session 6 on piping!
 :::
 
 ```{r}
-(Dat <- mutate(Dat,                                    # Use the Dat tibble. 
+#| include: false
+(Dat <- mutate(Dat,                                    # Use the Dat tibble.
               incc = incc - mean(incc),                # Transform to deviation from average.
               z_incc = incc / sd(incc),                # z-standardize incc.
               eastwest = fct_recode(eastwest,          # Recode eastwest.
                                  "Alte Bundeslaender" = "West", # "West" to "Alte Bundeslaender".
                                  "Neue Bundeslaender" = "Ost")  # "Ost" to "Neue Bundeslaender".
-              ) # Don't forget to close mutate's bracket ")" 
- ) 
+              ) # Don't forget to close mutate's bracket ")"
+ )
 ```
+
+```r
+(Dat <- mutate(Dat,                                    # Use the Dat tibble.
+              incc = incc - mean(incc),                # Transform to deviation from average.
+              z_incc = incc / sd(incc),                # z-standardize incc.
+              eastwest = fct_recode(eastwest,          # Recode eastwest.
+                                 "Alte Bundeslaender" = "West", # "West" to "Alte Bundeslaender".
+                                 "Neue Bundeslaender" = "Ost")  # "Ost" to "Neue Bundeslaender".
+              ) # Don't forget to close mutate's bracket ")"
+ )
+```
+
+::: {.fragment}
+```{r}
+Dat
+```
+:::
 
 ::: {.note}
 Also, look how RStudio structures the brackets. It helps you to understand, within which function things are happening.
@@ -212,26 +432,44 @@ Also, look how RStudio structures the brackets. It helps you to understand, with
 To transform/recode only among certain cases, use `case_when()`.
 
 ```{r}
+#| include: false
 (Dat <- mutate(
   Dat, # Mutate variables contained in Dat.
-  sex = case_when( # Start conditional recode of sex, 
-    eastwest == "Neue Bundeslaender" & incc < 0 ~ "Divers", # 1. complex condition ~ new value "Divers", 
-    age < 0 & id03 < 1          ~ "Keine Angabe",           # 2. complex condition ~ new value "Keine Angabe", 
-    TRUE ~ as.character(sex)                                # 3. and all others ~ leave as is; 
-  ) # close case_when's bracket.             
+  sex = case_when( # Start conditional recode of sex,
+    eastwest == "Neue Bundeslaender" & incc < 0 ~ "Divers", # 1. complex condition ~ new value "Divers",
+    age < 0 & id03 < 1          ~ "Keine Angabe",           # 2. complex condition ~ new value "Keine Angabe",
+    TRUE ~ as.character(sex)                                # 3. and all others ~ leave as is;
+  ) # close case_when's bracket.
 )) # close mutate's (and the print) bracket
 ```
+
+```r
+(Dat <- mutate(
+  Dat, # Mutate variables contained in Dat.
+  sex = case_when( # Start conditional recode of sex,
+    eastwest == "Neue Bundeslaender" & incc < 0 ~ "Divers", # 1. complex condition ~ new value "Divers",
+    age < 0 & id03 < 1          ~ "Keine Angabe",           # 2. complex condition ~ new value "Keine Angabe",
+    TRUE ~ as.character(sex)                                # 3. and all others ~ leave as is;
+  ) # close case_when's bracket.
+)) # close mutate's (and the print) bracket
+```
+
+::: {.fragment}
+```{r}
+Dat
+```
+:::
 
 ## Conditional transform & recode ((i.e., for filtered cases))
 
 ```{r eval = FALSE}
 (Dat <- mutate(
   Dat, # Mutate variables contained in Dat.
-  sex = case_when( # Start conditional recode of sex, 
-    eastwest == "Neue Bundeslaender" & incc < 0 ~ "Divers", # 1. complex condition ~ new value "Divers", 
-    age < 0 & id03 < 1          ~ "Keine Angabe",           # 2. complex condition ~ new value "Keine Angabe", 
-    TRUE ~ as.character(sex)                                # 3. and all others ~ leave as is; 
-  ) # close case_when's bracket.             
+  sex = case_when( # Start conditional recode of sex,
+    eastwest == "Neue Bundeslaender" & incc < 0 ~ "Divers", # 1. complex condition ~ new value "Divers",
+    age < 0 & id03 < 1          ~ "Keine Angabe",           # 2. complex condition ~ new value "Keine Angabe",
+    TRUE ~ as.character(sex)                                # 3. and all others ~ leave as is;
+  ) # close case_when's bracket.
 )) # close mutate's (and the print) bracket .
 ```
 
@@ -244,34 +482,66 @@ The three lines of this `case_when()` application do the following thing:
 
 ## `case_when()` and `NA`
 
-```{r error = TRUE}
+```r
 (Dat <- mutate(
-  Dat, 
+  Dat,
   sex = case_when( # Start conditional recode of sex,
     eastwest == "Neue Bundeslaender" & incc < 0 ~ "Divers", # 1. complex condition ~ new value "Divers",
     age < 0 & id03 < 1          ~ "Keine Angabe",           # 2. complex condition ~ new value "Keine Angabe",
-    TRUE ~ NA_real_                     # 3. and all others ~ NA 
-  ) # close case_when's bracket.            
-)) 
+    TRUE ~ NA_real_                     # 3. and all others ~ NA
+  ) # close case_when's bracket.
+))
 ```
 
-In R vectors are type sensitive; the elements of one vector may only be of one type. Because we give `case_when()` `"Divers"` and `"Keine Angabe"` as new values, it wants to make sex a character vector. But `NA` is a *logical* constant, and `NA_real_` a *numeric* one — neither combines with character values. If you type `?NA`, you will learn: 
+::: {.fragment}
+```{r error = TRUE}
+(Dat <- mutate(
+  Dat,
+  sex = case_when( # Start conditional recode of sex,
+    eastwest == "Neue Bundeslaender" & incc < 0 ~ "Divers", # 1. complex condition ~ new value "Divers",
+    age < 0 & id03 < 1          ~ "Keine Angabe",           # 2. complex condition ~ new value "Keine Angabe",
+    TRUE ~ NA_real_                     # 3. and all others ~ NA
+  ) # close case_when's bracket.
+))
+```
+:::
+
+In R vectors are type sensitive; the elements of one vector may only be of one type. Because we give `case_when()` `"Divers"` and `"Keine Angabe"` as new values, it wants to make sex a character vector. But `NA` is a *logical* constant, and `NA_real_` a *numeric* one — neither combines with character values. If you type `?NA`, you will learn:
 
 > "*NA is a logical* constant of length 1 which contains a missing value indicator. *NA can be coerced to any other vector type* except raw."
 
 ## `case_when()` and `NA`
 
 `NA` are type sensitive, too! Therefore, coerce NA to character/numeric with `as.character()`/`as.numeric()`.
+
 ```{r error = TRUE}
+#| include: false
 (Dat <- mutate(
-  Dat, 
+  Dat,
   sex = case_when( # Start conditional recode of sex,
     eastwest == "Neue Bundeslaender" & incc < 0 ~ "Divers", # 1. complex condition ~ new value "Divers",
     age < 0 & id03 < 1          ~ "Keine Angabe",           # 2. complex condition ~ new value "Keine Angabe",
-    TRUE ~ as.character(NA)                              # 3. and all others ~ NA 
-  ) # close case_when's bracket.            
+    TRUE ~ as.character(NA)                              # 3. and all others ~ NA
+  ) # close case_when's bracket.
 )) # close mutate's (and the print) bracket.
 ```
+
+```r
+(Dat <- mutate(
+  Dat,
+  sex = case_when( # Start conditional recode of sex,
+    eastwest == "Neue Bundeslaender" & incc < 0 ~ "Divers", # 1. complex condition ~ new value "Divers",
+    age < 0 & id03 < 1          ~ "Keine Angabe",           # 2. complex condition ~ new value "Keine Angabe",
+    TRUE ~ as.character(NA)                              # 3. and all others ~ NA
+  ) # close case_when's bracket.
+)) # close mutate's (and the print) bracket.
+```
+
+::: {.fragment}
+```{r error = TRUE}
+Dat
+```
+:::
 
 ::: {.note}
 Alternatively, you can also use type-specific `NA`: `NA_character_`, `NA_real_`, etc..
@@ -279,7 +549,7 @@ Alternatively, you can also use type-specific `NA`: `NA_character_`, `NA_real_`,
 
 ## Import downloaded data
 
-The classic way to work with actual data, is to download them to some folder and to then import them to your software environment. The tidyverse contains the following three packages: 
+The classic way to work with actual data, is to download them to some folder and to then import them to your software environment. The tidyverse contains the following three packages:
 
 ::: columns
 ::: {.column width="50%"}
@@ -290,7 +560,7 @@ The classic way to work with actual data, is to download them to some folder and
 See the respective [Haven Website](https://haven.tidyverse.org/).
 :::
 ```{r eval = FALSE}
-# Create an object genderdata and assign the 
+# Create an object genderdata and assign the
 # imported ALLBUS.dta to it, if you have
 # downloaded it into your data folder
 genderdata <- read_dta("genderdata.dta")
@@ -353,7 +623,7 @@ R imports Stata and SPSS labels, but cannot handle them. Thus, when you import S
 If you want to use a variable as categorical, use `as_factor()` to make the labels the new factor levels:
 ```{r comment = '#', eval = FALSE}
 # Make the labelled sex variable a factor.
-genderdata$sex <- as_factor(genderdata$sex) 
+genderdata$sex <- as_factor(genderdata$sex)
 
 # A frequency table to get a first impression of the variables values and frequencies.
 table(genderdata$sex)
@@ -367,7 +637,7 @@ If you want to use a variable as numeric, use `zap_labels()` to prohibit problem
 
 ```{r comment = '#', eval = FALSE}
 # Strip/zap the labels from the numeric variable age.
-genderdata$age <- zap_labels(genderdata$age) 
+genderdata$age <- zap_labels(genderdata$age)
 
 # A summary of descriptive statistics to get a first impression of the variable.
 summary(genderdata$age)
@@ -394,7 +664,7 @@ summary(genderdata$age)
 3. `read_rds()`: import an R data file (.rds) into your session.
 4. `summary()`: Give a summary of an object.
 5. `select()`: select several variables from a data frame/Tibble.
-6. `filter()`: filter cases based on values in certain variables. 
+6. `filter()`: filter cases based on values in certain variables.
 7. `mutate()`: Adds new variables and preserves existing. Good for recoding several variables.
 8. `case_when()`: Conditional recode for cases filtered in complex ways.
 9. `as_factor()`: Make a labelled Stata/SPSS variable a factor.

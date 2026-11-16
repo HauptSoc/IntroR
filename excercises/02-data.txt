@@ -1,0 +1,11 @@
+---
+title: "May the data come!"
+from: markdown+emoji
+bibliography: introR.bib
+execute: 
+  echo: false
+  cache: true
+  message: false
+  warning: false
+---
+
